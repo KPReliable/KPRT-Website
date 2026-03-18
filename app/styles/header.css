@@ -1,0 +1,553 @@
+/* ============================================================
+   header.css — WHITE / LIGHT theme (inverted from dark)
+   Primary: #284C87 | Secondary: #00A2E9
+   ============================================================ */
+
+/* --- Fonts ---
+   https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap
+*/
+
+:root {
+  --color-primary:        #284c87;
+  --color-primary-dark:   #1a3460;
+  --color-primary-light:  #e8eef8;
+  --color-secondary:      #00a2e9;
+  --color-secondary-light:#33b8ff;
+  --color-white:          #ffffff;
+  --color-text:           #0f1f3d;
+  --color-text-muted:     #5a6a85;
+  --color-border:         #dce6f5;
+  --font-display:         "Barlow Condensed", sans-serif;
+  --font-body:            "Barlow", sans-serif;
+}
+
+/* ============================================================
+   TOP BAR — light bg, dark text
+   ============================================================ */
+.topbar {
+  background: var(--color-primary-light);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.contact-link:hover {
+  color: var(--color-primary);
+}
+
+.contact-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+}
+
+/* Social links — outlined, dark on light */
+.social-links {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.social-link {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.social-link:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: var(--color-white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 162, 233, 0.3);
+}
+
+.social-icon {
+  width: 13px;
+  height: 13px;
+}
+
+/* ============================================================
+   MAIN HEADER — white background
+   ============================================================ */
+.main-header {
+  background: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 0 var(--color-border), 0 4px 24px rgba(40, 76, 135, 0.08);
+  transition: box-shadow 0.3s;
+}
+
+.main-header--scrolled {
+  box-shadow: 0 1px 0 var(--color-border), 0 8px 32px rgba(40, 76, 135, 0.14);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(40, 76, 135, 0.25);
+}
+
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 60%);
+}
+
+.logo-mark-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-white);
+  position: relative;
+  z-index: 1;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-primary);           /* dark blue on white */
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: 9.5px;
+  color: var(--color-secondary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* ============================================================
+   DESKTOP NAV — dark links on white
+   ============================================================ */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text);              /* dark text on white */
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 16.5px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.nav-link--active {
+  color: var(--color-secondary);
+}
+
+.nav-link--active::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+}
+
+.nav-chevron {
+  width: 11px;
+  height: 11px;
+  transition: transform 0.2s;
+  color: var(--color-text-muted);
+}
+
+.nav-item:hover .nav-chevron {
+  transform: rotate(180deg);
+  color: var(--color-primary);
+}
+
+/* ============================================================
+   DROPDOWN — white card with border
+   ============================================================ */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 210px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 12px 40px rgba(40, 76, 135, 0.12), 0 2px 8px rgba(0,0,0,0.06);
+  z-index: 200;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.dropdown-link:hover {
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  padding-left: 16px;
+}
+
+.dropdown-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-secondary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   HEADER ACTIONS
+   ============================================================ */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* CTA button — solid secondary on white header */
+.cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--color-primary), #1e5fa8);
+  color: var(--color-white);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 20px;
+  border-radius: 7px;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(40, 76, 135, 0.25);
+}
+
+.cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(40, 76, 135, 0.35);
+  background: linear-gradient(135deg, var(--color-secondary), #0078bb);
+}
+
+.cta-icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* ============================================================
+   ACCENT LINE — primary → secondary gradient
+   ============================================================ */
+.header-accent {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary)      0%,
+    var(--color-secondary)    45%,
+    var(--color-secondary-light) 70%,
+    var(--color-primary)      100%
+  );
+}
+
+/* ============================================================
+   HAMBURGER — dark lines on white
+   ============================================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.hamburger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-primary);      /* dark on white */
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger--open .hamburger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger--open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger--open .hamburger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+   MOBILE DRAWER — white drawer on light theme
+   ============================================================ */
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 31, 61, 0.4);
+  z-index: 150;
+  backdrop-filter: blur(2px);
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background: var(--color-white);
+  z-index: 200;
+  padding: 24px 16px;
+  overflow-y: auto;
+  box-shadow: -8px 0 40px rgba(40, 76, 135, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 1px solid var(--color-border);
+}
+
+.mobile-nav-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 12px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.mobile-nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-btn:hover {
+  color: var(--color-secondary);
+}
+
+.mobile-nav-link--active {
+  color: var(--color-secondary);
+}
+
+.mobile-chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  transition: transform 0.2s;
+}
+
+.mobile-chevron--open {
+  transform: rotate(180deg);
+}
+
+.mobile-dropdown {
+  padding: 4px 0 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-dropdown-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.mobile-dropdown-link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.mobile-cta {
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-cta-btn {
+  display: block;
+  text-align: center;
+  background: linear-gradient(135deg, var(--color-primary), #1e5fa8);
+  color: var(--color-white);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(40, 76, 135, 0.25);
+}
+
+.mobile-cta-btn-outline {
+  display: block;
+  text-align: center;
+  border: 1.5px solid var(--color-secondary);
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.mobile-cta-btn-outline:hover {
+  background: rgba(0, 162, 233, 0.08);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 860px) {
+  .desktop-nav { display: none; }
+  .hamburger   { display: flex; }
+  .cta-btn span { display: none; }
+  .cta-btn { padding: 9px 12px; }
+}
+
+@media (max-width: 640px) {
+  .contact-links .contact-link:not(:first-child) { display: none; }
+}
+
+@media (max-width: 480px) {
+  .contact-links { display: none; }
+  .topbar-inner  { justify-content: flex-end; }
+}
