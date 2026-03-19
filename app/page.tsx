@@ -4,7 +4,7 @@ import KeyServices from "@/app/components/HomePage/KeyServices";
 import TrustBuilders from "@/app/components/HomePage/TrustBuilders";
 import ExpertCTA from "@/app/components/HomePage/ExpertCTA";
 import "@/app/styles/homepage.css"
-
+import ServicesPage from "../app/pages/ServicePage/page.tsx"
 export default function HomePage() {
   return (
     <main>
@@ -13,6 +13,7 @@ export default function HomePage() {
       <KeyServices />
       <TrustBuilders />
       <ExpertCTA />
+      <ServicesPage/>
     </main>
   );
 }
