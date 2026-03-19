@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import Header from "@/app/components/Header";
-import "@/app/styles/header.css";
+import Footer from "./components/Footer";
 import "@/app/globals.css"
-// import "./globals.css"; // your existing global styles
 
 const barlow = Barlow({
   subsets: ["latin"],
@@ -34,6 +33,7 @@ export default function RootLayout({
       <body>
         <Header />
         <main>{children}</main>
+        <Footer/>
       </body>
     </html>
   );

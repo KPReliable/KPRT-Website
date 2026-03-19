@@ -11,7 +11,7 @@ const Logo: React.FC = () => {
         <CheckmarkIcon className="logo-mark-icon" />
       </div>
       <div className="logo-text">
-        <span className="logo-name">QualityInspect</span>
+        <span className="logo-name">KPReilable</span>
         <span className="logo-sub">Inspection &amp; Quality Services</span>
       </div>
     </Link>
