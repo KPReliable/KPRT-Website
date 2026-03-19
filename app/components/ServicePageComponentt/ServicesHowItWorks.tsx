@@ -1,4 +1,4 @@
-import { processSteps } from "./servicesData";
+import { processSteps } from "@/app/data/servicesData";
 
 export default function ServicesHowItWorks() {
   return (

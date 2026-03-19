@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { heroStats } from "./servicesData";
+import { heroStats } from "@/app/data/servicesData";
 
 const chips = [
   { icon: "fa-shield-alt", label: "100% Independent & Impartial" },

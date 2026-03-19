@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { serviceCards } from "./servicesData";
+import { serviceCards } from "@/app/data/servicesData";
 
 export default function ServicesGrid() {
   return (

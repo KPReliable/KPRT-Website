@@ -1882,11 +1882,31 @@ body{
 /* ============================================================
    CTA STRIP
    ============================================================ */
+
+
+
+/* ============================================================
+   footer.css — WHITE / LIGHT theme (matches header-white.css)
+   Primary: #284C87 | Secondary: #00A2E9
+   ============================================================ */
+
+/* ============================================================
+   CTA STRIP — primary blue, sits above white body
+   ============================================================ */
+/* ============================================================
+   footer.css — fully white background
+   Every surface is --color-white. Blue/secondary used only
+   for text, borders, accents and interactive states.
+   ============================================================ */
+
+/* ============================================================
+   CTA STRIP — white bg, primary blue text + border accent
+   ============================================================ */
 .footer-cta-strip {
   background: var(--color-secondary);
   padding: 16px 24px;
 }
-
+ 
 .footer-cta-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -1896,7 +1916,7 @@ body{
   gap: 20px;
   flex-wrap: wrap;
 }
-
+ 
 .footer-cta-text {
   display: flex;
   align-items: center;
@@ -1906,7 +1926,7 @@ body{
   font-weight: 600;
   color: var(--color-white);
 }
-
+ 
 .footer-cta-dot {
   width: 8px;
   height: 8px;
@@ -1915,18 +1935,18 @@ body{
   flex-shrink: 0;
   animation: footer-pulse 2s ease-in-out infinite;
 }
-
+ 
 @keyframes footer-pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.5; transform: scale(0.8); }
 }
-
+ 
 .footer-cta-actions {
   display: flex;
   gap: 10px;
   flex-shrink: 0;
 }
-
+ 
 .footer-cta-btn {
   font-family: var(--font-body);
   font-size: 13px;
@@ -1939,34 +1959,34 @@ body{
   color: var(--color-secondary);
   border: 1.5px solid transparent;
 }
-
+ 
 .footer-cta-btn:hover {
   background: rgba(255, 255, 255, 0.9);
   transform: translateY(-1px);
 }
-
+ 
 .footer-cta-btn--ghost {
   background: transparent;
   color: var(--color-white);
   border-color: rgba(255, 255, 255, 0.6);
 }
-
+ 
 .footer-cta-btn--ghost:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: var(--color-white);
 }
-
+ 
 /* ============================================================
-   MAIN BODY
+   MAIN BODY — white
    ============================================================ */
 .footer-body {
-  background: var(--color-primary-dark);
-  padding: 60px 24px 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-white);
+  padding: 56px 24px 44px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .footer-body-inner {
-  max-width: 1200px;
+  max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2.2fr 1fr 1fr 1fr 1fr 1.5fr;
@@ -1993,20 +2013,20 @@ body{
 .footer-logo-mark {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--color-secondary), #0078bb);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 162, 233, 0.3);
+  box-shadow: 0 4px 12px rgba(40, 76, 135, 0.2);
 }
 
 .footer-logo-name {
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1.1;
@@ -2027,7 +2047,7 @@ body{
 .footer-brand-desc {
   font-family: var(--font-body);
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-muted);
   line-height: 1.75;
   margin: 0;
 }
@@ -2043,9 +2063,9 @@ body{
   font-family: var(--font-body);
   font-size: 10px;
   font-weight: 600;
-  color: var(--color-secondary);
-  background: rgba(0, 162, 233, 0.1);
-  border: 1px solid rgba(0, 162, 233, 0.22);
+  color: var(--color-primary);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
   padding: 3px 9px;
   border-radius: 20px;
   letter-spacing: 0.04em;
@@ -2061,22 +2081,22 @@ body{
   width: 32px;
   height: 32px;
   border-radius: 7px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: all 0.2s;
 }
 
 .footer-social-btn:hover {
-  background: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 162, 233, 0.35);
+  box-shadow: 0 4px 12px rgba(40, 76, 135, 0.22);
 }
 
 /* Quick contact */
@@ -2092,13 +2112,13 @@ body{
   gap: 7px;
   font-family: var(--font-body);
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .footer-quick-item svg { color: var(--color-secondary); flex-shrink: 0; }
-.footer-quick-item:hover { color: rgba(255, 255, 255, 0.85); }
+.footer-quick-item:hover { color: var(--color-text); }
 
 /* ============================================================
    LINK COLUMNS
@@ -2111,8 +2131,8 @@ body{
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.35);
-  margin: 0 0 16px;
+  color: var(--color-primary);
+  margin: 0 0 14px;
 }
 
 .footer-col-list {
@@ -2130,21 +2150,21 @@ body{
   gap: 8px;
   font-family: var(--font-body);
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-muted);
   text-decoration: none;
   padding: 5px 0;
   transition: color 0.15s, padding-left 0.15s;
 }
 
 .footer-col-link:hover {
-  color: var(--color-white);
+  color: var(--color-primary);
   padding-left: 4px;
 }
 
 .footer-col-dot {
   width: 4px;
   height: 4px;
-  background: rgba(0, 162, 233, 0.45);
+  background: var(--color-border);
   border-radius: 50%;
   flex-shrink: 0;
   transition: background 0.15s;
@@ -2166,7 +2186,7 @@ body{
 .footer-nl-desc {
   font-family: var(--font-body);
   font-size: 12.5px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--color-text-muted);
   line-height: 1.65;
   margin: 0;
 }
@@ -2190,30 +2210,34 @@ body{
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.footer-nl-input::placeholder { color: #a0b0c0; }
+.footer-nl-input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
 
 .footer-nl-input:focus {
   border-color: var(--color-secondary);
-  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.12);
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.1);
 }
 
 .footer-nl-btn {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  background: linear-gradient(135deg, var(--color-secondary), #0088cc);
+  background: var(--color-primary);
   color: var(--color-white);
   border: none;
   border-radius: 7px;
   padding: 9px 16px;
   cursor: pointer;
   transition: all 0.2s;
-  box-shadow: 0 2px 10px rgba(0, 162, 233, 0.3);
+  box-shadow: 0 2px 10px rgba(40, 76, 135, 0.18);
 }
 
 .footer-nl-btn:hover {
+  background: var(--color-secondary);
   transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 162, 233, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 162, 233, 0.28);
 }
 
 .footer-nl-success {
@@ -2223,21 +2247,21 @@ body{
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  color: #4ade80;
+  color: #16a34a;
   padding: 10px 0;
 }
 
 /* ============================================================
-   BOTTOM BAR
+   BOTTOM BAR — white with top border only
    ============================================================ */
 .footer-bottom {
-  background: var(--color-primary-dark);
+  background: var(--color-white);
   padding: 14px 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--color-border);
 }
 
 .footer-bottom-inner {
-  max-width: 1200px;
+  max-width: var(--max-w);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -2250,7 +2274,7 @@ body{
 .footer-made {
   font-family: var(--font-body);
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-muted);
   margin: 0;
 }
 
@@ -2263,17 +2287,17 @@ body{
 .footer-bottom-link {
   font-family: var(--font-body);
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.38);
+  color: var(--color-text-muted);
   text-decoration: none;
   transition: color 0.15s;
 }
 
-.footer-bottom-link:hover { color: rgba(255, 255, 255, 0.8); }
+.footer-bottom-link:hover { color: var(--color-primary); }
 
 .footer-bottom-sep {
   width: 3px;
   height: 3px;
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color-border);
   border-radius: 50%;
 }
 
@@ -2285,8 +2309,16 @@ body{
     grid-template-columns: 1fr 1fr 1fr;
     gap: 36px;
   }
-  .footer-brand { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-  .footer-newsletter { grid-column: 1 / -1; max-width: 400px; }
+  .footer-brand {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .footer-newsletter {
+    grid-column: 1 / -1;
+    max-width: 400px;
+  }
 }
 
 @media (max-width: 700px) {

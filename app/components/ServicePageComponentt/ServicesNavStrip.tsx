@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { serviceCards } from "./servicesData";
+import { serviceCards } from "@/app/data/servicesData";
 
 export default function ServicesNavStrip() {
   const pathname = usePathname();
