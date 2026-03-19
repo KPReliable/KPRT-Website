@@ -4,7 +4,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   {
     label: "Services",
-    href: "/ServicesPage",
+    href: "/services",
     dropdown: [
       { label: "Supplier Quality", href: "/services/supplier-quality" },
       { label: "Pre-Dispatch Inspection", href: "/services/pdi" },

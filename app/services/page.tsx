@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import {
-  ServicesHero,
-  ServicesNavStrip,
-  ServicesGrid,
-  ServicesHowItWorks,
-} from "@/components/services";
+import ServicesGrid from "../components/ServicePageComponentt/ServicesGrid";
+import ServicesHero from "../components/ServicePageComponentt/ServicesHero";
+import ServicesHowItWorks from "../components/ServicePageComponentt/ServicesHowItWorks";
+import ServicesNavStrip from "../components/ServicePageComponentt/ServicesNavStrip";
 
 export const metadata: Metadata = {
   title: "Services | KP Reliable — Inspection & Quality Services",
