@@ -13,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
   { label: "Industries", href: "/industries" },
-  { label: "About Us", href: "/about_us" },
+  { label: "About Us", href: "/about" },
   { label: "Clients", href: "/clients" },
   { label: "Contact", href: "/contact" },
 ];
