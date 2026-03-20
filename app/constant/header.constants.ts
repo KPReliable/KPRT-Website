@@ -5,17 +5,11 @@ export const NAV_ITEMS: NavItem[] = [
   {
     label: "Services",
     href: "/services",
-    dropdown: [
-      { label: "Supplier Quality", href: "/services/supplier-quality" },
-      { label: "Pre-Dispatch Inspection", href: "/services/pdi" },
-      { label: "Audits", href: "/services/audits" },
-      { label: "Training Programs", href: "/services/training" },
-    ],
   },
   { label: "Industries", href: "/industries" },
   { label: "About Us", href: "/about" },
   { label: "Clients", href: "/clients" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const CONTACT_ITEMS: ContactItem[] = [
