@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { inspectionReports } from "./portalData";
-import { InspectionStatus, ReportStatus } from "@/types/portal";
+import { InspectionStatus, ReportStatus } from "@/app/types/portal";
 
 const statusConfig: Record<InspectionStatus, { label: string; className: string }> = {
   completed:   { label: "Completed",   className: "badge--green"  },
@@ -92,8 +92,8 @@ export default function InspectionReportsTable() {
               </tr>
             ) : (
               filtered.map((report) => {
-                const status = statusConfig[report.status];
-                const rep = reportConfig[report.reportStatus];
+                const status = statusConfig[report.status as InspectionStatus];
+                const rep = reportConfig[report.reportStatus as ReportStatus];
                 return (
                   <tr key={report.id} className="portal-table__row">
                     <td>

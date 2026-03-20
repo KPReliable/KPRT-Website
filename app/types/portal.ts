@@ -43,3 +43,5 @@ export type InspectionStatus = 'completed' | 'in-progress' | 'scheduled' | 'pend
 
 export type ReportStatus = 'available' | 'processing' | 'pending';
 
+export type AlertSeverity = "critical" | "warning" | "info";
+

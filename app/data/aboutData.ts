@@ -4,7 +4,7 @@ import {
   ValueItem,
   MilestoneItem,
   StatItem,
-} from "@/types/about";
+} from "@/app/types/about";
 
 export const aboutStats: StatItem[] = [
   { value: "17", suffix: "+", label: "Years of Experience" },

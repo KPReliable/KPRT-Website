@@ -3,7 +3,7 @@ import {
   QualityAlert,
   StatCard,
   Certificate,
-} from "@/types/portal";
+} from "@/app/types/portal";
 
 export const portalStats: StatCard[] = [
   {
