@@ -329,12 +329,6 @@
   font-weight: 500;
 }
 
-/* 2-col row (password + confirm) */
-.lp-two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
 
 /* Remember me / checkbox */
 .lp-remember {
