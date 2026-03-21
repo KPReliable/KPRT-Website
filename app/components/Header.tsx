@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <TopBar />
+      {/* <TopBar /> */}
 
       <header className={`main-header${scrolled ? " main-header--scrolled" : ""}`}>
         <div className="header-inner">
