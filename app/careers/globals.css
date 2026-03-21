@@ -1,0 +1,55 @@
+/* ─── Place in app/globals.css (or import in your root layout) ─── */
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --color-primary:        #284c87;
+  --color-primary-dark:   #1a3460;
+  --color-primary-light:  #e8eef8;
+  --color-secondary:      #00a2e9;
+  --color-secondary-light:#33b8ff;
+  --color-white:          #ffffff;
+  --color-text:           #0f1f3d;
+  --color-text-muted:     #5a6a85;
+  --color-border:         #dce6f5;
+  --color-bg:             #f5f8ff;
+  --color-bg-alt:         #ffffff;
+  --max-w:                1200px;
+  --section-py:           80px;
+  --font-display:         "Barlow Condensed", sans-serif;
+  --font-body:            "Barlow", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
