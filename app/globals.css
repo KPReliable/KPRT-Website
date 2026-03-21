@@ -148,7 +148,7 @@ body{
   width: 42px;
   height: 42px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  border-radius: 8px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
