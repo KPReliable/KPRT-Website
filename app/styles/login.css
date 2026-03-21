@@ -1,0 +1,569 @@
+/* ============================================================
+   login.css — Centered single-card login / register page
+   White background, project design tokens.
+   ============================================================ */
+
+/* ============================================================
+   PAGE ROOT — full-height centered
+   ============================================================ */
+.lp-root {
+  min-height: 100vh;
+  background: var(--color-primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background blobs */
+.lp-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.lp-bg-blob--1 {
+  width: 480px;
+  height: 480px;
+  background: rgba(0, 162, 233, 0.12);
+  top: -120px;
+  right: -80px;
+}
+
+.lp-bg-blob--2 {
+  width: 320px;
+  height: 320px;
+  background: rgba(40, 76, 135, 0.1);
+  bottom: -60px;
+  left: -60px;
+}
+
+/* ============================================================
+   CARD
+   ============================================================ */
+.lp-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 40px 40px 32px;
+  box-shadow: 0 8px 40px rgba(40, 76, 135, 0.1), 0 1px 4px rgba(40, 76, 135, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.lp-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.lp-logo-mark {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(40, 76, 135, 0.25);
+}
+
+.lp-logo-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.lp-logo-sub {
+  font-family: var(--font-body);
+  font-size: 9px;
+  color: var(--color-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+}
+
+/* ============================================================
+   MODE TABS
+   ============================================================ */
+.lp-tabs {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.lp-tab {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.lp-tab--active { color: var(--color-primary); }
+
+.lp-tab-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: var(--color-white);
+  border-radius: 7px;
+  box-shadow: 0 1px 6px rgba(40, 76, 135, 0.1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* ============================================================
+   GOOGLE BUTTON
+   ============================================================ */
+.lp-google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: 9px;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 4px rgba(40, 76, 135, 0.06);
+}
+
+.lp-google-btn:hover:not(:disabled) {
+  border-color: #4285f4;
+  background: #f8faff;
+  box-shadow: 0 3px 12px rgba(66, 133, 244, 0.14);
+  transform: translateY(-1px);
+}
+
+.lp-google-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.lp-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lp-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.lp-divider-text {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   FORM
+   ============================================================ */
+.lp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lp-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lp-label {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.lp-optional {
+  font-weight: 400;
+  color: var(--color-text-muted);
+  font-size: 11px;
+}
+
+.lp-forgot {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.lp-forgot:hover { color: var(--color-primary); }
+
+/* Input wrapper */
+.lp-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--color-border);
+  border-radius: 9px;
+  background: var(--color-white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.lp-input-wrap:focus-within {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.1);
+}
+
+.lp-input-wrap--error { border-color: #ef4444; }
+.lp-input-wrap--error:focus-within {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.09);
+}
+
+.lp-input-icon {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  margin-left: 12px;
+  pointer-events: none;
+}
+
+.lp-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 12px;
+  min-width: 0;
+}
+
+.lp-input::placeholder { color: var(--color-text-muted); opacity: 0.5; }
+.lp-input:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.lp-input--no-border { border: none !important; box-shadow: none !important; }
+
+/* Phone prefix */
+.lp-phone-prefix {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border-right: 1.5px solid var(--color-border);
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+/* Eye toggle */
+.lp-eye {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.lp-eye:hover { color: var(--color-primary); }
+
+/* Error text */
+.lp-error {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+/* 2-col row (password + confirm) */
+.lp-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Remember me / checkbox */
+.lp-remember {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lp-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.lp-checkbox-custom {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 5px;
+  background: var(--color-white);
+  flex-shrink: 0;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.lp-checkbox:checked + .lp-checkbox-custom {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.lp-checkbox:checked + .lp-checkbox-custom::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid white;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.lp-remember-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Submit */
+.lp-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-primary);
+  border: none;
+  border-radius: 9px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 3px 14px rgba(40, 76, 135, 0.22);
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+}
+
+.lp-submit:hover:not(:disabled) {
+  background: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 162, 233, 0.3);
+}
+
+.lp-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+/* Spinner */
+.lp-spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: lp-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+.lp-spinner--dark {
+  border-color: rgba(40, 76, 135, 0.15);
+  border-top-color: var(--color-primary);
+}
+
+@keyframes lp-spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   SUCCESS STATE
+   ============================================================ */
+.lp-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 0 8px;
+  gap: 12px;
+}
+
+.lp-success-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 2px solid rgba(34, 197, 94, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #22c55e;
+}
+
+.lp-success-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.lp-success-text {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.lp-success-cta {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-white);
+  background: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+
+.lp-success-cta:hover {
+  background: var(--color-secondary);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   BOTTOM SWITCH PROMPT
+   ============================================================ */
+.lp-switch-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  flex-wrap: wrap;
+}
+
+.lp-switch-text {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--color-text-muted);
+}
+
+.lp-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.lp-switch-btn:hover { color: var(--color-secondary); }
+.lp-switch-btn:hover svg { transform: translateX(3px); }
+.lp-switch-btn svg { transition: transform 0.15s; }
+
+/* ============================================================
+   TERMS
+   ============================================================ */
+.lp-terms {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  text-align: center;
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.lp-link {
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.lp-link:hover { color: var(--color-primary); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 520px) {
+  .lp-card { padding: 28px 20px 24px; border-radius: 16px; gap: 16px; }
+  .lp-two-col { grid-template-columns: 1fr; }
+  .lp-switch-prompt { flex-direction: column; gap: 4px; }
+}
