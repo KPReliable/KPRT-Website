@@ -9,7 +9,7 @@ const Logo: React.FC = () => {
     <Link href="/" className="logo-container" aria-label="KPReilable Home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', gap: '12px' }}>
       {/* Individual Logo Image without the circular wrapper class */}
       <Image 
-        src="/assets/homeimages/logo-minimal.svg" 
+        src="/assets/homeImages/logo-minimal.svg" 
         alt="KPReilable Logo" 
         width={70} 
         height={40} 
