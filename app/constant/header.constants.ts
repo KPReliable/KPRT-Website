@@ -14,8 +14,10 @@ export const NAV_ITEMS: NavItem[] = [
   },
   { label: "Industries", href: "/industries" },
   { label: "About Us", href: "/about" },
+  { label: "Why Us", href: "/whyus" },
   { label: "Clients", href: "/clients" },
   { label: "Contact", href: "/contact" },
+   
 ];
 
 export const CONTACT_ITEMS: ContactItem[] = [
