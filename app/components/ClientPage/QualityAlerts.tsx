@@ -1,5 +1,5 @@
 import { qualityAlerts } from "./portalData";
-import { AlertSeverity } from "@/types/portal";
+import { AlertSeverity } from "@/app/types/portal";
 
 const severityConfig: Record<AlertSeverity, { icon: string; className: string; label: string }> = {
   critical: { icon: "fa-circle-exclamation", className: "alert-card--critical", label: "Critical" },

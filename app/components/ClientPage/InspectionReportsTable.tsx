@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { inspectionReports } from "./portalData";
-import { InspectionStatus, ReportStatus } from "@/types/portal";
+import { InspectionStatus, ReportStatus } from "@/app/types/portal";
 
 const statusConfig: Record<InspectionStatus, { label: string; className: string }> = {
   completed:   { label: "Completed",   className: "badge--green"  },

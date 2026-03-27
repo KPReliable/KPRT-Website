@@ -1,6 +1,17 @@
 import { certificates } from "./portalData";
 
-const statusConfig = {
+type CertificateStatus = "valid" | "expiring" | "expired";
+
+type Certificate = {
+  id: string;
+  name: string;
+  status: CertificateStatus;
+  supplier: string;
+  issuedDate: string;
+  expiryDate: string;
+};
+
+const statusConfig: Record<CertificateStatus, { label: string; className: string; icon: string }> = {
   valid:    { label: "Valid",     className: "badge--green",  icon: "fa-circle-check"   },
   expiring: { label: "Expiring",  className: "badge--amber",  icon: "fa-clock"          },
   expired:  { label: "Expired",   className: "badge--red",    icon: "fa-circle-xmark"   },
@@ -14,7 +25,7 @@ export default function CertificatesPanel() {
         <p className="portal-section-sub">Download your quality certificates</p>
       </div>
       <div className="portal-certs__list">
-        {certificates.map((cert) => {
+        {(certificates as Certificate[]).map((cert) => {
           const config = statusConfig[cert.status];
           return (
             <div key={cert.id} className="cert-card">
