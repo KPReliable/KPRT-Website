@@ -1,10 +1,48 @@
-import WhyCards from "../components/whyUsPage/WhyCards";
-import TrustedByOEMs from "../components/whyUsPage/TrustedByOEMs";
-import ComparisonTable from "../components/whyUsPage/ComparisonTable";
-import Testimonials from "../components/whyUsPage/Testimonials";
-import CaseStudies from "../components/whyUsPage/CaseStudies";
+// import WhyCards from "../components/whyUsPage/WhyCards";
+// import TrustedByOEMs from "../components/whyUsPage/TrustedByOEMs";
+// import ComparisonTable from "../components/whyUsPage/ComparisonTable";
+// import Testimonials from "../components/whyUsPage/Testimonials";
+// import CaseStudies from "../components/whyUsPage/CaseStudies";
 
+type WhyCard = {
+  icon: string;
+  stat: string;
+  statSuffix: string;
+  title: string;
+  description: string;
+  points: string[];
+  accent: string;
+};
 
+type OEMClient = {
+  name: string;
+  initials: string;
+  industry: string;
+};
+
+type Testimonial = {
+  quote: string;
+  name: string;
+  title: string;
+  company: string;
+  initials: string;
+  result: string;
+};
+
+type CaseStudy = {
+  icon: string;
+  industry: string;
+  client: string;
+  challenge: string;
+  result: string;
+  metrics: Array<{ value: string; label: string }>;
+};
+
+type ComparisonRow = {
+  feature: string;
+  kprt: boolean | string;
+  others: boolean | string;
+};
 
 export const whyCards: WhyCard[] = [
   {
