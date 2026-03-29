@@ -49,8 +49,21 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 460px;
-  background: var(--color-white);
+  max-width: 560px;
+  
+  /* --- IMAGE BACKGROUND START --- */
+  /* This creates a 94% white tint over your image so text stays readable */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.94), 
+      rgba(255, 255, 255, 0.94)
+    ), 
+    url("/assets/login/login.jpeg");
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* --- IMAGE BACKGROUND END --- */
+
   border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 40px 40px 32px;
@@ -58,8 +71,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
+  /* Optional: adds a smooth feel when switching between Login and Register */
+  transition: all 0.3s ease-in-out;
 }
-
 /* ============================================================
    LOGO
    ============================================================ */
@@ -72,16 +87,14 @@
   margin-bottom: 4px;
 }
 
+/* Updated: Removed background, box-shadow, and fixed sizing */
 .lp-logo-mark {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 14px rgba(40, 76, 135, 0.25);
+  /* Adjust margins if the logo feels too close to the text */
+  margin-right: 12px; 
 }
 
 .lp-logo-name {

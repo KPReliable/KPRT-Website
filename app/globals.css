@@ -150,7 +150,7 @@ body{
   width: 42px;
   height: 42px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-  border-radius: 18px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -696,7 +696,21 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
 .hero-bg-grid {
   position: absolute;
   inset: 0;
- 
+  background-image: 
+    /* 1. THE IMAGE (Now on top) */
+    url('/assets/homeImages/kprt11.svg'),
+    
+    /* 2. OPTIONAL OVERLAY (Only if you still want to tint the image) */
+    linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)),
+    
+    /* 3. THE GRID PATTERN (Now at the bottom) */
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+
+  /* Order of sizes must match the order above */
+  background-size: cover, cover, 48px 48px, 48px 48px;
+  background-position: center;
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
 }
 
 .hero-bg-glow {
@@ -806,15 +820,29 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
 .hero-trust-chip svg { color: var(--color-secondary); }
 
 /* Hero card */
-.hero-visual { position: relative; }
+.hero-visual { position: relative;
+  transform: translateY(120px);
+  transform: translateX(120px);
+ }
 
 .hero-card {
-  background: rgba(255, 255, 255, 0.07);
+position: relative;
+  /* Glass effect base */
+  background-color: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  /* --- APPLY IMAGE THROUGHOUT THE BOX --- */
+  background-image: url('/assets/homeImages/kprt9.svg');
+  background-size: cover; /* Use 'cover' to fill the entire box */
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Use luminosity to let the blue/dark theme show through the image */
+  background-blend-mode: luminosity;
 }
 
 .hero-card-header {
@@ -849,7 +877,10 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
   margin-left: auto;
 }
 
-.hero-card-body { padding: 8px 0; }
+.hero-card-body {
+  padding: 8px 0;
+  
+}
 
 .hero-card-row {
   display: flex;
