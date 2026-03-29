@@ -11,7 +11,7 @@ const Logo: React.FC = () => {
       <Image 
         src="/assets/homeImages/logo-minimal.svg" 
         alt="KPReilable Logo" 
-        width={70} 
+        width={80} 
         height={40} 
         priority 
         style={{ objectFit: "contain" }}
@@ -19,10 +19,10 @@ const Logo: React.FC = () => {
       
       <div className="logo-text" style={{ display: 'flex', flexDirection: 'column' }}>
         <span className="logo-name" style={{ fontWeight: 'bold', fontSize: '1.2rem', lineHeight: '1.2' }}>
-          KPReilable
+          KP Reliable
         </span>
         <span className="logo-sub" style={{ fontSize: '0.75rem', opacity: 0.8 }}>
-          Inspection &amp; Quality Services
+          Technique India Private Limited
         </span>
       </div>
     </Link>

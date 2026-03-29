@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from 'next/image';
 import Link from "next/link";
 import "@/app/styles/login.css"
 type Mode = "login" | "register";
@@ -104,17 +105,21 @@ const LoginPage: React.FC = () => {
       <div className="lp-card">
 
         {/* ---- Logo ---- */}
-        <Link href="/" className="lp-logo">
-          <div className="lp-logo-mark">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
-            </svg>
-          </div>
-          <div>
-            <p className="lp-logo-name">QualityInspect</p>
-            <p className="lp-logo-sub">Inspection &amp; Quality Services</p>
-          </div>
-        </Link>
+<Link href="/" className="lp-logo">
+  <div className="lp-logo-mark">
+    <Image 
+      src="/assets/homeImages/logo-minimal.svg" 
+      alt="QualityInspect Logo" 
+      width={65} 
+      height={24} 
+      priority
+    />
+  </div>
+  <div>
+    <p className="lp-logo-name">QualityInspect</p>
+    <p className="lp-logo-sub">Inspection &amp; Quality Services</p>
+  </div>
+</Link>
 
         {/* ---- Tabs ---- */}
         <div className="lp-tabs" role="tablist">
@@ -171,7 +176,7 @@ const LoginPage: React.FC = () => {
             <div className="lp-field">
               <label className="lp-label" htmlFor="l-email">Email Address</label>
               <div className={`lp-input-wrap${loginErr.email ? " lp-input-wrap--error" : ""}`}>
-                <svg className="lp-input-icon" viewBox="0 0 24 24" fill="currentColor" width="15" height="5">
+                <svg className="lp-input-icon" viewBox="0 0 24 24" fill="currentColor" width="15" height="15">
                   <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
                 <input id="l-email" name="email" type="email" className="lp-input"
