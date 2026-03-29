@@ -7,10 +7,10 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/services",
   },
   { label: "Industries", href: "/industries" },
-  { label: "About Us", href: "/about" },
   { label: "Why Us", href: "/whyus" },
-  { label: "Clients", href: "/clients" },
-  { label: "Contact", href: "/contact" },
+  { label: "Careers", href: "/careers" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact Us", href: "/contact" },
    
 ];
 
