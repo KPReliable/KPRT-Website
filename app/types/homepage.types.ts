@@ -10,6 +10,7 @@ export interface Service {
   title: string;
   description: string;
   href: string;
+  img:string
 }
 
 export interface Client {

@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap'); */
 
 :root {
   --color-primary:        #284c87;
@@ -15,8 +15,10 @@
   --color-bg-alt:         #ffffff;
   --max-w:                1200px;
   --section-py:           80px;
-  --font-display:         "Barlow Condensed", sans-serif;
-  --font-body:            "Barlow", sans-serif;
+  /* --font-display:         "Barlow Condensed", sans-serif;
+  --font-body:            "Barlow", sans-serif; */
+  --font-display: "Roboto", sans-serif;
+--font-body: "Roboto", sans-serif;
 }
 
 body{
@@ -674,7 +676,12 @@ body{
    HERO BANNER
    ============================================================ */
 .hero {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #1e5fa8 100%);
+  /* background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #1e5fa8 100%) !important; */
+background-image: url("/assets/homeImages/home-hero.png") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   position: relative;
   overflow: hidden;
   padding: 90px 24px 100px;

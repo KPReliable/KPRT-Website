@@ -53,7 +53,15 @@ const KeyServices: React.FC = () => {
               key={service.id}
               href={service.href}
               className="service-card"
-              style={{ animationDelay: `${i * 0.1}s` }}
+              style={{
+    animationDelay: `${i * 0.1}s`,
+    backgroundImage: `url(${service.img})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  
+  }}
+
               aria-label={service.title}
             >
               <div className="service-card-icon">

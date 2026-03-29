@@ -15,6 +15,7 @@ export const SERVICES: Service[] = [
     description:
       "End-to-end supplier evaluation, qualification, and ongoing quality monitoring to keep your supply chain compliant.",
     href: "/services/supplier-quality",
+    img:""
   },
   {
     id: "pdi",
@@ -23,6 +24,7 @@ export const SERVICES: Service[] = [
     description:
       "On-site inspection of finished goods before dispatch — ensuring every shipment meets your specifications.",
     href: "/services/pdi",
+    img:"https://www.thechecker.net/hubfs/The%20importance%20of%20inspections%20for%20compliance.png"
   },
   {
     id: "audits",
@@ -31,6 +33,7 @@ export const SERVICES: Service[] = [
     description:
       "Systematic audits of manufacturing processes, quality systems, and compliance standards across facilities.",
     href: "/services/audits",
+    img:""
   },
   {
     id: "training",
@@ -39,6 +42,7 @@ export const SERVICES: Service[] = [
     description:
       "Customised training workshops on quality tools, standards, and best practices for your teams.",
     href: "/services/training",
+    img:""
   },
 ];
 
