@@ -6,7 +6,7 @@ export default function AboutHero() {
     <>
       <section className="about-hero">
         <div className="about-hero__inner">
-          {/* Breadcrumb */}
+          {/* Breadcrumbpandugang */}
           <nav className="about-hero__breadcrumb" aria-label="Breadcrumb">
             <Link href="/">
               <i className="fas fa-home" />
