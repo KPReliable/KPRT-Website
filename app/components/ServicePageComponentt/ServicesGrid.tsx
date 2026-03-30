@@ -27,6 +27,7 @@ export default function ServicesGrid() {
               className="service-card"
               id={service.id}
             >
+              
               {/* Number */}
               <div className="service-card__num">
                 {service.number} — {service.category}
