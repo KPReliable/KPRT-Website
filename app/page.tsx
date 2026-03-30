@@ -3,6 +3,7 @@ import QuickHighlights from "@/app/components/HomePage/QuickHighlights";
 import KeyServices from "@/app/components/HomePage/KeyServices";
 import TrustBuilders from "@/app/components/HomePage/TrustBuilders";
 import ExpertCTA from "@/app/components/HomePage/ExpertCTA";
+import Faqs from "./components/Faqs";
 
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
       <KeyServices />
       <TrustBuilders />
       <ExpertCTA />
+      <Faqs/>
    
     </main>
   );

@@ -19,7 +19,7 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  title: "QualityInspect | Inspection & Quality Services",
+  title: "KP Reliable",
   description: "Your trusted partner in quality & inspection services across India.",
 };
 

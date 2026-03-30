@@ -750,8 +750,11 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-secondary-light);
+  color: var(--color-primary);
   margin-bottom: 20px;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 .hero-eyebrow-dot {
@@ -779,8 +782,10 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
 
 .hero-title-accent {
   color: var(--color-secondary);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 0 8px rgba(255, 255, 255, 0.15);
 }
-
 .hero-subtitle {
   font-family: var(--font-body);
   font-size: 16px;
@@ -1938,8 +1943,8 @@ position: relative;
    CTA STRIP — white bg, primary blue text + border accent
    ============================================================ */
 .footer-cta-strip {
-  background: var(--color-secondary);
-  padding: 16px 24px;
+  border-bottom:2px solid var(--color-secondary);
+ 
 }
  
 .footer-cta-inner {

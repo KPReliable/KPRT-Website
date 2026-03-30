@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
           CTA STRIP
       ====================================================== */}
       <div className="footer-cta-strip">
-        <div className="footer-cta-inner">
+        {/* <div className="footer-cta-inner">
           <div className="footer-cta-text">
             <span className="footer-cta-dot" aria-hidden="true" />
             Trusted by 500+ manufacturers across India — get in touch today.
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
             <Link href="/contact" className="footer-cta-btn">Talk to an Expert</Link>
             <Link href="/quote"   className="footer-cta-btn footer-cta-btn--ghost">Get a Quote</Link>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* ======================================================
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
                 </svg>
               </div>
               <div>
-                <p className="footer-logo-name">QualityInspect</p>
+                <p className="footer-logo-name">KP Reliable</p>
                 <p className="footer-logo-sub">Inspection &amp; Quality Services</p>
               </div>
             </Link>
