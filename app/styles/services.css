@@ -49,43 +49,33 @@
    SERVICES HERO
    ============================================================ */
 .services-hero {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-dark) 0%,
-    var(--color-primary) 55%,
-    #1e5fa8 100%
-  );
+  /* Use ONLY the image, no linear-gradient overlay */
+  background-image: url('/assets/servicesImages/services11.svg'); 
+  
+  /* Ensure the image fills the area perfectly */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Keep your original spacing */
   padding: 68px 24px 76px;
   position: relative;
   overflow: hidden;
+  
+  /* Optional: If the image is too bright for white text, 
+     uncomment the line below to add a subtle dark tint */
+  /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
+/* REMOVE OR COMMENT OUT THESE SECTIONS */
+
 .services-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none;
+  display: none; /* This removes the grid lines */
 }
 
 .services-hero::after {
-  content: "";
-  position: absolute;
-  width: 520px;
-  height: 520px;
-  background: rgba(0, 162, 233, 0.15);
-  border-radius: 50%;
-  filter: blur(90px);
-  top: -140px;
-  right: -100px;
-  pointer-events: none;
+  display: none; /* This removes the blue glowing circle */
 }
-
 .services-hero__inner {
   max-width: 1200px;
   margin: 0 auto;

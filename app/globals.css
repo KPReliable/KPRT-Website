@@ -698,7 +698,7 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
   inset: 0;
   background-image: 
     /* 1. THE IMAGE (Now on top) */
-    url('/assets/homeImages/kprt11.svg'),
+    url('/assets/homeImages/kprt13.svg'),
     
     /* 2. OPTIONAL OVERLAY (Only if you still want to tint the image) */
     linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)),
@@ -836,7 +836,7 @@ position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 
   /* --- APPLY IMAGE THROUGHOUT THE BOX --- */
-  background-image: url('/assets/homeImages/kprt9.svg');
+  background-image: url('/assets/homeImages/.svg');
   background-size: cover; /* Use 'cover' to fill the entire box */
   background-position: center;
   background-repeat: no-repeat;
@@ -1193,16 +1193,14 @@ position: relative;
 
 .trust-logo-card {
   flex-shrink: 0;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 16px 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 160px;
-  height: 64px;
-  transition: all 0.2s;
+  padding: 0 40px; /* Space between moving logos */
+  height: 120px;
+  background: transparent; /* Ensures no box is visible */
+  border: none;            /* Removes the border */
+  transition: transform 0.3s ease;
 }
 
 .trust-logo-card:hover {
@@ -1220,13 +1218,19 @@ position: relative;
   opacity: 0.7;
 }
 
+/* The Logo Image itself */
 .trust-logo-img {
+  max-height: 120px; /* Adjusted size for better visibility */
+  width: auto;
   object-fit: contain;
-  filter: grayscale(100%) opacity(0.6);
-  transition: filter 0.2s;
+  /* Removed grayscale and opacity for "brighter" look */
+  filter: none; 
+  opacity: 1;
 }
 
 .trust-logo-card:hover .trust-logo-img {
+  transform: scale(1.15);
+  background: transparent;
   filter: grayscale(0%) opacity(1);
 }
 

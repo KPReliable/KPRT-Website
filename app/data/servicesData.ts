@@ -2,6 +2,7 @@ export const serviceCards = [
   {
     id: "raw-material-inspection",
     href: "/services/raw-material-inspection",
+  
     number: "01",
     category: "Pre-Production",
     icon: "fa-box-open",
@@ -47,6 +48,7 @@ export const serviceCards = [
   {
     id: "factory-audit",
     href: "/services/factory-audit",
+    
     number: "04",
     category: "Compliance",
     icon: "fa-industry",

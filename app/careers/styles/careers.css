@@ -66,19 +66,27 @@
 /* ─── CAREER HERO ────────────────────────────────────────── */
 
 .career-hero {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-dark) 0%,
-    var(--color-primary) 55%,
-    #1e6aaa 100%
-  );
-  min-height: 560px;
-  display: flex;
-  align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 90px 8%;
+  padding: 100px 24px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+
+  /* --- STACKED BACKGROUND --- */
+  background: 
+    /* 1. THE IMAGE (Top Layer) */
+    url('/assets/careerImages/career2.svg') no-repeat center / cover,
+    
+    /* 2. YOUR GRADIENT (Bottom Layer) */
+    linear-gradient(
+      135deg,
+      var(--color-primary-dark) 0%,
+      var(--color-primary) 55%,
+      #1e6aaa 100%
+    );
 }
+  
 
 .career-hero__overlay {
   position: absolute;
