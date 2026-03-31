@@ -47,14 +47,14 @@ export const SERVICES: Service[] = [
 ];
 
 export const CLIENTS: Client[] = [
-  { id: "1", name: "Tata Motors" ,logo:"/assets/companyImages/com2.svg"},
-  { id: "2", name: "Mahindra" ,logo:"/assets/companyImages/com3.svg"},
-  { id: "3", name: "L&T" ,logo:"/assets/companyImages/com4.svg"},
-  { id: "4", name: "Bosch India" ,logo:"/assets/companyImages/com5.svg"},
-  { id: "5", name: "Maruti Suzuki" ,logo:"/assets/companyImages/com6.svg"},
-  { id: "6", name: "Bajaj Auto" ,logo:"/assets/companyImages/com7.svg"},
-  { id: "7", name: "Hero MotoCorp" ,logo:"/assets/companyImages/com8.svg"},
-  { id: "8", name: "Ashok Leyland" ,logo:"/assets/companyImages/com2.svg"},
+  { id: "1", name: "Tata Motors" ,logo:"/assets/companyImages/_com2.svg"},
+  { id: "2", name: "Mahindra" ,logo:"/assets/companyImages/_com3.svg"},
+  { id: "3", name: "L&T" ,logo:"/assets/companyImages/_com4.svg"},
+  { id: "4", name: "Bosch India" ,logo:"/assets/companyImages/_com5.svg"},
+  { id: "5", name: "Maruti Suzuki" ,logo:"/assets/companyImages/_com6.svg"},
+  { id: "6", name: "Bajaj Auto" ,logo:"/assets/companyImages/_com7.svg"},
+  { id: "7", name: "Hero MotoCorp" ,logo:"/assets/companyImages/_com8.svg"},
+  { id: "8", name: "Ashok Leyland" ,logo:"/assets/companyImages/_com2.svg"},
   { id: "9", name: "Tata Motors" ,logo:"/assets/companyImages/com10.svg"},
   { id: "10", name: "Mahindra" ,logo:"/assets/companyImages/com11.svg"},
   { id: "11", name: "L&T" ,logo:"/assets/companyImages/com12.svg"},
@@ -62,8 +62,8 @@ export const CLIENTS: Client[] = [
   { id: "13", name: "Maruti Suzuki" ,logo:"/assets/companyImages/com14.svg"},
   { id: "14", name: "Bajaj Auto" ,logo:"/assets/companyImages/com15.svg"},
   { id: "15", name: "Hero MotoCorp" ,logo:"/assets/companyImages/com16.svg"},
-  { id: "16", name: "Ashok Leyland" ,logo:"/assets/companyImages/com8.svg"},
-  { id: "17", name: "Ashok Leyland" ,logo:"/assets/companyImages/com4.svg"},
+  { id: "16", name: "Ashok Leyland" ,logo:"/assets/companyImages/_com8.svg"},
+  { id: "17", name: "Ashok Leyland" ,logo:"/assets/companyImages/_com4.svg"},
   { id: "18", name: "Ashok Leyland" ,logo:"/assets/companyImages/com19.svg"},
 ];
 
