@@ -1,6 +1,6 @@
 
 import { LogTypeEnum } from "@/enum/Logging.enum";
-import { clientIP, getUserIP } from "@/utils/getIP";
+// import { clientIP, getUserIP } from "@/utils/getIP";
 import { mudranLog } from "@/utils/MudranLog.utiles";
 
 
@@ -23,22 +23,20 @@ export async function fetchRequest(
 ): Promise<any> {
   try {
 
-    if(clientIP.ip === ""){
-      const ip = await getUserIP(); // Get user’s real IP
-      if (!ip) throw new Error("⚠️ Unable to determine IP address");
-    }
+    // if(clientIP.ip === ""){
+    //   const ip = await getUserIP(); // Get user’s real IP
+    //   if (!ip) throw new Error("⚠️ Unable to determine IP address");
+    // }
     
 
-    let options: RequestInit = {
+    const options: RequestInit = {
       method: method,
       headers: {
         "Content-Type": "application/json",
-        "x-api-key":"1234567890abcdef",
-        "x-api-secret":"abcdef1234567890",
+        // "x-api-key":"1234567890abcdef",
+        // "x-api-secret":"abcdef1234567890",
         // "x-forwarded-for":clientIP.ip,
         "x-forwarded-for":"0.0.0.0",
-        "authorization":`Bearer ${customAuthorizationConfig.authorization}`,
-        "x-kb-authorization":`${customAuthorizationConfig.kb_authorization}`,
         // "credentials": "include", // ✅ Send cookies & auth headers
         ...headers,
       },

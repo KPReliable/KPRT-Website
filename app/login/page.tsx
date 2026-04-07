@@ -1,13 +1,21 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from 'next/image';
 import Link from "next/link";
 import "@/app/styles/login.css"
+// import { registeruser } from "@/network/public/register/RegisterUser.api";
+import createUser from "@/utils/api/RegisterUser";
+import { RegisterResponse } from "@/network/public/register/RegisterUser.interface";
 type Mode = "login" | "register";
+// import { Dispatch,SetStateAction } from "react";
+
+import { RegisterRequest } from "@/network/public/register/RegisterUser.interface";
+
+
 
 interface LoginForm   { email: string; password: string; }
-interface RegisterForm { name: string; email: string; phone: string; password: string; confirm: string; }
+// interface RegisterForm { name: string; email: string; phone: string; password: string; confirm: string; }
 
 /* ============================================================
    ICON COMPONENTS — defined outside to avoid render errors
@@ -29,21 +37,24 @@ const EyeOff: React.FC = () => (
 const LoginPage: React.FC = () => {
   const [mode, setMode]           = useState<Mode>("login");
   const [loginForm, setLoginForm] = useState<LoginForm>({ email: "", password: "" });
-  const [regForm, setRegForm]     = useState<RegisterForm>({ name: "", email: "", phone: "", password: "", confirm: "" });
+  const [regForm, setRegForm]     = useState<RegisterRequest>({ name: "", email: "", phone: "", password: "" });
   const [loginErr, setLoginErr]   = useState<Partial<LoginForm>>({});
-  const [regErr, setRegErr]       = useState<Partial<RegisterForm>>({});
+  const [regErr, setRegErr]       = useState<Partial<RegisterRequest>>({});
   const [showPass, setShowPass]   = useState(false);
-  const [showConf, setShowConf]   = useState(false);
+  // const [showConf, setShowConf]   = useState(false);
   const [loading, setLoading]     = useState(false);
   const [gLoading, setGLoading]   = useState(false);
   const [registered, setRegistered] = useState(false);
+
+  const [apiResponse, setApiResponse] = useState<RegisterResponse>()
+  const [apiError, setApiError] = useState<Error|undefined>()
 
   const switchMode = (m: Mode) => {
     setMode(m);
     setLoginErr({});
     setRegErr({});
     setShowPass(false);
-    setShowConf(false);
+    // setShowConf(false);
   };
 
   const validateLogin = () => {
@@ -57,14 +68,12 @@ const LoginPage: React.FC = () => {
   };
 
   const validateReg = () => {
-    const e: Partial<RegisterForm> = {};
+    const e: Partial<RegisterRequest> = {};
     if (!regForm.name.trim())                         e.name     = "Full name is required";
     if (!regForm.email.trim())                        e.email    = "Email is required";
-    else if (!/\S+@\S+\.\S+/.test(regForm.email))    e.email    = "Enter a valid email";
+    else if (!/\S+@\S+\.\S+/.test(regForm.email))     e.email    = "Enter a valid email";
     if (!regForm.password)                            e.password = "Password is required";
     else if (regForm.password.length < 8)             e.password = "Minimum 8 characters";
-    if (!regForm.confirm)                             e.confirm  = "Please confirm your password";
-    else if (regForm.confirm !== regForm.password)    e.confirm  = "Passwords do not match";
     setRegErr(e);
     return !Object.keys(e).length;
   };
@@ -82,7 +91,11 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     if (!validateReg()) return;
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1400));
+    // await new Promise((r) => setTimeout(r, 1400));
+
+    createUser(setApiResponse,setApiError,regForm)
+
+
     setLoading(false);
     setRegistered(true);
     // TODO: call your registration API
@@ -94,6 +107,11 @@ const LoginPage: React.FC = () => {
     setGLoading(false);
     // TODO: signIn("google", { callbackUrl: "/dashboard" })
   };
+
+  useEffect(()=>{
+    console.log(apiResponse);
+  },[apiResponse])
+
 
   return (
     <div className="lp-root">
@@ -316,7 +334,7 @@ const LoginPage: React.FC = () => {
                     {regErr.password && <span className="lp-error">{regErr.password}</span>}
                   </div>
 
-                  <div className="lp-field">
+                  {/* <div className="lp-field">
                     <label className="lp-label" htmlFor="r-confirm">Confirm Password</label>
                     <div className={`lp-input-wrap${regErr.confirm ? " lp-input-wrap--error" : ""}`}>
                       <svg className="lp-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" width="15" height="15">
@@ -334,7 +352,7 @@ const LoginPage: React.FC = () => {
                       </button>
                     </div>
                     {regErr.confirm && <span className="lp-error">{regErr.confirm}</span>}
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Terms */}

@@ -698,7 +698,7 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
   inset: 0;
   background-image: 
     /* 1. THE IMAGE (Now on top) */
-    url('/assets/homeImages/kprt13.svg'),
+    url('https://res.cloudinary.com/dinnmia6e/image/upload/v1775544374/homeBanner_kx6b2y.svg'),
     
     /* 2. OPTIONAL OVERLAY (Only if you still want to tint the image) */
     linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)),
