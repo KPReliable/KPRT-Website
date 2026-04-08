@@ -50,7 +50,7 @@
    ============================================================ */
 .services-hero {
   /* Use ONLY the image, no linear-gradient overlay */
-  background-image: url('/assets/servicesImages/services11.svg'); 
+  background-image: url('https://res.cloudinary.com/dinnmia6e/image/upload/v1775544390/services11_s1knbk.svg'); 
   
   /* Ensure the image fills the area perfectly */
   background-size: cover;

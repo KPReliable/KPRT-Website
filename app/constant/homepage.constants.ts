@@ -15,7 +15,7 @@ export const SERVICES: Service[] = [
     description:
       "End-to-end supplier evaluation, qualification, and ongoing quality monitoring to keep your supply chain compliant.",
     href: "/services/supplier-quality",
-    img:"/assets/servicesImages/services6.svg"
+    img:"https://res.cloudinary.com/dinnmia6e/image/upload/v1775544372/HomeService5_v4ws4b.svg"
   },
   {
     id: "pdi",
