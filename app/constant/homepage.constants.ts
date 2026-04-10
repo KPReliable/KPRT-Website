@@ -4,7 +4,7 @@ export const STATS: Stat[] = [
   { value: "17", suffix: "+", label: "Years of Experience" },
   { value: "500", suffix: "+", label: "Clients Served" },
   { value: "20", suffix: "+", label: "Industries Served" },
-  { value: "10", suffix: " States", label: "Presence" },
+  // { value: "10", suffix: " India", label: "Presence" },
 ];
 
 export const SERVICES: Service[] = [

@@ -10,7 +10,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Why Us", href: "/whyus" },
   { label: "Careers", href: "/careers" },
   { label: "About Us", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
+  // { label: "Contact Us", href: "/contact" },
    
 ];
 

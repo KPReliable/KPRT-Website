@@ -1,5 +1,5 @@
 "use client";
-
+import QuickHighlights from "./QuickHighlights";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useSpring, animated, config } from "@react-spring/web";
@@ -160,12 +160,12 @@ const HeroBanner: React.FC = () => {
   });
 
   return (
+    <div className="hero-cover">
     <section className="hero" aria-label="Hero Banner" style={{ overflow: "hidden" }}>
 
     {/* ---- Geometric background ---- */}
 <div className="hero-bg" aria-hidden="true">
-  
-  {/* NEW: THE VIDEO TAG */}
+ 
   <video 
     autoPlay 
     muted 
@@ -174,12 +174,12 @@ const HeroBanner: React.FC = () => {
     className="hero-video-bg"
   >
     <source 
-      src="https://res.cloudinary.com/dinnmia6e/video/upload/v1775722986/HomeVideo_y1cdu9.mp4" 
+      src="https://res.cloudinary.com/dinnmia6e/video/upload/v1775823913/video3_uctxu7.mp4" 
       type="video/mp4" 
     />
   </video>
 
-  {/* Your existing animated layers now sit ON TOP of the video */}
+
   <animated.div className="hero-bg-grid" style={gridScrollSpring} />
   
   <animated.div className="hero-bg-glow hero-bg-glow--1" style={glow1Parallax} />
@@ -189,7 +189,7 @@ const HeroBanner: React.FC = () => {
       <animated.div className="hero-inner" style={sectionScrollSpring}>
 
         {/* ==================== LEFT — text content ==================== */}
-        <div className="hero-content">
+        <div className="hero-content mt-40">
 
           {/* Eyebrow */}
           <animated.div className="hero-eyebrow" style={eyebrowSpring}>
@@ -219,7 +219,7 @@ const HeroBanner: React.FC = () => {
           </animated.div>
 
           {/* Trust chips */}
-          <animated.div className="hero-trust" style={trustSpring}>
+          {/* <animated.div className="hero-trust" style={trustSpring}>
             {["ISO 9001:2015 Certified", "500+ Clients", "15+ Years Experience"].map((t) => (
               <span key={t} className="hero-trust-chip">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
@@ -228,7 +228,7 @@ const HeroBanner: React.FC = () => {
                 {t}
               </span>
             ))}
-          </animated.div>
+          </animated.div> */}
         </div>
 
         {/* ==================== RIGHT — visual card ==================== */}
@@ -279,7 +279,7 @@ const HeroBanner: React.FC = () => {
           </animated.div>
 
           {/* Badge TL — floats at its own parallax depth */}
-          <animated.div
+          {/* <animated.div
             className="hero-badge hero-badge--tl"
             style={{
               ...badge1Spring,
@@ -292,7 +292,7 @@ const HeroBanner: React.FC = () => {
               <path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.9l-6.18 3.12L7 13.14 2 8.27l6.91-1.01L12 1z" />
             </svg>
             <span>ISO Certified</span>
-          </animated.div>
+          </animated.div> */}
 
           {/* Badge BR — floats at opposite direction */}
           <animated.div
@@ -311,8 +311,12 @@ const HeroBanner: React.FC = () => {
           </animated.div>
 
         </div>
+         
       </animated.div>
+     
     </section>
+    <QuickHighlights/>
+    </div>
   );
 };
 

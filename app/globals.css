@@ -21,11 +21,25 @@
 --font-body: "Roboto", sans-serif;
 }
 
-body{
-  margin:0px;
-  padding:0px;
+body { padding-top: 0; }
+ 
+/* Hero pages: header overlays, hero fills viewport from very top */
+ 
+/* Non-hero pages: add top offset so content clears the fixed bar */
+.page-offset { padding-top: 48px; }
+ 
+/* Hamburger lines: white over dark hero, dark after scroll */
+header .hamburger-line {
+  background-color: white;
+  transition: background-color 0.3s;
 }
-
+ 
+/* Tailwind's bg-white/90 + backdrop-blur already handles the scrolled state,
+   but some older Safari builds need the -webkit- prefix explicitly: */
+header.scrolled-glass {
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+ 
 
 
 /* ============================================================
@@ -677,17 +691,18 @@ body{
    ============================================================ */
 .hero {
   /* background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #1e5fa8 100%) !important; */
-background-image: url("/assets/homeImages/home-hero.png") !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* background-image: url("/assets/homeImages/home-hero.png") !important; */
 
-  position: relative;
-  overflow: hidden;
+
+ 
   padding: 90px 24px 100px;
   min-height: 620px;
   display: flex;
   align-items: center;
+}
+.hero-cover{
+ position: relative;
+  overflow: hidden;
 }
 
 /* BG decorations */
@@ -2404,3 +2419,4 @@ position: relative;
   .footer-cta-actions { flex-direction: column; width: 100%; }
   .footer-cta-btn { text-align: center; }
 }
+
