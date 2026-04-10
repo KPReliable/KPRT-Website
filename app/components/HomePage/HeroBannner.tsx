@@ -162,13 +162,29 @@ const HeroBanner: React.FC = () => {
   return (
     <section className="hero" aria-label="Hero Banner" style={{ overflow: "hidden" }}>
 
-      {/* ---- Geometric background ---- */}
-      <div className="hero-bg" aria-hidden="true">
-        <animated.div className="hero-bg-grid" style={gridScrollSpring} />
-        <animated.div className="hero-bg-glow hero-bg-glow--1" style={glow1Parallax} />
-        <animated.div className="hero-bg-glow hero-bg-glow--2" style={glow2Parallax} />
-      </div>
+    {/* ---- Geometric background ---- */}
+<div className="hero-bg" aria-hidden="true">
+  
+  {/* NEW: THE VIDEO TAG */}
+  <video 
+    autoPlay 
+    muted 
+    loop 
+    playsInline 
+    className="hero-video-bg"
+  >
+    <source 
+      src="https://res.cloudinary.com/dinnmia6e/video/upload/v1775722986/HomeVideo_y1cdu9.mp4" 
+      type="video/mp4" 
+    />
+  </video>
 
+  {/* Your existing animated layers now sit ON TOP of the video */}
+  <animated.div className="hero-bg-grid" style={gridScrollSpring} />
+  
+  <animated.div className="hero-bg-glow hero-bg-glow--1" style={glow1Parallax} />
+  <animated.div className="hero-bg-glow hero-bg-glow--2" style={glow2Parallax} />
+</div>
       {/* ---- Content wrapper scrolls with parallax ---- */}
       <animated.div className="hero-inner" style={sectionScrollSpring}>
 
@@ -187,21 +203,11 @@ const HeroBanner: React.FC = () => {
             <span className="hero-title-accent"> Quality &amp; Inspection</span>
           </animated.h1>
 
-          {/* Subtitle */}
-          <animated.p className="hero-subtitle" style={subtitleSpring}>
-            Delivering reliable supplier quality management, pre-dispatch inspections,
-            process audits, and training programs — across 28 states, 20+ industries.
-          </animated.p>
+
 
           {/* CTAs */}
           <animated.div className="hero-actions" style={ctaSpring}>
-            <Link href="/quote" className="btn-primary">
-              Get a Quote
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
+            
             <Link href="/booking" className="btn-outline">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
                 strokeLinecap="round" strokeLinejoin="round">

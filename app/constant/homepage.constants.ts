@@ -1,10 +1,10 @@
 import { Stat, Service, Client, Certification } from "@/app/types/homepage.types";
 
 export const STATS: Stat[] = [
-  { value: "15", suffix: "+", label: "Years of Experience" },
+  { value: "17", suffix: "+", label: "Years of Experience" },
   { value: "500", suffix: "+", label: "Clients Served" },
   { value: "20", suffix: "+", label: "Industries Served" },
-  { value: "28", suffix: " States", label: "Pan-India Presence" },
+  { value: "10", suffix: " States", label: "Presence" },
 ];
 
 export const SERVICES: Service[] = [
@@ -15,7 +15,7 @@ export const SERVICES: Service[] = [
     description:
       "End-to-end supplier evaluation, qualification, and ongoing quality monitoring to keep your supply chain compliant.",
     href: "/services/supplier-quality",
-    img:"https://res.cloudinary.com/dinnmia6e/image/upload/v1775544372/HomeService5_v4ws4b.svg"
+    img:""
   },
   {
     id: "pdi",
@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
     description:
       "On-site inspection of finished goods before dispatch — ensuring every shipment meets your specifications.",
     href: "/services/pdi",
-    img:"/assets/servicesImages/services7.svg"
+    img:""
   },
   {
     id: "audits",
@@ -33,7 +33,7 @@ export const SERVICES: Service[] = [
     description:
       "Systematic audits of manufacturing processes, quality systems, and compliance standards across facilities.",
     href: "/services/audits",
-    img:"/assets/servicesImages/services8.svg"
+    img:""
   },
   {
     id: "training",
@@ -42,7 +42,7 @@ export const SERVICES: Service[] = [
     description:
       "Customised training workshops on quality tools, standards, and best practices for your teams.",
     href: "/services/training",
-    img:"/assets/servicesImages/services10.svg"
+    img:""
   },
 ];
 

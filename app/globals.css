@@ -698,7 +698,7 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
   inset: 0;
   background-image: 
     /* 1. THE IMAGE (Now on top) */
-    url('https://res.cloudinary.com/dinnmia6e/image/upload/v1775544374/homeBanner_kx6b2y.svg'),
+    url('https://res.cloudinary.com/dinnmia6e/video/upload/v1775722986/HomeVideo_y1cdu9.mp4'),
     
     /* 2. OPTIONAL OVERLAY (Only if you still want to tint the image) */
     linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)),
@@ -974,9 +974,32 @@ position: relative;
    QUICK HIGHLIGHTS
    ============================================================ */
 .highlights {
-  background: var(--color-primary);
+  position: relative;
+  /* This matches your .hero-bg-grid logic exactly:
+     1. A subtle color overlay (using your primary blue)
+     2. The horizontal grid lines
+     3. The vertical grid lines
+     4. The base background color
+  */
+  background-color: transparent; /* Base color */
+  background-image: 
+    linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)), /* The Tint */
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), /* Horizontal lines */
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px); /* Vertical lines */
+
+  /* Matches the 48px size from your hero */
+  background-size: cover, 48px 48px, 48px 48px;
+  background-position: center;
+  background-repeat: no-repeat, repeat, repeat;
+  
   padding: 0;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.1);
 }
+
+/* Optional: To get those "glow" effects from your hero code, 
+   we can add a subtle radial gradient to the background-image list */
 
 .highlights-inner {
   max-width: var(--max-w);
@@ -1061,30 +1084,34 @@ position: relative;
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  /* Column 1 is 1.5x wider than Column 2 for a nice balance */
+  grid-template-columns: 1.5fr 1fr; 
+  /* Define 3 equal rows for the right side */
+  grid-template-rows: repeat(3, auto); 
+  gap: 16px; 
 }
 
 .service-card {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: 14px;
-  padding: 32px 24px;
+  padding: 24px;      /* Reduced padding from 32px to 24px */
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 12px;          /* Increased gap for better spacing between elements */
   position: relative;
   overflow: hidden;
   transition: all 0.25s;
-  group: true;
+  
+  /* REMOVED: aspect-ratio: 1/1; (This was making cards too tall) */
+  /* REMOVED: justify-content: center; */
 }
-
 .service-card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 1px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   transform: scaleX(0);
   transition: transform 0.3s;
@@ -1134,18 +1161,17 @@ position: relative;
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.25;
-  margin: 0;
+  margin-top: 0;      /* REMOVED 112px - this was pushing the text down too far */
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 .service-card-desc {
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 13px;    /* Slightly smaller for the 3-stack layout */
   color: var(--color-text-muted);
-  line-height: 1.65;
+  line-height: 1.5;
   margin: 0;
-  flex: 1;
 }
 
 .service-card-link {
