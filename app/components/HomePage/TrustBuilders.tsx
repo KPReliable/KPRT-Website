@@ -29,11 +29,23 @@ const TrustBuilders: React.FC = () => {
     <section className="trust" aria-label="Trust Builders">
       <div className="trust-inner">
         {/* Section header */}
-        <div className="section-header">
-          <span className="section-eyebrow">Trusted By</span>
-          <h2 className="section-title">Our Clients</h2>
+      <div className="flex items-center gap-4 mb-6 w-full">
+  {/* Left Line */}
+    {/* <span className="block w-10 h-[2px] bg-[#00a2e9]" /> */}
+  
+  {/* Centered Text */}
+  <span className="text-[25px] font-semibold tracking-[0.2em] uppercase text-[#00a2e9] whitespace-nowrap">
+    Our Beneficiary Clients
+  </span>
+  
+  {/* Right Line */}
+  <span className="flex-1 h-[2px] bg-[#00a2e9]" />
+</div>
+        <div className="mb-16 md:mb-15 space-y-4">
+          {/* <span className="section-eyebrow">Trusted By</span> */}
+          <h2 className="text-xl  md:text-xl  leading-snug tracking-tight text-[#0f1f3d] "> Partnering with India&apos;s leading manufacturers and backed by internationally recognised quality standards.</h2>
           <p className="section-subtitle">
-            Partnering with India&apos;s leading manufacturers and backed by internationally recognised quality standards.
+           
           </p>
         </div>
 
