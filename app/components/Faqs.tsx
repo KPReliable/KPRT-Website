@@ -24,7 +24,7 @@ const Faqs = () => {
 
   {/* CENTERED HEADING */}
   <div className="text-center">
-    <h2 className="faq__title">Frequently Asked Questions</h2>
+    <h2 className="section-title">Frequently Asked Questions</h2>
     <p className="faq__subtitle">
       Find answers to common questions about our services, support, and processes
     </p>

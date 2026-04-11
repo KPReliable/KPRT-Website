@@ -35,7 +35,7 @@ const KeyServices: React.FC = () => {
         
         {/* ---- Header Section ---- */}
         <div className="mb-20 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font- mb-6 tracking-tight">
             Three levels at which Fluidic Intelligence operates
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
