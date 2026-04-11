@@ -4,6 +4,8 @@ import KeyServices from "@/app/components/HomePage/KeyServices";
 import TrustBuilders from "@/app/components/HomePage/TrustBuilders";
 import ExpertCTA from "@/app/components/HomePage/ExpertCTA";
 import Faqs from "./components/Faqs";
+// import BentoGrid from "./components/HomePage/BentoGrid";
+import ImpactStatement from "./components/HomePage/ImpactStatement";
 
 
 export default function HomePage() {
@@ -12,8 +14,9 @@ export default function HomePage() {
    
       <HeroBanner />
       
-     
+     <ImpactStatement/>
       <KeyServices />
+      {/* <BentoGrid/> */}
       <TrustBuilders />
       <ExpertCTA />
       <Faqs/>
