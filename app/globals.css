@@ -687,6 +687,74 @@ header.scrolled-glass {
 }
 
 /* ============================================================
+   DARK THEME SECTION HEADER (for Key Services & similar dark sections)
+   ============================================================ */
+.section-header--dark {
+   text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-eyebrow--dark {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  background: rgba(0, 162, 233, 0.1);
+  border: 1px solid rgba(0, 162, 233, 0.25);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.section-title--dark {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px;
+}
+
+.section-subtitle--dark {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-white);
+    margin: 0 auto;
+  /* text-align: center; */
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+.service-tag--dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(40, 76, 135, 0.15);
+  border: 1px solid rgba(40, 76, 135, 0.3);
+  color: rgba(40, 76, 135, 0.9);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.service-tag--dark:hover {
+  background: rgba(40, 76, 135, 0.25);
+  border-color: rgba(40, 76, 135, 0.5);
+  color: var(--color-primary);
+}
+
+/* ============================================================
    HERO BANNER
    ============================================================ */
 .hero {

@@ -11,6 +11,7 @@ export interface Service {
   description: string;
   href: string;
   img:string
+  tag: string[]
 }
 
 export interface Client {

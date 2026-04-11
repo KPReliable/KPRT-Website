@@ -1,154 +1,118 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { SERVICES } from "@/app/constant/homepage.constants";
 
-const SERVICE_ICONS: Record<string, React.ReactNode> = {
-  shield: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    </svg>
-  ),
-  clipboard: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
-      <rect x="9" y="3" width="6" height="4" rx="1" />
-    </svg>
-  ),
-  search: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <circle cx="11" cy="11" r="8" />
-      <path d="M21 21l-4.35-4.35" />
-    </svg>
-  ),
-  book: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5z" />
-    </svg>
-  ),
-};
+// Mocking the constant since I don't have access to your local file
+const SERVICES = [
+  {
+    id: "engineering",
+    title: "Human and AI collaboration",
+    label: "Engineering",
+    description: "Engineering is evolving. AI no longer just helps us write code; it shapes how we design, test, and improve systems.",
+    href: "/services/engineering"
+  },
+  {
+    id: "technology",
+    title: "AI grounded in real enterprise knowledge",
+    label: "Technology",
+    description: "Enterprises carry years of hard-won knowledge, but it often sits in silos. Fluidic Intelligence brings it together.",
+    href: "/services/technology"
+  },
+  {
+    id: "enterprise",
+    title: "Intelligence in flow across the enterprise",
+    label: "Enterprise",
+    description: "At the enterprise level, intelligence flows to the right models, systems, and people. Decisions move smoothly.",
+    href: "/services/enterprise"
+  }
+];
 
 const KeyServices: React.FC = () => {
   return (
-    <section
-      className="w-full px-6"
-      style={{
-        background: "var(--color-bg)",
-        padding: "var(--section-py) 0",
-      }}
-    >
-      <div
-        className="mx-auto"
-        style={{ maxWidth: "var(--max-w)" }}
-      >
-
-        {/* ✅ HEADER (UNCHANGED CONTENT) */}
-        <div className="text-center mb-14">
-          <span
-            className="section-eyebrow"
-            style={{ color: "var(--color-secondary)" }}
-          >
-            What We Do
-          </span>
-
-          <h2
-            className="section-title"
-            style={{ color: "var(--color-text)" }}
-          >
-            Our Core Services
+    <section className="w-full expert-cta py-24 px-6 font-sans text-white overflow-hidden">
+      <div className="max-w-[1200px] mx-auto">
+        
+        {/* ---- Header Section ---- */}
+        <div className="mb-20 max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-semibold mb-6 tracking-tight">
+            Three levels at which Fluidic Intelligence operates
           </h2>
-
-          <p
-            className="mt-3 max-w-xl mx-auto text-sm"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            Comprehensive quality solutions designed for India manufacturing and supply chain landscape.
+          <p className="text-gray-400 text-lg leading-relaxed">
+            We work at the intersection of engineering, technology, and the enterprise. 
+            We use AI-native engineering to eliminate friction and maintain enterprise flow.
           </p>
         </div>
 
-        {/* 🔥 BENTO GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[180px]">
+        {/* ---- Grid Layout ---- */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {SERVICES.map((service, i) => (
+            <div key={service.id} className="group flex flex-col items-start">
+              
+              {/* Abstract Glowing Icon Container */}
+              <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
+                {/* Background Glow */}
+                <div className="absolute inset-0 bg-[#00a2e9] opacity-20 blur-[40px] rounded-full group-hover:opacity-40 transition-opacity duration-500" />
+                
+                {/* 3D-ish Decorative Image/Icon */}
+                <img 
+                  src={`https://picsum.photos/seed/${service.id}/200`} 
+                  alt={service.label}
+                  className="w-20 h-20 object-cover rounded-full z-10 border border-white/20 shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+                
+                {/* Orbiting Ring Effect (CSS only) */}
+                <div className="absolute inset-0 border border-[#00a2e9]/30 rounded-full animate-[spin_10s_linear_infinite]" />
+                <div className="absolute inset-2 border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+              </div>
 
-          {SERVICES.map((service, i) => {
-            const isLarge = i === 0;
-            const isWide = i === 3;
+              {/* Label */}
+              <span className="text-[#33b8ff] text-sm font-medium mb-3 uppercase tracking-widest">
+                {service.label}
+              </span>
 
-            return (
-              <Link
-                key={service.id}
-                href={service.href}
-                className={`
-                  relative rounded-3xl p-6 flex flex-col justify-between
-                  transition-all duration-300 hover:scale-[1.02]
-                  overflow-hidden
-                  ${isLarge ? "col-span-2 row-span-2" : ""}
-                  ${isWide ? "col-span-2" : ""}
-                `}
-                style={{
-                  background: isLarge
-                    ? "linear-gradient(135deg, var(--color-primary), var(--color-secondary))"
-                    : "var(--color-bg-alt)",
-                  border: isLarge ? "none" : "1px solid var(--color-border)",
-                  color: isLarge ? "white" : "var(--color-text)",
-                }}
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-4 leading-snug group-hover:text-[#00a2e9] transition-colors duration-300">
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-400 leading-relaxed mb-6">
+                {service.description}
+              </p>
+
+              {/* Action Link */}
+              <Link 
+                href={service.href} 
+                className="mt-auto flex items-center gap-2 text-sm font-semibold hover:text-[#00a2e9] transition-colors group"
               >
-
-                {/* BG IMAGE (SUBTLE) */}
-                {service.img && (
-                  <div
-                    className="absolute inset-0 opacity-10"
-                    style={{
-                      backgroundImage: `url(${service.img})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }}
-                  />
-                )}
-
-                {/* CONTENT */}
-                <div className="relative z-10">
-
-                  <div
-                    className="w-10 h-10 mb-4 flex items-center justify-center rounded-lg"
-                    style={{
-                      background: isLarge
-                        ? "rgba(255,255,255,0.2)"
-                        : "var(--color-primary-light)",
-                      color: isLarge
-                        ? "white"
-                        : "var(--color-primary)",
-                    }}
-                  >
-                    {SERVICE_ICONS[service.icon]}
-                  </div>
-
-                  <h3 className="text-lg font-semibold mb-2">
-                    {service.title}
-                  </h3>
-
-                  <p
-                    className="text-sm"
-                    style={{
-                      color: isLarge
-                        ? "rgba(255,255,255,0.85)"
-                        : "var(--color-text-muted)",
-                    }}
-                  >
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* FOOTER */}
-                <div className="relative z-10 mt-4 text-sm flex items-center gap-1 opacity-80">
-                  Learn more →
-                </div>
-
+                Learn more
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
-            );
-          })}
+            </div>
+          ))}
         </div>
+
+        {/* ---- Bottom CTA ---- */}
+        {/* <div className="mt-24 pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-gray-500 text-sm">
+            Need a custom quality solution for your industry?
+          </p>
+          <Link
+            href="/contact"
+            className="px-8 py-3 bg-[#284c87] hover:bg-[#00a2e9] text-white font-bold transition-all duration-300 rounded-sm"
+          >
+            Talk to our experts
+          </Link>
+        </div> */}
       </div>
     </section>
   );
