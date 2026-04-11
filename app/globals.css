@@ -577,7 +577,7 @@ header.scrolled-glass {
 
 /* ---- Shared Utilities ---- */
 .section-header {
-  text-align: center;
+  /* text-align: left; */
   margin-bottom: 56px;
 }
 
