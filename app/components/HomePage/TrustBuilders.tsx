@@ -34,12 +34,12 @@ const TrustBuilders: React.FC = () => {
     {/* <span className="block w-10 h-[2px] bg-[#00a2e9]" /> */}
   
   {/* Centered Text */}
-  <span className="text-[25px] font-semibold tracking-[0.2em] uppercase text-[#00a2e9] whitespace-nowrap">
+  <span className="text-[25px] font-semibold tracking-[0.2em] uppercase text-[#0f1f3d] whitespace-nowrap">
     Our Beneficiary Clients
   </span>
   
   {/* Right Line */}
-  <span className="flex-1 h-[2px] bg-[#00a2e9]" />
+  <span className="flex-1 h-[2px] bg-[#0f1f3d]" />
 </div>
         <div className="mb-16 md:mb-15 space-y-4">
           {/* <span className="section-eyebrow">Trusted By</span> */}
