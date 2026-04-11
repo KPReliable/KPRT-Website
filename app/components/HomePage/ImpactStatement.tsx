@@ -76,7 +76,7 @@ const ImpactStatement: React.FC<ImpactStatementProps> = ({
 
   return (
     <section className="w-full bg-white py-16 px-6 md:px-12 lg:px-24">
-      <div className="max-w-4xl mx-auto flex flex-col gap-8">
+      <div className="max-w-6xl mx-auto flex flex-col gap-8">
 
         {/* ---- Eyebrow line ---- */}
         <div className="flex items-center gap-3">
