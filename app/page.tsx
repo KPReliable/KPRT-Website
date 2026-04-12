@@ -7,6 +7,7 @@ import Faqs from "./components/Faqs";
 // import BentoGrid from "./components/HomePage/BentoGrid";
 import ImpactStatement from "./components/HomePage/ImpactStatement";
 import TpiValueProposition from "./components/HomePage/TpiValuePreposition";
+import TrainingSection from "./components/HomePage/TainingSection";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       {/* <BentoGrid/> */}
       <TrustBuilders />
       {/* <ExpertCTA /> */}
+      <TrainingSection/>
       <TpiValueProposition/>
       <Faqs/>
    

@@ -53,7 +53,7 @@ const TpiValueProposition: React.FC = () => {
         <div className="mb-16 md:mb-20 space-y-4">
           <h1 
             style={{ color: theme.textMain }} 
-            className="text-3xl md:text-4xl font-extrabold leading-snug tracking-tight"
+            className="text-3xl md:text-4xl  font-bold leading-snug tracking-tight"
           >
             We define Third Party Inspection (TPI) by three key pillars, ensuring we serve as an 
             unbiased, qualified, and neutral entity in your process.

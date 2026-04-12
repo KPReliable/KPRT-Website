@@ -45,8 +45,8 @@ const KeyServices: React.FC = () => {
       <div className="max-w-[1200px] mx-auto">
         
         {/* ---- Header Section ---- */}
-        <div className="mb-20 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font- mb-6 tracking-tight">
+        <div className="mb-20 max-w-6xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
             Three levels at which Fluidic Intelligence operates
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
@@ -69,7 +69,7 @@ const KeyServices: React.FC = () => {
                 <img 
                   src={service.img} 
                   alt={service.label}
-                  className="w-20 h-20 object-cover  z-10  grayscale-0 group-hover:grayscale-0 transition-all duration-500"
+                  className="w-30 h-30 object-cover  z-10  grayscale-0 group-hover:grayscale-0 transition-all duration-500"
                 />
                 
                 {/* Orbiting Ring Effect (CSS only) */}
