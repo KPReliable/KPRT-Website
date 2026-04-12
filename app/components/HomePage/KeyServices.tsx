@@ -7,23 +7,34 @@ import Link from "next/link";
 const SERVICES = [
   {
     id: "engineering",
-    title: "Human and AI collaboration",
+    title: "Supplier Quality Management",
     label: "Engineering",
-    description: "Engineering is evolving. AI no longer just helps us write code; it shapes how we design, test, and improve systems.",
+    description: "End-to-end supplier evaluation, qualification, and ongoing quality monitoring to keep your supply chain compliant.",
+    img:"https://res.cloudinary.com/dinnmia6e/image/upload/v1776008547/Ram12_qltzov.svg",
     href: "/services/engineering"
   },
   {
     id: "technology",
-    title: "AI grounded in real enterprise knowledge",
+    title: "Pre-Dispatch Inspection",
     label: "Technology",
-    description: "Enterprises carry years of hard-won knowledge, but it often sits in silos. Fluidic Intelligence brings it together.",
+    description: "On-site inspection of finished goods before dispatch — ensuring every shipment meets your specifications.",
+    img:"https://res.cloudinary.com/dinnmia6e/image/upload/v1776008547/Ram11_q6kq3a.svg",
     href: "/services/technology"
   },
   {
     id: "enterprise",
-    title: "Intelligence in flow across the enterprise",
+    title: "Quality & Process Audits",
     label: "Enterprise",
-    description: "At the enterprise level, intelligence flows to the right models, systems, and people. Decisions move smoothly.",
+    description: "Systematic audits of manufacturing processes, quality systems, and compliance standards across facilities.",
+    img:"https://res.cloudinary.com/dinnmia6e/image/upload/v1776008547/Ram11_q6kq3a.svg",
+    href: "/services/enterprise"
+  },
+  {
+    id: "enterprise",
+    title: "Quality Training Programs",
+    label: "Enterprise",
+    description: "Customised training workshops on quality tools, standards, and best practices for your teams",
+    img:"https://res.cloudinary.com/dinnmia6e/image/upload/v1776008547/Ram11_q6kq3a.svg",
     href: "/services/enterprise"
   }
 ];
@@ -45,25 +56,25 @@ const KeyServices: React.FC = () => {
         </div>
 
         {/* ---- Grid Layout ---- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {SERVICES.map((service, i) => (
             <div key={service.id} className="group flex flex-col items-start">
               
               {/* Abstract Glowing Icon Container */}
               <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
                 {/* Background Glow */}
-                <div className="absolute inset-0 bg-[#00a2e9] opacity-20 blur-[40px] rounded-full group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#00a2e9] opacity-30 blur-[40px]  group-hover:opacity-40 transition-opacity duration-500" />
                 
                 {/* 3D-ish Decorative Image/Icon */}
                 <img 
-                  src={`https://picsum.photos/seed/${service.id}/200`} 
+                  src={service.img} 
                   alt={service.label}
-                  className="w-20 h-20 object-cover rounded-full z-10 border border-white/20 shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-20 h-20 object-cover rounded-full z-10 shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
                 
                 {/* Orbiting Ring Effect (CSS only) */}
-                <div className="absolute inset-0 border border-[#00a2e9]/30 rounded-full animate-[spin_10s_linear_infinite]" />
-                <div className="absolute inset-2 border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+                {/* <div className="absolute inset-0 border border-[#00a2e9]/30 rounded-full animate-[spin_10s_linear_infinite]" />
+                <div className="absolute inset-2 border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" /> */}
               </div>
 
               {/* Label */}
@@ -72,7 +83,7 @@ const KeyServices: React.FC = () => {
               </span>
 
               {/* Title */}
-              <h3 className="text-2xl font-bold mb-4 leading-snug group-hover:text-[#00a2e9] transition-colors duration-300">
+              <h3 className="text-xl font-bold mb-4 leading-snug group-hover:text-[#00a2e9] transition-colors duration-300">
                 {service.title}
               </h3>
 
