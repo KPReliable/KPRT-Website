@@ -12,6 +12,24 @@ const Footer = () => {
     console.log("Subscribing:", email);
   };
 
+  const SOCIAL_LINKS = [
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/people/KP-Reliable-Technique-India-Pvt-Ltd/61580395486145/",
+      icon: Facebook,
+    },
+    {
+      name: "YouTube",
+      href: "https://www.youtube.com/@kpreliable",
+      icon: Youtube,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/accounts/login/?next=%2Fkp_reliable_official%2F&source=omni_redirect",
+      icon: Instagram,
+    },
+  ];
+
   return (
     <footer className="w-full bg-white font-sans text-[#0f1f3d]">
       {/* --- Top Section: Subscription & Insights --- */}
@@ -113,11 +131,21 @@ const Footer = () => {
 
           {/* Social Icons with Brand Colors */}
           <div className="flex items-center gap-6 text-[#1a3460]">
-            <Facebook size={20} strokeWidth={1.5} className="cursor-pointer hover:text-[#00a2e9] hover:-translate-y-1 transition-all" />
-            <Twitter size={20} strokeWidth={1.5} className="cursor-pointer hover:text-[#00a2e9] hover:-translate-y-1 transition-all" />
-            <Linkedin size={20} strokeWidth={1.5} className="cursor-pointer hover:text-[#00a2e9] hover:-translate-y-1 transition-all" />
-            <Youtube size={20} strokeWidth={1.5} className="cursor-pointer hover:text-[#00a2e9] hover:-translate-y-1 transition-all" />
-            <Instagram size={20} strokeWidth={1.5} className="cursor-pointer hover:text-[#00a2e9] hover:-translate-y-1 transition-all" />
+            {SOCIAL_LINKS.map((social) => {
+              const IconComponent = social.icon;
+              return (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#00a2e9] hover:-translate-y-1 transition-all"
+                  aria-label={social.name}
+                >
+                  <IconComponent size={20} strokeWidth={1.5} />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
