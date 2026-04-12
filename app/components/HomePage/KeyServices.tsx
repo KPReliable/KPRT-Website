@@ -47,11 +47,10 @@ const KeyServices: React.FC = () => {
         {/* ---- Header Section ---- */}
         <div className="mb-20 max-w-6xl">
           <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-            Three levels at which Fluidic Intelligence operates
+           The Four Pillars of Quality Assurance
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            We work at the intersection of engineering, technology, and the enterprise. 
-            We use AI-native engineering to eliminate friction and maintain enterprise flow.
+          <p className="text-gray-400 text-xl leading-relaxed">
+            Integrating specialized inspection talent with robust management systems to eliminate friction and maintain a fluid, compliant manufacturing flow.
           </p>
         </div>
 
