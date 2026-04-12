@@ -10,7 +10,7 @@ const TRAINING_TYPES = [
   {
     id: "onsite",
     number: "01",
-    title: "On-Site Training",
+    title: "Technical Training",
     badge: "At Your Facility",
     description:
       "Our certified trainers come directly to your manufacturing floor. Real-world, hands-on sessions conducted on your equipment, your processes, and your team — ensuring immediate applicability with zero theory-practice gap.",
@@ -38,7 +38,7 @@ const TRAINING_TYPES = [
   {
     id: "virtual",
     number: "02",
-    title: "Virtual Training",
+    title: "IBT Training",
     badge: "Remote Sessions",
     description:
       "Instructor-led live sessions delivered via video conferencing. Structured modules, interactive Q&A, and digital workbooks — full training rigour without travel cost, accessible across all 28 states.",
@@ -67,7 +67,7 @@ const TRAINING_TYPES = [
   {
     id: "certification",
     number: "03",
-    title: "Certification Programs",
+    title: "NPD Training",
     badge: "Industry Recognised",
     description:
       "Structured multi-day programmes with formal assessment, practical tests, and an industry-recognised certificate. Ideal for quality engineers, auditors, and team leads who need verified credentials.",
@@ -143,7 +143,7 @@ const TrainingSection: React.FC = () => {
         {/* ============================================================
             HORIZONTAL TABS
         ============================================================ */}
-        <div className="flex items-stretch border-b border-white/[0.08] mb-10 gap-0 overflow-x-auto">
+        <div className="flex justify-between items-stretch border-b border-white/8 mb-10 gap-0 overflow-x-auto">
           {TRAINING_TYPES.map((t) => {
             const isActive = active === t.id;
             return (
@@ -151,27 +151,17 @@ const TrainingSection: React.FC = () => {
                 key={t.id}
                 onClick={() => setActive(t.id)}
                 className={[
-                  "flex items-center gap-3 px-8 py-5 flex-shrink-0 border-b-2 transition-all duration-200 text-left",
+                  "flex  items-center gap-5 px-8 py-5 shrink-0 border-b-2 transition-all duration-200 text-left",
                   isActive
                     ? "border-[#00a2e9] text-white"
                     : "border-transparent text-white/35 hover:text-white/60",
                 ].join(" ")}
               >
                 {/* 3D Icon */}
-                <div className={[
-                  "w-10 h-10 flex items-center justify-center flex-shrink-0 transition-colors duration-200",
-                  isActive ? "bg-[#00a2e9]/15" : "bg-white/[0.04]",
-                ].join(" ")}>
-                  {t.icon}
-                </div>
+              
 
                 <div className="text-left">
-                  <p className={[
-                    "text-[11px] font-bold tracking-widest mb-0.5 transition-colors duration-200",
-                    isActive ? "text-[#00a2e9]" : "text-white/20",
-                  ].join(" ")}>
-                    {t.number}
-                  </p>
+            
                   <p className={[
                     "text-base font-semibold whitespace-nowrap transition-colors duration-200",
                     isActive ? "text-white" : "",
