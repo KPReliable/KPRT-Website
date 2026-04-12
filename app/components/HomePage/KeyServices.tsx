@@ -63,13 +63,13 @@ const KeyServices: React.FC = () => {
               {/* Abstract Glowing Icon Container */}
               <div className="relative w-32 h-32 mb-8 flex items-center justify-center">
                 {/* Background Glow */}
-                <div className="absolute inset-0 bg-[#00a2e9] opacity-30 blur-[40px]  group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-[#00a2e9] opacity-20 blur-[40px]  group-hover:opacity-40 transition-opacity duration-500" />
                 
                 {/* 3D-ish Decorative Image/Icon */}
                 <img 
                   src={service.img} 
                   alt={service.label}
-                  className="w-20 h-20 object-cover rounded-full z-10 shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-500"
+                  className="w-20 h-20 object-cover  z-10  grayscale-0 group-hover:grayscale-0 transition-all duration-500"
                 />
                 
                 {/* Orbiting Ring Effect (CSS only) */}
