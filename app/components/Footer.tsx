@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Facebook, Linkedin, Instagram, Youtube, Twitter } from "lucide-react";
+
+import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -12,24 +13,34 @@ const Footer = () => {
     console.log("Subscribing:", email);
   };
 
-  const SOCIAL_LINKS = [
-    {
-      name: "Facebook",
-      href: "https://www.facebook.com/people/KP-Reliable-Technique-India-Pvt-Ltd/61580395486145/",
-      icon: Facebook,
-    },
-    {
-      name: "YouTube",
-      href: "https://www.youtube.com/@kpreliable",
-      icon: Youtube,
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/accounts/login/?next=%2Fkp_reliable_official%2F&source=omni_redirect",
-      icon: Instagram,
-    },
-  ];
 
+const SOCIAL_LINKS = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/people/KP-Reliable-Technique-India-Pvt-Ltd/61580395486145/",
+    icon: Facebook,
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@kpreliable",
+    icon: Youtube,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/accounts/login/?next=%2Fkp_reliable_official%2F&source=omni_redirect",
+    icon: Instagram,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/kprt-official/", // 👉 replace with your actual page
+    icon: Linkedin,
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/kprt_official", // 👉 or https://x.com/your-handle
+    icon: Twitter,
+  },
+];
   return (
     <footer className="w-full bg-white font-sans text-[#0f1f3d]">
       {/* --- Top Section: Subscription & Insights --- */}
