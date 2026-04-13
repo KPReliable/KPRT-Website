@@ -8,6 +8,7 @@ import Faqs from "./components/Faqs";
 import ImpactStatement from "./components/HomePage/ImpactStatement";
 import TpiValueProposition from "./components/HomePage/TpiValuePreposition";
 import TrainingSection from "./components/HomePage/TainingSection";
+import ServiceComp from "./components/HomePage/ServiceComponet";
 
 export default function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function HomePage() {
       {/* <ExpertCTA /> */}
       <TrainingSection/>
       <TpiValueProposition/>
+      <ServiceComp/>
       <Faqs/>
    
     </main>
