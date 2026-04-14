@@ -21,7 +21,7 @@ export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   {
     label: "Services",
-    href: "/",
+    href: "/services",
     isMega: true, // Specific flag for the full-width dropdown
   },
   { label: "Industries", href: "/industries" },

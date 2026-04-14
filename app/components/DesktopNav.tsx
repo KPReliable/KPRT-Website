@@ -65,7 +65,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ scrolled = false }) => {
 
             {/* MEGA MENU */}
             {hasMega && isOpen && (
-              <div className="absolute left-0 right-0 top-full w-screen bg-white border-t border-gray-100 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-300">
+              <div className="fixed left-0 top-13 w-full bg-white border-t border-gray-100 shadow-2xl z-50 animate-in fade-in slide-in-from-top-1 duration-300">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10">
                   {SERVICES_DATA.map((service) => (
                     <Link
