@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             : "bg-transparent border-b border-white/10",
         ].join(" ")}
       >
-        <div className="max-w-[1200px] mx-auto h-full px-8 grid grid-cols-[1fr_auto_1fr] items-center">
+        <div className="max-w-300 mx-auto h-full px-8 grid grid-cols-[1fr_auto_1fr] items-center">
 
           {/* ---- Logo ---- */}
           <div className="flex items-center">
