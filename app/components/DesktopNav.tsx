@@ -65,8 +65,8 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ scrolled = false }) => {
 
             {/* MEGA MENU */}
             {hasMega && isOpen && (
-              <div className="fixed left-0 top-13 w-full bg-white border-t border-gray-100 shadow-2xl z-50 animate-in fade-in slide-in-from-top-1 duration-300">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10">
+             <div className="fixed top-13 left-1/2 -translate-x-1/2 w-full max-w-6xl z-50 animate-in fade-in slide-in-from-top-1 bg-white border border-gray-100 shadow-2xl duration-300 rounded-xl">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 p-10 ">
                   {SERVICES_DATA.map((service) => (
                     <Link
                       key={service.category}
@@ -94,7 +94,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ scrolled = false }) => {
                 </div>
 
                 {/* BOTTOM BAR */}
-                <div className="bg-gray-50 py-4 px-10 border-t border-gray-100">
+                {/* <div className="bg-gray-50 py-4 px-10 border-t border-gray-100">
                   <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <p className="text-[11px] text-gray-400">
                       Trusted quality inspection across 28 states in India.
@@ -106,7 +106,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ scrolled = false }) => {
                       Explore All Services →
                     </Link>
                   </div>
-                </div>
+                </div> */}
               </div>
             )}
           </div>
