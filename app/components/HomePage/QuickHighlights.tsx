@@ -67,7 +67,19 @@ const QuickHighlights: React.FC = () => {
         {STATS.map((stat, i) => (
           <StatCard key={stat.label} {...stat} index={i} animate={animate} />
         ))}
+         <div className="stat-card" >
+      <div className="stat-value">
+       Pan
+        <span className="stat-suffix">India</span>
       </div>
+      <div className="stat-label">Presence</div>
+      <div className="stat-bar">
+        <div className="stat-bar-fill" />
+      </div>
+    </div>
+      </div>
+      
+    
     </section>
   );
 };

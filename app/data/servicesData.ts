@@ -2,8 +2,9 @@ export const serviceCards = [
   {
     id: "raw-material-inspection",
     href: "/services/raw-material-inspection",
-  
+    img:"/assets/servicesImages/services6.svg",
     number: "01",
+    
     category: "Pre-Production",
     icon: "fa-box-open",
     title: "Raw Material Inspection",

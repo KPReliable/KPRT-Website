@@ -21,11 +21,25 @@
 --font-body: "Roboto", sans-serif;
 }
 
-body{
-  margin:0px;
-  padding:0px;
+body { padding-top: 0; }
+ 
+/* Hero pages: header overlays, hero fills viewport from very top */
+ 
+/* Non-hero pages: add top offset so content clears the fixed bar */
+.page-offset { padding-top: 48px; }
+ 
+/* Hamburger lines: white over dark hero, dark after scroll */
+header .hamburger-line {
+  background-color: white;
+  transition: background-color 0.3s;
 }
-
+ 
+/* Tailwind's bg-white/90 + backdrop-blur already handles the scrolled state,
+   but some older Safari builds need the -webkit- prefix explicitly: */
+header.scrolled-glass {
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+ 
 
 
 /* ============================================================
@@ -563,7 +577,7 @@ body{
 
 /* ---- Shared Utilities ---- */
 .section-header {
-  text-align: center;
+  /* text-align: left; */
   margin-bottom: 56px;
 }
 
@@ -585,7 +599,7 @@ body{
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
+  font-weight: 800 !important;
   color: var(--color-text);
   line-height: 1.15;
   margin: 0 0 16px;
@@ -673,21 +687,90 @@ body{
 }
 
 /* ============================================================
+   DARK THEME SECTION HEADER (for Key Services & similar dark sections)
+   ============================================================ */
+.section-header--dark {
+   text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-eyebrow--dark {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  background: rgba(0, 162, 233, 0.1);
+  border: 1px solid rgba(0, 162, 233, 0.25);
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.section-title--dark {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 12px;
+}
+
+.section-subtitle--dark {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-white);
+    margin: 0 auto;
+  /* text-align: center; */
+  max-width: 580px;
+  line-height: 1.75;
+}
+
+.service-tag--dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(40, 76, 135, 0.15);
+  border: 1px solid rgba(40, 76, 135, 0.3);
+  color: rgba(40, 76, 135, 0.9);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 5px 12px;
+  border-radius: 12px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+
+.service-tag--dark:hover {
+  background: rgba(40, 76, 135, 0.25);
+  border-color: rgba(40, 76, 135, 0.5);
+  color: var(--color-primary);
+}
+
+/* ============================================================
    HERO BANNER
    ============================================================ */
 .hero {
   /* background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #1e5fa8 100%) !important; */
-background-image: url("/assets/homeImages/home-hero.png") !important;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* background-image: url("/assets/homeImages/home-hero.png") !important; */
 
-  position: relative;
-  overflow: hidden;
+
+ 
   padding: 90px 24px 100px;
   min-height: 620px;
   display: flex;
   align-items: center;
+}
+.hero-cover{
+ position: relative;
+  overflow: hidden;
 }
 
 /* BG decorations */
@@ -698,7 +781,7 @@ background-image: url("/assets/homeImages/home-hero.png") !important;
   inset: 0;
   background-image: 
     /* 1. THE IMAGE (Now on top) */
-    url('/assets/homeImages/kprt13.svg'),
+    url('https://res.cloudinary.com/dinnmia6e/video/upload/v1775722986/HomeVideo_y1cdu9.mp4'),
     
     /* 2. OPTIONAL OVERLAY (Only if you still want to tint the image) */
     linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)),
@@ -974,9 +1057,32 @@ position: relative;
    QUICK HIGHLIGHTS
    ============================================================ */
 .highlights {
-  background: var(--color-primary);
+  position: relative;
+  /* This matches your .hero-bg-grid logic exactly:
+     1. A subtle color overlay (using your primary blue)
+     2. The horizontal grid lines
+     3. The vertical grid lines
+     4. The base background color
+  */
+  background-color: transparent; /* Base color */
+  background-image: 
+    linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)), /* The Tint */
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), /* Horizontal lines */
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px); /* Vertical lines */
+
+  /* Matches the 48px size from your hero */
+  background-size: cover, 48px 48px, 48px 48px;
+  background-position: center;
+  background-repeat: no-repeat, repeat, repeat;
+  
   padding: 0;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.1);
 }
+
+/* Optional: To get those "glow" effects from your hero code, 
+   we can add a subtle radial gradient to the background-image list */
 
 .highlights-inner {
   max-width: var(--max-w);
@@ -1061,30 +1167,34 @@ position: relative;
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  /* Column 1 is 1.5x wider than Column 2 for a nice balance */
+  grid-template-columns: 1.5fr 1fr; 
+  /* Define 3 equal rows for the right side */
+  grid-template-rows: repeat(3, auto); 
+  gap: 16px; 
 }
 
 .service-card {
   background: var(--color-bg-alt);
   border: 1px solid var(--color-border);
   border-radius: 14px;
-  padding: 32px 24px;
+  padding: 24px;      /* Reduced padding from 32px to 24px */
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 12px;          /* Increased gap for better spacing between elements */
   position: relative;
   overflow: hidden;
   transition: all 0.25s;
-  group: true;
+  
+  /* REMOVED: aspect-ratio: 1/1; (This was making cards too tall) */
+  /* REMOVED: justify-content: center; */
 }
-
 .service-card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
+  height: 1px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   transform: scaleX(0);
   transition: transform 0.3s;
@@ -1134,18 +1244,17 @@ position: relative;
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.25;
-  margin: 0;
+  margin-top: 0;      /* REMOVED 112px - this was pushing the text down too far */
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
 .service-card-desc {
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 13px;    /* Slightly smaller for the 3-stack layout */
   color: var(--color-text-muted);
-  line-height: 1.65;
+  line-height: 1.5;
   margin: 0;
-  flex: 1;
 }
 
 .service-card-link {
@@ -2377,4 +2486,28 @@ position: relative;
   .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
   .footer-cta-actions { flex-direction: column; width: 100%; }
   .footer-cta-btn { text-align: center; }
+}
+
+@keyframes dropdown-slide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdown-slide 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes dropdown-hide {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-6px); }
+}
+
+.animate-dropdown-out {
+  animation: dropdown-hide 0.15s ease-in forwards;
 }

@@ -4,36 +4,48 @@ import React from "react";
 import Image from "next/image";
 import { CLIENTS, CERTIFICATIONS } from "@/app/constant/homepage.constants";
 
-const CERT_ICONS: Record<string, React.ReactNode> = {
-  award: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
-      <circle cx="12" cy="8" r="7" />
-      <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
-    </svg>
-  ),
-  "shield-check": (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="M9 12l2 2 4-4" />
-    </svg>
-  ),
-  badge: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
-      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.9l-6.18 3.12L7 14.14 2 9.27l6.91-1.01L12 2z" />
-    </svg>
-  ),
-};
+// const CERT_ICONS: Record<string, React.ReactNode> = {
+//   award: (
+//     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
+//       <circle cx="12" cy="8" r="7" />
+//       <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12" />
+//     </svg>
+//   ),
+//   "shield-check": (
+//     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
+//       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+//       <path d="M9 12l2 2 4-4" />
+//     </svg>
+//   ),
+//   badge: (
+//     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="28" height="28">
+//       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.9l-6.18 3.12L7 14.14 2 9.27l6.91-1.01L12 2z" />
+//     </svg>
+//   ),
+// };
 
 const TrustBuilders: React.FC = () => {
   return (
     <section className="trust" aria-label="Trust Builders">
       <div className="trust-inner">
         {/* Section header */}
-        <div className="section-header">
-          <span className="section-eyebrow">Trusted By</span>
-          <h2 className="section-title">Our Clients &amp; Certifications</h2>
+      <div className="flex items-center gap-4 mb-6 w-full">
+  {/* Left Line */}
+    {/* <span className="block w-10 h-[2px] bg-[#00a2e9]" /> */}
+  
+  {/* Centered Text */}
+  <span className="text-[25px] font-semibold tracking-[0.2em] uppercase text-[#0f1f3d] whitespace-nowrap">
+    Our Beneficiary Clients
+  </span>
+  
+  {/* Right Line */}
+  <span className="flex-1 h-[2px] bg-[#0f1f3d]" />
+</div>
+        <div className="mb-16 md:mb-15 space-y-4">
+          {/* <span className="section-eyebrow">Trusted By</span> */}
+          <h2 className="text-xl  md:text-xl  leading-snug tracking-tight text-[#0f1f3d] "> Partnering with India&apos;s leading manufacturers and backed by internationally recognised quality standards.</h2>
           <p className="section-subtitle">
-            Partnering with India&apos;s leading manufacturers and backed by internationally recognised quality standards.
+           
           </p>
         </div>
 
@@ -60,7 +72,7 @@ const TrustBuilders: React.FC = () => {
         </div>
 
         {/* Certifications */}
-        <div className="trust-certs" aria-label="Certifications">
+        {/* <div className="trust-certs" aria-label="Certifications">
           <p className="trust-certs-label">Certified &amp; Compliant</p>
           <div className="trust-certs-grid">
             {CERTIFICATIONS.map((cert) => (
@@ -75,7 +87,7 @@ const TrustBuilders: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

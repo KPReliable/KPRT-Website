@@ -6,15 +6,26 @@
 /* ============================================================
    PAGE ROOT — full-height centered
    ============================================================ */
+/* 1. Apply the background image to the root container */
 .lp-root {
-  min-height: 100vh;
-  background: var(--color-primary-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px 16px;
-  position: relative;
-  overflow: hidden;
+  min-height: 88vh; /* Ensures the container is at least as tall as the screen */
+  width: 130%;
+  justify-content: left;
+
+  
+  /* Swap order: Image on TOP, Gradient on BOTTOM */
+  background-image: url('https://res.cloudinary.com/dinnmia6e/image/upload/v1775722622/homeBanner2_x5ggpg.svg'),
+                    linear-gradient(to bottom, #f0f2f5, #d9e2ec); /* Use solid colors or soft gradients */
+
+  /* Change 'cover' to 'contain' if you want to see the WHOLE image without cropping */
+  background-size: contain; 
+  
+  /* Or keep 'cover' but adjust the position */
+  background-position: right;
+  background-repeat: no-repeat;
+  
+  /* Prevent the background from moving when you scroll */
+  background-attachment: fixed;
 }
 
 /* Subtle background blobs */
@@ -24,13 +35,14 @@
   filter: blur(90px);
   pointer-events: none;
   z-index: 0;
+  display:none;
 }
 
 .lp-bg-blob--1 {
   width: 480px;
   height: 480px;
-  background: rgba(0, 162, 233, 0.12);
-  top: -120px;
+  background: rgba(37, 152, 201, 0.12);
+  top: -20px;
   right: -80px;
 }
 
@@ -46,31 +58,22 @@
    CARD
    ============================================================ */
 .lp-card {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 560px;
+  background: transparent;
   
-  /* --- IMAGE BACKGROUND START --- */
-  /* This creates a 94% white tint over your image so text stays readable */
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.94), 
-      rgba(255, 255, 255, 0.94)
-    ), 
-    url("/assets/login/login.jpeg");
+  padding: px;
+  padding-left: 190px;
+  padding-top: 50px;
+  padding-bottom: 0px;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 110%;
   
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* --- IMAGE BACKGROUND END --- */
+  /* Remove shadow */
+  box-shadow: none !important; 
+  
+  /* Optional: Add a subtle border if it feels too 'flat' against the background */
 
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 40px 40px 32px;
-  box-shadow: 0 8px 40px rgba(40, 76, 135, 0.1), 0 1px 4px rgba(40, 76, 135, 0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+ 
   
   /* Optional: adds a smooth feel when switching between Login and Register */
   transition: all 0.3s ease-in-out;
@@ -125,11 +128,11 @@
 .lp-tabs {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 2fr;
   background: var(--color-primary-light);
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 4px;
+  border: 3px solid var(--color-border);
+  border-radius: 20px;
+  padding: 12px;
   overflow: hidden;
 }
 
@@ -142,8 +145,8 @@
   color: var(--color-text-muted);
   background: transparent;
   border: none;
-  border-radius: 7px;
-  padding: 10px 16px;
+  border-radius: 9px;
+  padding: px 16px;
   cursor: pointer;
   transition: color 0.2s;
 }
@@ -153,11 +156,11 @@
 .lp-tab-indicator {
   position: absolute;
   top: 4px;
-  left: 4px;
+  left: 2px;
   width: calc(50% - 4px);
   height: calc(100% - 8px);
   background: var(--color-white);
-  border-radius: 7px;
+  border-radius: 8px;
   box-shadow: 0 1px 6px rgba(40, 76, 135, 0.1);
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
@@ -170,14 +173,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text);
   background: var(--color-white);
-  border: 1.5px solid var(--color-border);
+  border: 2.5px solid var(--color-border);
   border-radius: 9px;
   padding: 11px 20px;
   cursor: pointer;
@@ -205,7 +208,7 @@
 
 .lp-divider-line {
   flex: 1;
-  height: 1px;
+  height: 3px;
   background: var(--color-border);
 }
 
@@ -222,13 +225,13 @@
 .lp-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 2px;
 }
 
 .lp-field {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
 }
 
 .lp-label-row {

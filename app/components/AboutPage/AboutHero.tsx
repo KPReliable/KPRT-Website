@@ -1,4 +1,5 @@
 import Link from "next/link";
+// import React from "react";
 import { aboutStats } from "../../data/aboutData";
 
 export default function AboutHero() {

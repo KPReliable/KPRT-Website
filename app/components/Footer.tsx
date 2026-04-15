@@ -3,247 +3,163 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-/* ---- Data ---- */
-const FOOTER_LINKS = {
-  Services: [
-    { label: "Supplier Quality Management", href: "/services/supplier-quality" },
-    { label: "Pre-Dispatch Inspection",      href: "/services/pdi" },
-    { label: "Quality & Process Audits",     href: "/services/audits" },
-    { label: "Training Programs",            href: "/services/training" },
-  ],
-  Industries: [
-    { label: "Automotive",        href: "/industries/automotive" },
-    { label: "Electronics",       href: "/industries/electronics" },
-    { label: "Heavy Machinery",   href: "/industries/heavy-machinery" },
-    { label: "Consumer Goods",    href: "/industries/consumer-goods" },
-    { label: "Textiles & Apparel",href: "/industries/textiles" },
-    { label: "Plastics & Rubber", href: "/industries/plastics" },
-  ],
-  Company: [
-    { label: "About Us",   href: "/about" },
-    { label: "Our Team",   href: "/about#team" },
-    { label: "Careers",    href: "/careers" },
-    { label: "Resources",  href: "/resources" },
-    { label: "Contact Us", href: "/contact" },
-  ],
-  Legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service",href: "/terms" },
-    { label: "Cookie Policy",  href: "/cookies" },
-    { label: "Disclaimer",     href: "/disclaimer" },
-  ],
-};
+import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "lucide-react";
 
-const SOCIAL = [
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-        <circle cx="4" cy="4" r="2"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Twitter / X",
-    href: "https://twitter.com",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "YouTube",
-    href: "https://youtube.com",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-        <path d="M23 7s-.3-1.9-1.1-2.7c-1.1-1.1-2.3-1.1-2.8-1.2C16.2 3 12 3 12 3s-4.2 0-7.1.1c-.6.1-1.8.1-2.8 1.2C1.3 5.1 1 7 1 7S.7 9.1.7 11.3v2c0 2.1.3 4.3.3 4.3s.3 1.9 1.1 2.7c1.1 1.1 2.5 1 3.1 1.1C7.2 21.5 12 21.5 12 21.5s4.2 0 7.1-.2c.6-.1 1.8-.1 2.8-1.2.8-.8 1.1-2.7 1.1-2.7s.3-2.1.3-4.3v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l7.6 3.6-7.6 3.5z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "WhatsApp",
-    href: "https://wa.me/919876543210",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-    ),
-  },
-];
-
-const CERTIFICATIONS = ["ISO 9001:2015", "IATF 16949", "ISO 45001"];
-
-/* ---- Component ---- */
-const Footer: React.FC = () => {
-  const [email, setEmail]       = useState("");
-  const [subscribed, setSubscribed] = useState(false);
+const Footer = () => {
+  const [email, setEmail] = useState("");
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email.trim()) { setSubscribed(true); setEmail(""); }
+    console.log("Subscribing:", email);
   };
 
+
+const SOCIAL_LINKS = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/people/KP-Reliable-Technique-India-Pvt-Ltd/61580395486145/",
+    icon: Facebook,
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@kpreliable",
+    icon: Youtube,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/accounts/login/?next=%2Fkp_reliable_official%2F&source=omni_redirect",
+    icon: Instagram,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/kprt-official/", // 👉 replace with your actual page
+    icon: Linkedin,
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/kprt_official", // 👉 or https://x.com/your-handle
+    icon: Twitter,
+  },
+];
   return (
-    <footer className="footer">
-
-      {/* ======================================================
-          CTA STRIP
-      ====================================================== */}
-      <div className="footer-cta-strip">
-        {/* <div className="footer-cta-inner">
-          <div className="footer-cta-text">
-            <span className="footer-cta-dot" aria-hidden="true" />
-            Trusted by 500+ manufacturers across India — get in touch today.
-          </div>
-          <div className="footer-cta-actions">
-            <Link href="/contact" className="footer-cta-btn">Talk to an Expert</Link>
-            <Link href="/quote"   className="footer-cta-btn footer-cta-btn--ghost">Get a Quote</Link>
-          </div>
-        </div> */}
-      </div>
-
-      {/* ======================================================
-          MAIN BODY
-      ====================================================== */}
-      <div className="footer-body">
-        <div className="footer-body-inner">
-
-          {/* Brand column */}
-          <div className="footer-brand">
-            {/* Logo */}
-            <Link href="/" className="footer-logo" aria-label="QualityInspect Home">
-              <div className="footer-logo-mark">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-                </svg>
-              </div>
-              <div>
-                <p className="footer-logo-name">KP Reliable</p>
-                <p className="footer-logo-sub">Inspection &amp; Quality Services</p>
-              </div>
-            </Link>
-
-            {/* Description */}
-            <p className="footer-brand-desc">
-              India&apos;s trusted partner for supplier quality management,
-              pre-dispatch inspections, process audits, and quality training —
-              serving 20+ industries across all 28 states.
-            </p>
-
-            {/* Cert badges */}
-            <div className="footer-certs">
-              {CERTIFICATIONS.map((c) => (
-                <span key={c} className="footer-cert-badge">{c}</span>
-              ))}
-            </div>
-
-            {/* Social icons */}
-            <div className="footer-social">
-              {SOCIAL.map((s) => (
-                <Link
-                  key={s.label}
-                  href={s.href}
-                  className="footer-social-btn"
-                  aria-label={s.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {s.icon}
-                </Link>
-              ))}
-            </div>
-
-            {/* Quick contact */}
-            <div className="footer-quick-contact">
-              <a href="tel:+919876543210" className="footer-quick-item">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
-                  <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
-                </svg>
-                +91 98765 43210
-              </a>
-              <a href="mailto:info@qualityinspect.in" className="footer-quick-item">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-                info@qualityinspect.in
-              </a>
-            </div>
+    <footer className="w-full bg-white font-sans text-[#0f1f3d]">
+      {/* --- Top Section: Subscription & Insights --- */}
+      <div className="max-w-[1400px] mx-auto py-16 md:py-24 px-6 md:px-12 border-b border-gray-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          
+          {/* Headline */}
+          <div className="lg:max-w-md">
+            <h2 className="text-3xl md:text-4xl font-normal leading-tight tracking-tight">
+              Stay up to date with insights from <span className="font-semibold text-[#1a3460]">KP Reliable!</span>
+            </h2>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
-            <nav key={heading} className="footer-col" aria-label={`${heading} links`}>
-              <h4 className="footer-col-heading">{heading}</h4>
-              <ul className="footer-col-list">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="footer-col-link">
-                      <span className="footer-col-dot" aria-hidden="true" />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-
-          {/* Newsletter column */}
-          <div className="footer-newsletter">
-            <h4 className="footer-col-heading">Stay Updated</h4>
-            <p className="footer-nl-desc">
-              Quality insights and inspection checklists — straight to your inbox. No spam.
-            </p>
-
-            {subscribed ? (
-              <div className="footer-nl-success">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"
-                  strokeLinecap="round" strokeLinejoin="round" width="15" height="15">
-                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
-                You&apos;re subscribed!
-              </div>
-            ) : (
-              <form onSubmit={handleSubscribe} className="footer-nl-form">
+          {/* Subscription Form Area */}
+          <div className="w-full max-w-2xl ml-auto">
+            <form onSubmit={handleSubscribe} className="space-y-6">
+              
+              {/* Pill-shaped Input Group */}
+              <div className="relative flex items-center p-1.5 border border-gray-300 rounded-full focus-within:border-[#00a2e9] focus-within:ring-1 focus-within:ring-[#00a2e9] transition-all bg-white shadow-sm">
                 <input
                   type="email"
+                  placeholder="Email address"
+                  className="flex-1 bg-transparent px-6 py-3 outline-none text-sm placeholder:text-gray-400"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Your email address"
-                  className="footer-nl-input"
                   required
-                  aria-label="Email for newsletter"
                 />
-                <button type="submit" className="footer-nl-btn">Subscribe</button>
-              </form>
-            )}
-          </div>
+                <button
+                  type="submit"
+                  className="bg-[#1a3460] hover:bg-[#284c87] text-white px-10 py-3 rounded-full text-sm font-bold transition-all active:scale-95"
+                >
+                  Subscribe
+                </button>
+              </div>
 
+              {/* Legal & Consent Checkboxes */}
+              <div className="space-y-5 text-[13px] leading-relaxed text-[#5a6a85] pl-2">
+                
+                {/* Marketing Consent */}
+                <label className="flex items-start gap-4 cursor-pointer group">
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    <input type="checkbox" className="peer sr-only" required />
+                    <div className="w-5 h-5 border border-gray-300 rounded-full peer-checked:bg-[#00a2e9] peer-checked:border-[#00a2e9] transition-all flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+                    </div>
+                  </div>
+                  <span className="group-hover:text-[#0f1f3d] transition-colors">
+                    Yes, I would like to receive marketing communications from KP Reliable. I can unsubscribe at any time.
+                  </span>
+                </label>
+
+                {/* Privacy Consent */}
+                <label className="flex items-start gap-4 cursor-pointer group">
+                  <div className="relative flex-shrink-0 mt-0.5">
+                    <input type="checkbox" className="peer sr-only" required />
+                    <div className="w-5 h-5 border border-gray-300 rounded-full peer-checked:bg-[#00a2e9] peer-checked:border-[#00a2e9] transition-all flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full scale-0 peer-checked:scale-100 transition-transform" />
+                    </div>
+                  </div>
+                  <span className="group-hover:text-[#0f1f3d] transition-colors">
+                    I agree to the <Link href="/privacy" className="text-[#284c87] font-bold hover:underline underline-offset-4 decoration-[#00a2e9]">Privacy Notice</Link> and to the handling of my personal information.*
+                  </span>
+                </label>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
 
-      {/* ======================================================
-          BOTTOM BAR
-      ====================================================== */}
-      <div className="footer-bottom">
-        <div className="footer-bottom-inner">
-          <p className="footer-copy">
-            © {new Date().getFullYear()} QualityInspect Pvt. Ltd. All rights reserved.
-          </p>
-          <div className="footer-bottom-links">
-            <Link href="/privacy"  className="footer-bottom-link">Privacy</Link>
-            <span className="footer-bottom-sep" aria-hidden="true" />
-            <Link href="/terms"    className="footer-bottom-link">Terms</Link>
-            <span className="footer-bottom-sep" aria-hidden="true" />
-            <Link href="/sitemap"  className="footer-bottom-link">Sitemap</Link>
+      {/* --- Bottom Section: Branding & Utilities --- */}
+      <div className="max-w-[1400px] mx-auto py-10 px-6 md:px-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          
+          {/* Logo Section */}
+          <div className="flex items-center gap-4">
+             <div className="flex items-center gap-2 group cursor-default">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
+                       <img
+                src="https://res.cloudinary.com/dinnmia6e/image/upload/v1775933355/logo-minimal_2_t2zb9g.png"
+                alt="KP Reliable Logo"
+                className="w-6 h-6"
+              />
+                </div>
+                <span className="font-bold text-xl tracking-tighter text-[#1a3460]">
+                  kp reliable</span>
+             </div>
+             <span className="text-gray-300 text-sm font-light select-none">|</span>
+             <span className="text-gray-400 text-sm font-medium">© 2026</span>
           </div>
-          <p className="footer-made">Made with care in India 🇮🇳</p>
+
+          {/* Utility Navigation */}
+          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[13px] font-medium text-[#5a6a85] lowercase">
+            <Link href="/contact" className="hover:text-[#00a2e9] transition-colors">contact us</Link>
+            <Link href="/privacy" className="hover:text-[#00a2e9] transition-colors">privacy notice</Link>
+            <Link href="/careers/privacy" className="hover:text-[#00a2e9] transition-colors">applicant privacy notice</Link>
+            <Link href="/imprint" className="hover:text-[#00a2e9] transition-colors">imprint</Link>
+            <Link href="/sitemap" className="hover:text-[#00a2e9] transition-colors">sitemap</Link>
+          </nav>
+
+          {/* Social Icons with Brand Colors */}
+          <div className="flex items-center gap-6 text-[#1a3460]">
+            {SOCIAL_LINKS.map((social) => {
+              const IconComponent = social.icon;
+              return (
+                <Link
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#00a2e9] hover:-translate-y-1 transition-all"
+                  aria-label={social.name}
+                >
+                  <IconComponent size={20} strokeWidth={1.5} />
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
-
     </footer>
   );
 };

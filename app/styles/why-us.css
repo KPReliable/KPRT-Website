@@ -54,7 +54,7 @@
    ============================================================ */
 .why-hero {
   /* 1. Add your image and set it to cover the entire section */
-  background-image: url('/assets/whyusImages/whyus1.svg'); 
+  background-image: url('https://res.cloudinary.com/dinnmia6e/image/upload/v1775544384/whyus1_mzrhiw.svg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
