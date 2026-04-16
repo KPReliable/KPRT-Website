@@ -6,6 +6,7 @@ import Image from "next/image"; // 1. Added next/image import
 import { INDUSTRIES } from "@/app/constant/industries.constants";
 import IndustryCard from "@/app/components/IndustriesWeServe/IndustryCard";
 import KprtianCards from "@/app/components/IndustriesWeServe/KprtianCards";
+import Banner from "@/app/components/IndustriesWeServe/Banner";
 
 const FILTERS = ["All", "Automotive", "Electronics", "Heavy Machinery", "Consumer Goods", "Others"];
 
@@ -86,6 +87,7 @@ const IndustriesWeServe: React.FC = () => {
             </p>
           </div>
           <KprtianCards />
+          <Banner />
           {/* ---- Filter tabs ---- */}
           <div className="ind-filters" role="tablist" aria-label="Filter industries">
             {FILTERS.map((f) => (

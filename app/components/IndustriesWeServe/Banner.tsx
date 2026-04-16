@@ -1,0 +1,43 @@
+import React from 'react';
+
+export default function Banner() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-[2fr_4fr_4fr] min-h-[450px] w-full max-w-7xl mx-auto rounded-md overflow-hidden font-sans">
+      
+      {/* --- Left Section --- */}
+      <div className="bg-[#2047e5d4] p-10 flex flex-col justify-between min-h-[300px] md:min-h-full">
+        <div className="text-lg font-medium text-gray-800">c-suite</div>
+        <button className="self-start px-6 py-2.5 border border-[#c2c5ce] bg-transparent rounded-full text-sm text-[#0b1c3c] cursor-pointer transition-colors duration-300 hover:bg-[#e2e4ea]">
+          Know more
+        </button>
+      </div>
+
+      {/* --- Middle Section --- */}
+      <div 
+        className="relative p-10 flex flex-col justify-end text-white min-h-[300px] md:min-h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(16, 16, 50, 0.7), rgba(80, 20, 80, 0.4)), url('https://res.cloudinary.com/dinnmia6e/image/upload/v1776365638/environmental-pollution-factory-exterior-night_mlgul4.jpg')`
+        }}
+      >
+        
+
+        <h2 className="text-[1.4rem] font-medium leading-relaxed">
+          AI Agents: The next frontier for enterprise decision-makers
+        </h2>
+      </div>
+
+      {/* --- Right Section --- */}
+      <div 
+        className="p-10 flex flex-col justify-end text-white min-h-[300px] md:min-h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)), url('https://res.cloudinary.com/dinnmia6e/image/upload/v1776365122/environmental-pollution-factory-exterior-night_1_iyutjg.jpg')`
+        }}
+      >
+        <h2 className="text-[1.4rem] font-medium leading-relaxed">
+          AI Agents: The next frontier for enterprise decision-makers
+        </h2>
+      </div>
+
+    </div>
+  );
+}
