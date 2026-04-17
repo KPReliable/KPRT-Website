@@ -2,12 +2,12 @@ import React from 'react';
 
 export default function Banner() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[2fr_4fr_4fr] min-h-[450px] w-full max-w-7xl mx-auto rounded-md overflow-hidden font-sans">
+    <div className="grid mt-8 mb-8 grid-cols-1 md:grid-cols-[2fr_4fr_4fr] min-h-[450px] w-full max-w-7xl mx-auto rounded-md overflow-hidden font-sans">
       
       {/* --- Left Section --- */}
-      <div className="bg-[#2047e5d4] p-10 flex flex-col justify-between min-h-[300px] md:min-h-full">
-        <div className="text-lg font-medium text-gray-800">c-suite</div>
-        <button className="self-start px-6 py-2.5 border border-[#c2c5ce] bg-transparent rounded-full text-sm text-[#0b1c3c] cursor-pointer transition-colors duration-300 hover:bg-[#e2e4ea]">
+      <div className="grdient-bg p-10 flex flex-col justify-between min-h-[300px] md:min-h-full">
+        <div className="text-lg font-medium text-white">c-suite</div>
+        <button className="self-start px-6 py-2.5 border border-[#c2c5ce] bg-transparent rounded-full text-sm text-white cursor-pointer transition-colors duration-300 hover:bg-[#e2e4ea]">
           Know more
         </button>
       </div>

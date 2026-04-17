@@ -1,8 +1,8 @@
 import IndustriesWeServe from "@/app/components/IndustriesWeServe/IndustriesWeServe";
-// import "@/app/styles/header.css";
-// import "@/app/globals.css"
-// import "@/app/styles/industries.css"
-// import "@/app/styles/homepage.css"
+import VideoHeroSection from "../components/IndustriesWeServe/VideoHeaderSection";
+import Banner from "../components/IndustriesWeServe/Banner";
+import ModernizationSection from "../components/IndustriesWeServe/ModernizationSection";
+import IndustriesFilter from "../components/IndustriesWeServe/IndustriesFilter";
 
 export const metadata = {
   title: "Industries We Serve | QualityInspect",
@@ -14,6 +14,11 @@ export default function IndustriesPage() {
   return (
     <main>
       <IndustriesWeServe />
+        {/* <KprtianCards /> */}
+          <Banner />
+          <IndustriesFilter/>
+          <ModernizationSection/>
+          <VideoHeroSection/>
     </main>
   );
 }
