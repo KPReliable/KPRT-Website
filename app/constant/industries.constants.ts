@@ -21,7 +21,7 @@ export const INDUSTRIES: Industry[] = [
     },
   },
   {
-    id: "electronics",
+    id: "Railways",
     icon: "circuit",
     title: "Electronics",
     subtitle: "Consumer Electronics, PCB & Components",
@@ -59,7 +59,7 @@ export const INDUSTRIES: Industry[] = [
     },
   },
   {
-    id: "consumer-goods",
+    id: "Civil & Constructions",
     icon: "box",
     title: "Consumer Goods",
     subtitle: "Appliances, Packaging & FMCG",
@@ -78,7 +78,7 @@ export const INDUSTRIES: Industry[] = [
     },
   },
   {
-    id: "textiles",
+    id: "Acedmic",
     icon: "fabric",
     title: "Textiles & Apparel",
     subtitle: "Fabric, Garments & Technical Textiles",
