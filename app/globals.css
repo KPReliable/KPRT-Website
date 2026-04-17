@@ -1431,6 +1431,10 @@ position: relative;
   overflow: hidden;
 }
 
+.grdient-bg{
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, #1e5fa8 100%);
+}
+
 .expert-cta-bg { position: absolute; inset: 0; pointer-events: none; }
 
 .expert-cta-blob {
