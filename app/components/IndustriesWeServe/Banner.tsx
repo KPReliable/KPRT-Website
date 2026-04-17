@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Banner() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[2fr_4fr_4fr] min-h-[450px] w-full max-w-7xl mx-auto rounded-md overflow-hidden font-sans">
+    <div className="grid mt-8 mb-8 grid-cols-1 md:grid-cols-[2fr_4fr_4fr] min-h-[450px] w-full max-w-7xl mx-auto rounded-md overflow-hidden font-sans">
       
       {/* --- Left Section --- */}
       <div className="bg-[#2047e5d4] p-10 flex flex-col justify-between min-h-[300px] md:min-h-full">

@@ -1,26 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image"; // 1. Added next/image import
 import { INDUSTRIES } from "@/app/constant/industries.constants";
 import IndustryCard from "@/app/components/IndustriesWeServe/IndustryCard";
 import KprtianCards from "@/app/components/IndustriesWeServe/KprtianCards";
-import Banner from "@/app/components/IndustriesWeServe/Banner";
+// import Banner from "@/app/components/IndustriesWeServe/Banner";
+// import ModernizationSection from '@/app/components/IndustriesWeServe/ModernizationSection'
 
 const FILTERS = ["All", "Automotive", "Electronics", "Heavy Machinery", "Consumer Goods", "Others"];
 
 const IndustriesWeServe: React.FC = () => {
-  const [active, setActive] = useState("All");
 
-  const filtered =
-    active === "All"
-      ? INDUSTRIES
-      : active === "Others"
-      ? INDUSTRIES.filter((i) => ["textiles", "plastics"].includes(i.id))
-      : INDUSTRIES.filter((i) =>
-          i.title.toLowerCase().includes(active.toLowerCase())
-        );
 
   return (
     // 2. Wrapped everything in a <main> tag
@@ -87,31 +79,11 @@ const IndustriesWeServe: React.FC = () => {
             </p>
           </div>
           <KprtianCards />
-          <Banner />
+      
           {/* ---- Filter tabs ---- */}
-          <div className="ind-filters" role="tablist" aria-label="Filter industries">
-            {FILTERS.map((f) => (
-              <button
-                key={f}
-                role="tab"
-                aria-selected={active === f}
-                className={`ind-filter-btn${active === f ? " ind-filter-btn--active" : ""}`}
-                onClick={() => setActive(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
-
-          {/* ---- Cards grid ---- */}
-          <div className="ind-grid">
-            {filtered.map((industry, i) => (
-              <IndustryCard key={industry.id} industry={industry} index={i} />
-            ))}
-          </div>
-
-          {/* ---- Bottom CTA strip ---- */}
-          <div className="ind-cta-strip">
+        
+        
+          {/* <div className="ind-cta-strip">
             <div className="ind-cta-strip-content">
               <div>
                 <p className="ind-cta-strip-title">Don&apos;t see your industry?</p>
@@ -126,7 +98,7 @@ const IndustriesWeServe: React.FC = () => {
                 </svg>
               </Link>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </section>
