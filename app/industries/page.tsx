@@ -1,9 +1,5 @@
 import IndustriesWeServe from "@/app/components/IndustriesWeServe/IndustriesWeServe";
-// import "@/app/styles/header.css";
-// import "@/app/globals.css"
-// import "@/app/styles/industries.css"
-// import "@/app/styles/homepage.css"
-// import KprtianCards from "../components/IndustriesWeServe/KprtianCards";
+import VideoHeroSection from "../components/IndustriesWeServe/VideoHeaderSection";
 import Banner from "../components/IndustriesWeServe/Banner";
 import ModernizationSection from "../components/IndustriesWeServe/ModernizationSection";
 import IndustriesFilter from "../components/IndustriesWeServe/IndustriesFilter";
@@ -22,6 +18,7 @@ export default function IndustriesPage() {
           <Banner />
           <IndustriesFilter/>
           <ModernizationSection/>
+          <VideoHeroSection/>
     </main>
   );
 }
