@@ -19,7 +19,7 @@ export const departmentFilters: DepartmentFilter[] = [
 export const jobs: Job[] = [
   {
     id: "1",
-    title: "Senior Quality Inspector – Automotive",
+    title: "Quality Engineer",
     department: "Quality Engineering",
     departmentKey: "quality",
     location: "Pune",
@@ -111,62 +111,53 @@ export const values: Value[] = [
   {
     icon: "🎯",
     title: "Meaningful Work",
-    description:
-      "Your work directly impacts product safety and quality for millions of end users across India and beyond.",
+    description: "Your work directly impacts product safety and quality for millions of end users across India and beyond.",
   },
   {
     icon: "📈",
     title: "Growth & Learning",
-    description:
-      "Structured training programs, certifications, and mentorship pathways to help you grow at every stage.",
+    description: "Structured training programs, certifications, and mentorship pathways to help you grow at every stage.",
   },
   {
     icon: "🌍",
     title: "Pan-India Exposure",
-    description:
-      "Work across different states, industries, and client environments — no two days are the same.",
+    description: "Work across different states, industries, and client environments — no two days are the same.",
   },
   {
     icon: "🤝",
     title: "Collaborative Culture",
-    description:
-      "A flat hierarchy where your ideas are heard, respected, and often implemented at the ground level.",
+    description: "A flat hierarchy where your ideas are heard, respected, and often implemented at the ground level.",
   },
   {
     icon: "🏅",
     title: "Recognition & Rewards",
-    description:
-      "Performance-linked incentives, annual awards, and a culture that celebrates individual and team wins.",
+    description: "Performance-linked incentives, annual awards, and a culture that celebrates individual and team wins.",
   },
   {
     icon: "⚖️",
     title: "Work-Life Balance",
-    description:
-      "Flexible schedules, remote-friendly roles, and leave policies designed to respect your personal time.",
+    description: "Flexible schedules, remote-friendly roles, and leave policies designed to respect your personal time.",
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
     initials: "RK",
-    quote:
-      "Joining here was the best career decision I made. Within two years I went from inspector to team lead. The growth is real and the support is genuine.",
+    quote: "Joining here was the best career decision I made. Within two years I went from inspector to team lead. The growth is real and the support is genuine.",
     name: "Rajesh Kumar",
     role: "Team Lead – Quality",
     tenure: "Pune · 4 years",
   },
   {
     initials: "PS",
-    quote:
-      "I've worked across three cities and different industries — all within this one company. The cross-sector exposure simply can't be found elsewhere.",
+    quote: "I've worked across three cities and different industries — all within this one company. The cross-sector exposure simply can't be found elsewhere.",
     name: "Priya Sharma",
     role: "Sr. Auditor – Compliance",
     tenure: "Chennai · 6 years",
   },
   {
     initials: "AM",
-    quote:
-      "The training programs here are world-class. My ISO Lead Auditor certification was fully sponsored within my first year. That says everything about how they invest in people.",
+    quote: "The training programs here are world-class. My ISO Lead Auditor certification was fully sponsored within my first year. That says everything about how they invest in people.",
     name: "Arjun Mehta",
     role: "Training Specialist",
     tenure: "Delhi NCR · 3 years",

@@ -1,75 +1,78 @@
-import { oemClients } from "../../data/whyData";
+import React from 'react';
 
-const industryColors: Record<string, string> = {
-  Automotive: "oem-badge--auto",
-  Electronics: "oem-badge--elec",
-  "Heavy Machinery": "oem-badge--heavy",
-  Metals: "oem-badge--metal",
-};
+interface Capability {
+  title: string;
+  description: string;
+}
 
-// Duplicate array for seamless infinite marquee
-const marqueeClients = [...oemClients, ...oemClients];
+const capabilities: Capability[] = [
+  {
+    title: 'Voice Engines',
+    description: 'Reusable voiceprints with tone sliders, terminology locks, and approval flows.',
+  },
+  {
+    title: 'Narrative Systems',
+    description: 'Story arcs, scripts, and campaigns with style and safety guardrails.',
+  },
+  {
+    title: 'Multilingual',
+    description: 'Meaning-preserving, idiom-aware adaptation across priority locales.',
+  },
+  {
+    title: 'Dialogue & UX',
+    description: 'Product, agent, and game dialogue kept consistent across releases.',
+  },
+  {
+    title: 'QA & Safety',
+    description: 'Style checks, bias/safety screens, factuality passes, human review.',
+  },
+];
 
-export default function TrustedByOEMs() {
+const TrustedByOEMs = () => {
   return (
-    <section className="trusted-oems">
-      <div className="trusted-oems__inner">
-        {/* Header */}
-        <div className="trusted-oems__header">
-          <span className="section-eyebrow">Trusted By</span>
-          <h2 className="section-title">
-            India&apos;s Top <span>OEMs & Manufacturers</span>
-          </h2>
-          <p className="section-subtitle">
-            When quality is non-negotiable, India&apos;s most demanding OEMs
-            and global Tier-1 suppliers choose KPRT.
-          </p>
-        </div>
+    <section className="bg-[#f8f6f4] py-16 px-6 md:px-12 lg:px-24 font-sans">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Header Tile */}
+          <div className="flex items-center p-8">
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 leading-tight">
+              What we make <br /> with language <br /> and AI
+            </h2>
+          </div>
 
-        {/* Marquee */}
-        <div className="trusted-oems__marquee-wrap">
-          <div className="trusted-oems__marquee">
-            {marqueeClients.map((client, i) => (
-              <div key={`${client.name}-${i}`} className="trusted-oems__logo-card">
-                <div className="trusted-oems__logo-avatar">{client.initials}</div>
-                <div className="trusted-oems__logo-info">
-                  <div className="trusted-oems__logo-name">{client.name}</div>
-                  <span className={`oem-badge ${industryColors[client.industry] ?? ""}`}>
-                    {client.industry}
-                  </span>
+          {/* Feature Cards */}
+          {capabilities.map((item, index) => (
+            <div 
+              key={index} 
+              className="bg-white rounded-xl p-8 shadow-sm flex flex-col justify-between min-h-[280px]"
+            >
+              {/* Bracketed Title Container */}
+              <div className="relative inline-block self-start mb-6">
+                <div className="flex items-center px-6 py-2 relative">
+                  {/* Left Bracket */}
+                  <div className="absolute left-0 top-0 bottom-0 w-3 border-l-2 border-t-2 border-b-2 border-[#2957ff] rounded-l-lg"></div>
+                  
+                  <h3 className="text-xl font-mono text-gray-800">
+                    {item.title}
+                  </h3>
+                  
+                  {/* Right Bracket */}
+                  <div className="absolute right-0 top-0 bottom-0 w-3 border-r-2 border-t-2 border-b-2 border-[#ff4d29] rounded-r-lg"></div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
 
-        {/* Bottom stats strip */}
-        <div className="trusted-oems__strip">
-          <div className="trusted-oems__strip-item">
-            <i className="fas fa-car" />
-            <strong>6+</strong>
-            <span>Automotive OEMs</span>
-          </div>
-          <div className="trusted-oems__strip-divider" />
-          <div className="trusted-oems__strip-item">
-            <i className="fas fa-industry" />
-            <strong>5+</strong>
-            <span>Industry Sectors</span>
-          </div>
-          <div className="trusted-oems__strip-divider" />
-          <div className="trusted-oems__strip-item">
-            <i className="fas fa-map-marker-alt" />
-            <strong>Pan-India</strong>
-            <span>Coverage</span>
-          </div>
-          <div className="trusted-oems__strip-divider" />
-          <div className="trusted-oems__strip-item">
-            <i className="fas fa-star" />
-            <strong>90%+</strong>
-            <span>Repeat Engagement</span>
-          </div>
+              {/* Description */}
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+          
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default TrustedByOEMs;

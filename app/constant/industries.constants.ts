@@ -23,7 +23,7 @@ export const INDUSTRIES: Industry[] = [
   {
     id: "Railways",
     icon: "circuit",
-    title: "Electronics",
+    title: "Railways",
     subtitle: "Consumer Electronics, PCB & Components",
     description:
       "Pre-dispatch and incoming inspections for electronics manufacturers — covering PCB assemblies, finished goods, packaging checks, and supplier audits.",
@@ -39,29 +39,11 @@ export const INDUSTRIES: Industry[] = [
       metricLabel: "Drop in customer complaints",
     },
   },
-  {
-    id: "heavy-machinery",
-    icon: "gear",
-    title: "Heavy Machinery",
-    subtitle: "Engineering, Castings & Fabrication",
-    description:
-      "Dimensional, visual and NDT inspections for castings, forgings, fabricated structures and heavy engineering components across diverse manufacturing setups.",
-    tags: ["Castings & Forgings", "Fabrication QC", "NDT Inspection", "Dimensional Checks", "Structural Audits"],
-    accent: "#1a3460",
-    href: "/industries/heavy-machinery",
-    caseStudy: {
-      id: "cs-mach-01",
-      client: "Heavy Engineering Firm, Coimbatore",
-      challenge: "Frequent rework and scrap on large casting orders due to undetected internal defects.",
-      result: "Introduced stage-wise inspection with UT and MPI testing. Scrap cost reduced considerably within one quarter.",
-      metric: "52%",
-      metricLabel: "Reduction in scrap cost",
-    },
-  },
+  
   {
     id: "Civil & Constructions",
     icon: "box",
-    title: "Consumer Goods",
+    title: "Civil & Consturcitons",
     subtitle: "Appliances, Packaging & FMCG",
     description:
       "Factory audits, product conformance checks, and packaging inspections for consumer goods brands — ensuring every SKU reaches shelves defect-free.",
@@ -77,42 +59,6 @@ export const INDUSTRIES: Industry[] = [
       metricLabel: "Decrease in trade returns",
     },
   },
-  {
-    id: "Acedmic",
-    icon: "fabric",
-    title: "Textiles & Apparel",
-    subtitle: "Fabric, Garments & Technical Textiles",
-    description:
-      "Pre-production, in-line and final random inspections for textile exporters — covering fabric quality, stitching, measurement, and packing norms.",
-    tags: ["Fabric Inspection", "Garment QC", "Measurement Checks", "Export Compliance", "4-Point System"],
-    accent: "#33b8ff",
-    href: "/industries/textiles",
-    caseStudy: {
-      id: "cs-tex-01",
-      client: "Garment Exporter, Tirupur",
-      challenge: "High re-inspection and rework at port of export due to measurement and stitching defects.",
-      result: "In-line inspection introduced at critical sewing stages. Export re-inspection instances dropped sharply.",
-      metric: "81%",
-      metricLabel: "Fewer export re-inspections",
-    },
-  },
-  {
-    id: "plastics",
-    icon: "layers",
-    title: "Plastics & Rubber",
-    subtitle: "Moulded Parts, Pipes & Industrial Rubber",
-    description:
-      "Dimensional and functional inspections for injection-moulded components, rubber seals, hoses, and plastic assemblies used across industries.",
-    tags: ["Injection Moulding", "Rubber Components", "Dimensional QC", "Functional Testing", "Supplier Audits"],
-    accent: "#284c87",
-    href: "/industries/plastics",
-    caseStudy: {
-      id: "cs-plas-01",
-      client: "Plastic Components Supplier, Ahmedabad",
-      challenge: "Dimensional variation in moulded parts causing assembly issues at the customer's production line.",
-      result: "Process audit and gauge R&R study conducted. Tooling corrections made; assembly rejections eliminated.",
-      metric: "100%",
-      metricLabel: "Assembly rejections eliminated",
-    },
-  },
+
+ 
 ];

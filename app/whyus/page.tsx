@@ -7,6 +7,8 @@ import ComparisonTable from "../components/whyUsPage/ComparisonTable";
 import Testimonials from "../components/whyUsPage/Testimonials";
 import CaseStudies from "../components/whyUsPage/CaseStudies";
 import "@/app/styles/why-us.css"
+import BeforeFooter from "../components/IndustriesWeServe/BeforeFooter";
+import RamCTA from "../components/whyUsPage/RamCTA";
 
 export const metadata: Metadata = {
   title: "Why Choose Us | KP Reliable — Safer, Faster, More Reliable",
@@ -24,6 +26,7 @@ export default function WhyUsPage() {
       <Testimonials />
       <CaseStudies />
       <WhyCTA />
+      <RamCTA/>
     </main>
   );
 }

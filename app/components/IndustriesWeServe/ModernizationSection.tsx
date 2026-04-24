@@ -2,19 +2,20 @@ import React from 'react';
 
 const ModernizationSection = () => {
   return (
-    <section className="w-full expert-cta py-24 px-6 font-sans mb-8 mt-8 text-white overflow-hidden">
+    <section className="w-full expert-cta py-24 px-6 font-sans mb-12 mt-8 text-white overflow-hidden">
       <div className="max-w-[1200px] mx-auto mx-auto">
         
         {/* Upper Section: Image and Title */}
-        <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-14">
           {/* Left: Main Image */}
           <div className="w-full md:w-1/2">
             <div className="relative overflow-hidden rounded-sm">
               <img 
-                src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776270834/Ram36_oghi4s.svg" 
-                alt="Modernization Team" 
-                className="w-full h-auto object-cover grayscale-[0.2] brightness-90"
-              />
+      src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776530403/Ram46_ligbix.svg" 
+      alt="Modernization Team" 
+      // CHANGED: Replaced 'h-auto' with fixed heights ('h-64 md:h-80')
+      className="w-full h-64 md:h-80 object-cover grayscale-[0.2] brightness-90"
+    />
             </div>
           </div>
 

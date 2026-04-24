@@ -79,7 +79,7 @@ const IndustriesWeServe: React.FC = () => {
             </p>
           </div>
           <KprtianCards />
-      
+          
           {/* ---- Filter tabs ---- */}
         
         
