@@ -7,24 +7,24 @@ interface Capability {
 
 const capabilities: Capability[] = [
   {
-    title: 'Voice Engines',
-    description: 'Reusable voiceprints with tone sliders, terminology locks, and approval flows.',
+    title: 'Precision Methodology',
+    description: 'Dimensional inspection using CMM, VMM, and high-precision gauges to ensure parts meet tight tolerance specifications.',
   },
   {
-    title: 'Narrative Systems',
-    description: 'Story arcs, scripts, and campaigns with style and safety guardrails.',
+    title: 'NDT Testing',
+    description: 'Non-Destructive Testing including Ultrasonic, Magnetic Particle, and Dye Penetrant to detect internal and surface flaws.',
   },
   {
-    title: 'Multilingual',
-    description: 'Meaning-preserving, idiom-aware adaptation across priority locales.',
+    title: 'Material Verification',
+    description: 'Witnessing chemical and physical tests, including PMI (Positive Material Identification) and hardness testing.',
   },
   {
-    title: 'Dialogue & UX',
-    description: 'Product, agent, and game dialogue kept consistent across releases.',
+    title: 'Surface Integrity',
+    description: 'Rigorous assessment of coating thickness, roughness profiles, and corrosion resistance for high-durability mechanical parts.',
   },
   {
-    title: 'QA & Safety',
-    description: 'Style checks, bias/safety screens, factuality passes, human review.',
+    title: 'Pre-Shipment Audit',
+    description: 'Final visual and technical audits to verify packing, marking, and quantity compliance before global dispatch.',
   },
 ];
 
@@ -37,7 +37,7 @@ const TrustedByOEMs = () => {
           {/* Header Tile */}
           <div className="flex items-center p-8">
             <h2 className="text-4xl md:text-5xl font-medium text-gray-900 leading-tight">
-              What we make <br /> with language <br /> and AI
+              Independent <br /> Quality <br /> Assurance
             </h2>
           </div>
 
@@ -50,15 +50,15 @@ const TrustedByOEMs = () => {
               {/* Bracketed Title Container */}
               <div className="relative inline-block self-start mb-6">
                 <div className="flex items-center px-6 py-2 relative">
-                  {/* Left Bracket */}
+                  {/* Left Bracket - Corporate Blue */}
                   <div className="absolute left-0 top-0 bottom-0 w-3 border-l-2 border-t-2 border-b-2 border-[#2957ff] rounded-l-lg"></div>
                   
-                  <h3 className="text-xl font-mono text-gray-800">
+                  <h3 className="text-xl font-mono text-gray-800 uppercase tracking-tight">
                     {item.title}
                   </h3>
                   
-                  {/* Right Bracket */}
-                  <div className="absolute right-0 top-0 bottom-0 w-3 border-r-2 border-t-2 border-b-2 border-[#ff4d29] rounded-r-lg"></div>
+                  {/* Right Bracket - KPRT Green/Yellow */}
+                  <div className="absolute right-0 top-0 bottom-0 w-3 border-r-2 border-t-2 border-b-2 border-[#ffb300] rounded-r-lg"></div>
                 </div>
               </div>
 

@@ -14,17 +14,15 @@ const WhyHero: React.FC = () => {
           {/* Left Content Area (Text & SVG) - 60% width */}
           <div className="relative w-full md:w-[60%] flex flex-col justify-center z-20">
             
-            <span className="text-[#52dca7] font-medium text-lg md:text-xl mb-4 block tracking-wide">
-              about us
-            </span>
+            
             
             <h1 className="text-4xl md:text-5xl lg:text-[56px] font-semibold text-white leading-[1.15] z-10 relative">
-              Driven by Fluidic Intelligence, <br className="hidden xl:block" /> Guided by Caring
+              Driven by Quality Intelligence, <br className="hidden xl:block" /> Guided by Quality Inspector 
             </h1>
             
             {/* Decorative Wavy/Squiggly Line - High z-index to overlap the image */}
             <div className="absolute -bottom-10 left-[-5%] w-[120%] max-w-[800px] pointer-events-none z-30 opacity-90">
-              <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto text-[#52dca7]">
+              <svg viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto text-[#ffb300]">
                 <path 
                   d="M20,150 C80,165 130,80 190,60 C250,40 300,120 230,150 C160,180 110,130 140,85 C170,40 290,50 360,85 C430,120 370,170 280,165 C180,160 160,105 250,95 C360,85 490,125 590,165" 
                   stroke="currentColor" 

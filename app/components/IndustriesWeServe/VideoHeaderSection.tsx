@@ -40,7 +40,7 @@ export default function HeroSection() {
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
-            src="https://res.cloudinary.com/dinnmia6e/video/upload/v1776418179/Ram40_dm5rkd.mp4"
+            src="https://res.cloudinary.com/dinnmia6e/video/upload/v1777540893/video13_h0oyib.mp4"
           />
 
           {/* Overlay */}

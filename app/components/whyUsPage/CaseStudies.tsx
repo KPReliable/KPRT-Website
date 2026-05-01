@@ -68,7 +68,7 @@ const WorkflowSection = () => {
       </div>
 
       {/* Updated Moving Certification Strip with Dark Orange background */}
-      <div className="w-full py-6 bg-[#d97706] relative overflow-hidden border-y border-black/10">
+      <div className="w-full py-6 bg-[#ffb300] relative overflow-hidden border-y border-black/10">
         <div className="flex">
           <motion.div 
             className="flex whitespace-nowrap gap-12 items-center"

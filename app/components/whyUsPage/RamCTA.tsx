@@ -25,17 +25,17 @@ const BeforeFooter: React.FC = () => {
           
           {/* Column 1 */}
           <div className="flex justify-center items-center p-10 lg:p-14 text-gray-600 text-center">
-            <p>This is the space to share a</p>
+            <p>Zero Conflict model</p>
           </div>
 
           {/* Column 2 */}
           <div className="flex justify-center items-center p-10 lg:p-14 text-gray-600 text-center">
-            <p>This is the space to share a</p>
+            <p>Same-day deployment</p>
           </div>
 
           {/* Column 3 */}
           <div className="flex justify-center items-center p-10 lg:p-14 text-gray-600 text-center">
-            <p>This is the space to share a</p>
+            <p>OEM Supplier</p>
           </div>
 
         </div>

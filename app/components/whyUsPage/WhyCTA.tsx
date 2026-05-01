@@ -1,70 +1,112 @@
-"use client";
-
 import React from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { Linkedin } from 'lucide-react';
 
-const trainingSessions = [
+interface Expert {
+  id: number;
+  name: string;
+  role: string;
+  description: string;
+  imageUrl: string;
+  linkedinUrl: string;
+}
+
+const experts: Expert[] = [
   {
-    title: "URBAN GRIT (HIIT)",
-    image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1775544385/FINAL_PRODUCT_INSPECTION_rlr1w9.svg",
-    color: "bg-blue-600"
+    id: 1,
+    name: "Mr.Mahesh Kandpal",
+    role: "GM-Marketing & Operation",
+    description: "",
+    imageUrl: "https://res.cloudinary.com/dinnmia6e/image/upload/v1777543668/Raj40_n2vdpf.svg",
+    linkedinUrl: "#",
   },
   {
-    title: "FOUNDATION",
-    image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1775544387/FACTORY_AUDIT_hj1ewm.svg",
-    color: "bg-orange-600"
+    id: 2, // Fixed duplicate ID
+    name: "Mr.Ashok Dhar",
+    role: "Marketing head",
+    description: "",
+    imageUrl: "https://res.cloudinary.com/dinnmia6e/image/upload/v1777545245/Raj41_tknv2a.svg",
+    linkedinUrl: "#",
   },
   {
-    title: "DYNAMIC FLOW",
-    image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1775544372/HomeService5_v4ws4b.svg",
-    color: "bg-blue-600"
+    id: 2, // Fixed duplicate ID
+    name: "Mr.Mukesh Kumar",
+    role: "Quality head",
+    description: "",
+    imageUrl: "https://res.cloudinary.com/dinnmia6e/image/upload/v1777545965/Raj43_kv6bzp.svg",
+    linkedinUrl: "#",
   },
-  {
-    title: "PERSONAL TRAINING",
-    image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1775544373/homeService1_r5flqq.svg",
-    color: "bg-orange-600"
-  }
 ];
 
-const TrainingSection = () => {
+const ExpertSection = () => {
   return (
-    <section className="w-full bg-black">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full">
-        {trainingSessions.map((session, index) => (
-          <motion.div 
-            key={index}
-            className="relative h-[200px] overflow-hidden group border-r border-black/20 last:border-0"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            {/* Background Image with Black & White filter by default */}
-            <img 
-              src={session.image} 
-              alt={session.title}
-              className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
-            />
+    <section className="bg-white py-12 px-6 md:px-12 lg:px-18 font-sans">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header with Navigation */}
+        <div className="flex justify-between items-end mb-12 border-b border-gray-100 pb-8">
+          <h2 className="text-3xl md:text-4xl font-semibold text-[#1a2b3c]">
+            Connect with our experts
+          </h2>
+          <div className="flex gap-4">
+            <button className="p-2 text-gray-400 hover:text-gray-900 transition-colors">
+              <span className="text-2xl font-light">&lt;</span>
+            </button>
+            <button className="p-2 text-gray-400 hover:text-gray-900 transition-colors">
+              <span className="text-2xl font-light">&gt;</span>
+            </button>
+          </div>
+        </div>
 
-            {/* Color Overlay on Hover (matching the blue/orange style) */}
-            <div className={`absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-500 ${session.color}`} />
+        {/* Experts Grid - Centered items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
+          {experts.map((expert, index) => (
+            <div 
+              key={expert.id} 
+              className={`flex flex-col p-6 md:p-8 ${
+                // Border logic remains, but applies based on grid position
+                index !== experts.length - 1 ? 'md:border-r border-gray-200' : ''
+              }`}
+            >
+              {/* Image Container - Aspect ratio changed to 1/1 to decrease height */}
+              <div className="relative w-full aspect-square mb-6 overflow-hidden bg-gray-100 rounded-sm">
+                <Image 
+                  src={expert.imageUrl} 
+                  alt={expert.name}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  // object-center ensures the face stays in the middle
+                  className="object-cover object-center" 
+                />
+              </div>
 
-            {/* Content Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-t from-black/80 via-transparent to-transparent">
-              <motion.h3 
-                className="text-white text-2xl md:text-3xl font-black italic tracking-tighter leading-none uppercase"
-                whileHover={{ x: 10 }}
-              >
-                {session.title}
-              </motion.h3>
-              
-              {/* Optional "Explore" line that appears on hover */}
-              <div className="w-0 h-1 bg-white mt-2 group-hover:w-full transition-all duration-500" />
+              {/* Content */}
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-[#1a2b3c]">
+                  {expert.name}
+                </h3>
+                <div className="text-gray-600 text-sm leading-relaxed">
+                  <p className="font-semibold">{expert.role}</p>
+                  {expert.description && <p className="line-clamp-2">{expert.description}</p>}
+                </div>
+                
+                {/* LinkedIn Link */}
+                <a 
+                  href={expert.linkedinUrl}
+                  className="inline-flex items-center gap-2 pt-4 text-xs font-bold text-gray-500 hover:text-[#0077b5] transition-colors uppercase tracking-wider group"
+                >
+                  <div className="bg-gray-400 p-0.5 rounded-[2px] group-hover:bg-[#0077b5] transition-colors">
+                    <Linkedin size={12} className="text-white fill-current" />
+                  </div>
+                  connect
+                </a>
+              </div>
             </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
-export default TrainingSection;
+export default ExpertSection;

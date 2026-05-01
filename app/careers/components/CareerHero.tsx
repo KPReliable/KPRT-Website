@@ -171,7 +171,7 @@ const CareerHero: React.FC<CareerHeroProps> = ({
           <div className="w-full md:w-auto md:ml-auto mt-8 md:mt-0 flex justify-end">
             <button 
               onClick={onSearch}
-              className="w-full md:w-auto text-[#fb9d05] border border-[#fb9d05] font-semibold text-base px-8 py-3.5 rounded-full hover:bg-[#fb9d05] hover:text-white transition-all duration-300 whitespace-nowrap"
+              className="w-full md:w-auto text-[#ffb300] border border-[#ffb300] font-semibold text-base px-8 py-3.5 rounded-full hover:bg-[#ffb300] hover:text-white transition-all duration-300 whitespace-nowrap"
             >
               Find my future
             </button>

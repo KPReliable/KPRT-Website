@@ -11,7 +11,7 @@ const ModernizationSection = () => {
           <div className="w-full md:w-1/2">
             <div className="relative overflow-hidden rounded-sm">
               <img 
-      src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776530403/Ram46_ligbix.svg" 
+      src="https://res.cloudinary.com/dinnmia6e/image/upload/v1777457391/Raj32_vzvgbv.svg" 
       alt="Modernization Team" 
       // CHANGED: Replaced 'h-auto' with fixed heights ('h-64 md:h-80')
       className="w-full h-64 md:h-80 object-cover grayscale-[0.2] brightness-90"
@@ -25,8 +25,8 @@ const ModernizationSection = () => {
               Transform the business
             </span>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
-              Technology Core <br />
-              Modernization
+              Reliability Core <br />
+              Inspection
             </h2>
           </div>
         </div>
@@ -47,10 +47,10 @@ const ModernizationSection = () => {
           {/* Point 2 */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold tracking-tight">
-              DEP++
+              Quality++
             </h3>
             <p className="text-[var(--color-text-muted)] text-sm leading-relaxed max-w-md">
-              Keeps data flowing smoothly and safely through compliant pipeline
+              Keeps Inspection flowing smoothly and safely through Quality Parameter
             </p>
           </div>
 

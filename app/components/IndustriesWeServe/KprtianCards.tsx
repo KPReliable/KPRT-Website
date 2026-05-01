@@ -1,73 +1,59 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
-// 1. The Data Array (Kept safely inside this file so it doesn't clutter your main page)
-const KPRTIAN_DIFFERENCES = [
+const KPRTIAN_VALUES = [
   {
     id: 1,
-    title: "Precision",
-    description: "We ensure flawless execution with zero-defect standards in every automotive process.",
-    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776359579/Ram38_qwunot.svg" // Replace with your actual image paths
+    title: "100% Independent & Reliable",
+    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776681034/SURFACE_TREATMENT_vlng1j.svg",
   },
   {
     id: 2,
-    title: "Dimensional Inspection",
-    description: "Backed by industry-trained professionals with deep domain knowledge and technical skills.",
-    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776360095/Ram39_etslfc.svg"
+    title: "Real-Time Accountability",
+    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776681013/5_w5ffqc.svg",
   },
   {
     id: 3,
-    title: "Efficiency",
-    description: "Optimized workflows that boost productivity and reduce downtime across operations.",
-
-    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776360410/Ram40_q3sefe.svg"
+    title: "Trained & Industry-Ready Workforce",
+    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776681013/FORGING_nckqz8.svg",
   },
   {
     id: 4,
-    title: "Expertise",
-    description: "Backed by industry-trained professionals with deep domain knowledge and technical skills.",
-    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776360656/Ram41_kalrtb.svg"
+    title: "24×7 Technical Support",
+    imageSrc: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776681005/CONSUMABALES_fltaux.svg",
   }
 ];
 
-const KprtianCards = () => {
+const SuccessStoryCards = () => {
   return (
-    /* Responsive Grid: 1 column on mobile, 2 on tablets (sm), 4 on desktops (lg) */
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14 w-full">
-      
-      {KPRTIAN_DIFFERENCES.map((item) => (
-        /* The Card Container with Hover Effects */
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-4">
+      {KPRTIAN_VALUES.map((item) => (
         <div 
           key={item.id} 
-          className="bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          className="bg-white flex flex-col group cursor-pointer"
         >
-          
-          {/* The Image Wrapper */}
-          {/* border-[#00A2E9] uses Tailwind's arbitrary value feature to apply your brand blue! */}
-          <div className="relative w-full h-32 border-b-4 border-[#00A2E9]">
+          {/* Image Container */}
+          <div className="relative w-full h-[200px] overflow-hidden ">
             <Image 
               src={item.imageSrc} 
               alt={item.title} 
               fill 
-              className="object-cover"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
 
-          {/* The Text Content */}
-          <div className="p-6 flex-grow flex flex-col">
-            <h3 className="text-xl font-bold text-gray-900 mb-0">
+          {/* Text Content - Title Only */}
+          <div className="pt-4 pb-2">
+            <h3 className="text-[17px] md:text-[18px] leading-[1.3] font-medium text-[#1e375a] transition-colors group-hover:text-blue-600">
               {item.title}
             </h3>
-            <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-              {item.description}
-            </p>
           </div>
-
         </div>
       ))}
-
     </div>
   );
 };
 
-export default KprtianCards;
+export default SuccessStoryCards;

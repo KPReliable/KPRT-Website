@@ -59,7 +59,7 @@ export default function AboutHero() {
         {/* Background Image & Overlay Container */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776945405/Ram78_owjlsu.svg"
+            src="https://res.cloudinary.com/dinnmia6e/image/upload/v1777281582/Raj1_e8cw4w.svg"
             alt="KPRT Facility Background"
             fill
             className="object-cover object-center"

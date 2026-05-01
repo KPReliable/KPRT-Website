@@ -2,9 +2,10 @@ import IndustriesWeServe from "@/app/components/IndustriesWeServe/IndustriesWeSe
 import VideoHeroSection from "../components/IndustriesWeServe/VideoHeaderSection";
 import Banner from "../components/IndustriesWeServe/Banner";
 import ModernizationSection from "../components/IndustriesWeServe/ModernizationSection";
-import IndustriesFilter from "../components/IndustriesWeServe/IndustriesFilter";
+
 import BeforeFooter from "../components/IndustriesWeServe/BeforeFooter";
 import FooterAbove from "../components/IndustriesWeServe/FooterAbove";
+import IndustryCard from "../components/IndustriesWeServe/IndustryCard";
 
 export const metadata = {
   title: "Industries We Serve | QualityInspect",
@@ -18,7 +19,7 @@ export default function IndustriesPage() {
       <IndustriesWeServe />
         {/* <KprtianCards /> */}
           <Banner />
-          <IndustriesFilter/>
+          <IndustryCard/>
           <ModernizationSection/>
           <VideoHeroSection/>
           <BeforeFooter/>

@@ -4,7 +4,7 @@ const BeforeFooter: React.FC = () => {
   
   // MATCHED OUTER CONTAINER: Changed m-6 to my-6 to prevent horizontal overflow
   return (
-    <section className="relative w-full bg-[#f4f6f9] my-6 py-16 lg:py-24 px-6 flex items-center justify-center overflow-hidden font-sans">
+    <section className="relative w-full bg-[#f4f6f9] my-6 py-14 lg:py-24 px-6 flex items-center justify-center overflow-hidden font-sans">
       
       {/* MATCHED INNER CONTAINER: Changed max-w-7xl to max-w-6xl to perfectly align with the video width */}
       <div className="relative w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -22,14 +22,7 @@ const BeforeFooter: React.FC = () => {
              of projects—ensuring compliance, safety, and operational excellence for our clients.
           </h2>
           
-          <div className="flex flex-wrap gap-4">
-            <button className="bg-[#1b2b48] hover:bg-[#111e36] text-white text-sm font-semibold py-3 px-8 rounded-full transition-colors duration-300">
-              Read article
-            </button>
-            <button className="bg-transparent border border-[#1b2b48] hover:bg-[#1b2b48] hover:text-white text-[#1b2b48] text-sm font-semibold py-3 px-8 rounded-full transition-colors duration-300">
-              Explore c-suite
-            </button>
-          </div>
+          
         </div>
 
         {/* Right Content Area (Image & Abstract Shapes) */}
@@ -42,9 +35,9 @@ const BeforeFooter: React.FC = () => {
           <div className="absolute top-[20%] left-[-15%] w-24 h-56 bg-[#dbe8f0] rounded-full rotate-[-30deg] -z-10 opacity-80"></div>
 
           {/* Main Image */}
-          <div className="relative w-full max-w-[550px] min-h-[500px] lg:min-h-[600px] bg-white/50 flex items-center justify-center shadow-lg rounded-2xl overflow-hidden">
+          <div className="relative w-full max-w-[550px] min-h-[200px] lg:min-h-[480px] bg-white/50 flex items-center justify-center shadow-lg  overflow-hidden">
             <img 
-              src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776506531/Ram45_b1dipl.svg" // Replace with your actual image path
+              src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776186990/Ram29_cqoeiw.svg" // Replace with your actual image path
               alt="Professional working on laptop" 
               className="absolute inset-0 w-full h-full object-cover"
             />

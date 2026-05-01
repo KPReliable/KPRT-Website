@@ -3,7 +3,6 @@ import WhyCards from "../components/whyUsPage/WhyCards";
 import WhyCTA from "../components/whyUsPage/WhyCTA";
 import WhyHero from "../components/whyUsPage/WhyHero";
 import TrustedByOEMs from "../components/whyUsPage/TrustedByOEMs";
-import ComparisonTable from "../components/whyUsPage/ComparisonTable";
 import Testimonials from "../components/whyUsPage/Testimonials";
 import CaseStudies from "../components/whyUsPage/CaseStudies";
 import "@/app/styles/why-us.css"
@@ -22,7 +21,7 @@ export default function WhyUsPage() {
       <WhyHero />
       <WhyCards />
       <TrustedByOEMs />
-      <ComparisonTable />
+      
       <Testimonials />
       <CaseStudies />
       <WhyCTA />

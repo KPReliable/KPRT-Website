@@ -9,6 +9,7 @@ import ImpactStatement from "./components/HomePage/ImpactStatement";
 import TpiValueProposition from "./components/HomePage/TpiValuePreposition";
 import TrainingSection from "./components/HomePage/TainingSection";
 import ServiceComp from "./components/HomePage/ServiceComponet";
+import Location from "./components/HomePage/Location";
 
 export default function HomePage() {
   return (
@@ -25,6 +26,7 @@ export default function HomePage() {
       <TpiValueProposition/>
       <ServiceComp/>
       <Faqs/>
+      <Location />
    
     </main>
   );
