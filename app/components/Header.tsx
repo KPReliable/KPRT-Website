@@ -6,6 +6,13 @@ import DesktopNav from "@/app/components/DesktopNav";
 import MobileNav from "@/app/components/MobileNav";
 import Hamburger from "@/app/components/Hamburger";
 
+type MobileNavProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+const MobileNavTyped = MobileNav as React.ComponentType<MobileNavProps>;
+
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -52,14 +59,13 @@ const Header: React.FC = () => {
           <div className="lg:hidden flex items-center">
             <Hamburger
               isOpen={mobileOpen}
-              scrolled={showWhiteBg}
               onClick={() => setMobileOpen((p) => !p)}
             />
           </div>
         </div>
       </header>
 
-      <MobileNav isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileNavTyped isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
     </>
   );
 };
