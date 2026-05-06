@@ -13,7 +13,7 @@ const Logo: React.FC<LogoProps> = ({ scrolled = false }) => {
     <Link
       href="/"
       aria-label="KP Reliable Home"
-      className="flex items-center gap-3 no-underline"
+      className="flex items-center px-14 gap-2 no-underline"
     >
       {/* Logo image */}
       <Image
@@ -21,6 +21,7 @@ const Logo: React.FC<LogoProps> = ({ scrolled = false }) => {
         alt="KP Reliable Logo"
         width={80}
         height={40}
+        
         priority
         style={{ objectFit: "contain" }}
       />

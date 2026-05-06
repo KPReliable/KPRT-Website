@@ -6,20 +6,20 @@ const AllServices = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const services = [
-    "accelerated quality & test engineering", "digital insights", "low code",
-    "application managed services", "digital supply chain", "mainframe & legacy",
-    "api & integration excellence", "ecm & portals", "mobility solutions",
-    "ar/vr/3d & animation", "ecodigital engineering", "process consulting",
-    "atlassian", "embedded systems", "product engineering",
-    "blockchain", "enterprise agile", "product studio",
-    "business excellence & transformation consulting", "enterprise architecture consulting", "quantum computing",
-    "cloud", "erp", "resilience engineering",
-    "crm", "finops", "servicenow",
-    "customer data platforms", "ginger ai", "site reliability engineering",
-    "cybersecurity", "human capital & workforce management", "trainings",
-    "design studio", "innovation", "transformation & modernization",
-    "devops", "intelligent bpm", "technical communication"
-  ];
+    "Sheet Metal Fabrication", "Plastic Injection Molding", "Pressure Die Casting",
+    "Precision CNC Machining", "Hot & Cold Forging", "Heavy Structural Fabrication",
+    "Surface Treatment & Finishing", "Tool & Die Design", "Jigs & Fixtures Development",
+    "Heat Treatment Services", "Powder Coating & Painting", "Investment Casting",
+    "Rapid Prototyping", "Product Design & Development", "Value Engineering",
+    "Quality Assurance & Metrology", "Reverse Engineering", "Material Testing",
+    "Laser & Plasma Cutting", "Stamping & Punching", "Electroplating & Anodizing",
+    "Mold Flow Analysis", "Component Assembly", "Supply Chain Localization",
+    "Contract Manufacturing", "CAD/CAM Services", "Design for Manufacturing (DFM)",
+    "Hardening & Tempering", "Welding & Brazing", "Plastic Extrusion",
+    "Sand Blasting & Shot Peening", "Rubber Molding", "Gear Manufacturing",
+    "Gravity Die Casting", "Sheet Metal Bending", "Corrosion Protection",
+    "Prototyping & Sampling", "Vendor Development", "Technical Inspection"
+];
 
   if (!isVisible) return null;
 

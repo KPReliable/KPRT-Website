@@ -1,263 +1,291 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 /* ============================================================
-   DATA
+   SHARED UTILS & DATA
    ============================================================ */
-const SERVICES_DATA = [
-  { category: "Plastic Moulding", slug: "plastic-moulding", desc: "Injection, blow, or compression moulding processes with full traceability.", points: ["Material traceability", "Mould maintenance", "Process parameters"] },
-  { category: "Rubber Components", slug: "rubber-components", desc: "Compression, transfer, or injection moulding of rubber parts.", points: ["Compound control", "Hardness testing", "Curing parameters"] },
-  { category: "Sheet Metal", slug: "sheet-metal", desc: "Cutting, bending, and forming using press machines.", points: ["Die maintenance", "Burr control", "Dimensional checks"] },
-  { category: "Casting", slug: "casting", desc: "Molten metal poured into complex moulds for intricate geometries.", points: ["Raw material control", "Porosity defects", "Heat treatment"] },
-  { category: "Forging", slug: "forging", desc: "Shaping metal under compressive forces for enhanced strength.", points: ["Billet quality", "Temperature control", "Grain flow"] },
-  { category: "Machining", slug: "machining", desc: "Precision CNC and conventional machining for tight tolerances.", points: ["Calibration", "Tool wear", "SPC control"] },
-  { category: "Fabrication & Welding", slug: "fabrication-welding", desc: "Assembly using qualified welding processes and certified joiners.", points: ["WPS adherence", "Visual inspection", "NDT"] },
-  { category: "Surface Treatment", slug: "surface-treatment", desc: "Painting, plating, and anodizing for protection and finish quality.", points: ["Coating thickness", "Adhesion test", "Bath control"] },
-  { category: "Electrical & Electronics", slug: "electrical-electronics", desc: "Electrical components and assemblies with full functional testing.", points: ["ESD control", "Functional testing", "Soldering quality"] },
-  { category: "Consumables", slug: "consumables", desc: "Lubricants, adhesives, and coolants with safety compliance.", points: ["MSDS compliance", "Shelf life", "Safety compliance"] },
-  { category: "Tooling & Fixtures", slug: "tooling-fixtures", desc: "Dies, molds, jigs, and fixtures with design validation.", points: ["Design validation", "Tool life", "Accuracy check"] },
-  { category: "Packaging", slug: "packaging", desc: "Packing and transportation materials for damage-free delivery.", points: ["Damage prevention", "Labeling", "FIFO"] },
+const NagarroArrow = () => (
+  <svg width="42" height="12" viewBox="0 0 24 12" fill="none" className="inline-block ml-2">
+    <path d="M0 11C6 11 10 11 22 11M22 11L14 1M22 11L14 11" stroke="#ffb300" strokeWidth="2" />
+    <path d="M2 11C6 11 10 11 20 11" stroke="#ffb300" strokeWidth="2" opacity="0.5" />
+  </svg>
+);
+
+// DATA FOR "WHAT WE DO" (Services)
+const ACTUAL_SERVICES_GROUPS = [
+  {
+    title: "Consultant",
+    links: [
+      { label: "Digital Engineering", href: "/services/digital-engineering" },
+      { label: "Cloud Services", href: "/services/cloud" },
+      { label: "Data & AI", href: "/services/data-ai" }
+    ]
+  },
+  {
+    title: "Audits & Complaince",
+    links: [
+      { label: "Third-Party Inspection", href: "/services/inspection" },
+      { label: "Quality Assurance", href: "/services/qa" },
+      { label: "Safety Audits", href: "/services/safety" }
+    ]
+  },
+  {
+    title: "Pre-Dispatch",
+    links: [
+      { label: "Third-Party Inspection", href: "/services/inspection" },
+      { label: "Quality Assurance", href: "/services/qa" },
+      { label: "Safety Audits", href: "/services/safety" }
+    ]
+  },{
+    title: "Product Process Inspection",
+    links: [
+      { label: "Third-Party Inspection", href: "/services/inspection" },
+      { label: "Quality Assurance", href: "/services/qa" },
+      { label: "Safety Audits", href: "/services/safety" }
+    ]
+  },{
+    title: "Final Inspection",
+    links: [
+      { label: "Third-Party Inspection", href: "/services/inspection" },
+      { label: "Quality Assurance", href: "/services/qa" },
+      { label: "Safety Audits", href: "/services/safety" }
+    ]
+  }
+];
+
+// DATA FOR "CONTACT US" (Dropdown)
+const CONTACT_GROUPS = [
+  {
+    title: "contacts",
+    links: [
+      { label: "press", href: "/press" },
+      { label: "investor relations", href: "/investors" },
+      { label: "website", href: "/support" }
+    ]
+  },
+  {
+    title: "locations",
+    links: [
+      { label: "americas", href: "/locations/americas" },
+      { label: "emea", href: "/locations/emea" },
+      { label: "asia-pacific", href: "/locations/apac" }
+    ]
+  },
+  {
+    title: "follow us",
+    links: [
+      { label: "linkedin", href: "https://linkedin.com" },
+      { label: "facebook", href: "https://facebook.com" },
+      { label: "instagram", href: "https://instagram.com" }
+    ]
+  }
+];
+
+const INDUSTRY_LINKS = [
+  { label: "Automotive", href: "/industries/automotive" },
+  { label: "Manufacturing", href: "/industries/banking" },
+  { label: "Locomotive", href: "/industries/energy" },
+  { label: "Civil & Constructions", href: "/industries/gaming" },
+  { label: "Training & SkillUP", href: "/industries/automation" },
+  
 ];
 
 /* ============================================================
-   ICONS
-   ============================================================ */
-const CheckIcon = () => (
-  <svg viewBox="0 0 14 14" width="12" height="12" fill="none"
-    stroke="#00a2e9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M2 7l3.5 3.5L12 3" />
-  </svg>
-);
-
-const ArrowIcon = ({ size = 14 }: { size?: number }) => (
-  <svg viewBox="0 0 16 16" width={size} height={size} fill="none"
-    stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 8h10M8 3l5 5-5 5" />
-  </svg>
-);
-
-const ChevronIcon = ({ open }: { open: boolean }) => (
-  <svg
-    viewBox="0 0 16 16" width="12" height="12" fill="none"
-    stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-    style={{ transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
-  >
-    <path d="M4 6l4 4 4-4" />
-  </svg>
-);
-
 /* ============================================================
-   MEGA MENU PANEL
+   SERVICES MEGA MENU (Desktop) - FIXED VERSION
    ============================================================ */
-const ServicesMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const active = SERVICES_DATA[activeIndex];
-
+export const ServicesMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
-    <div
-      className="absolute left-0 right-0 top-full z-50 bg-white shadow-2xl border-t border-black/[0.06]"
-      style={{ boxShadow: "0 16px 48px rgba(0,0,0,0.14)" }}
-    >
-      <div className="flex" style={{ minHeight: "420px" }}>
+    <div className="fixed top-[80px] left-0 w-full bg-white z-[100] border-t border-gray-100 shadow-xl animate-in fade-in duration-300">
+      {/* FIXED: Changed max-w-[100px] to max-w-7xl and fixed the gap/text typo */}
+      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-12 gap-10 text-left">
+        
+        {/* Left Sidebar Branding */}
+        <div className="col-span-4 pr-10 border-r border-gray-200 text-black">
+          <h2 className="text-3xl font-normal text-gray-800 mb-6 tracking-tight leading-tight">
+            We Are Not a <br /> Manpower Supplier.
+          </h2>
+          <div className="mb-10">
+            <h3 className="text-xl font-semibold text-[#1e1b4b] mb-4 leading-tight">
+              We Are Your Quality <br /> Control System.
+            </h3>
+            <p className="text-gray-500 text-base">
+              Independent. Fast. Reliable.
+            </p>
+          </div>
+          <Link 
+            href="/contact" 
+            onClick={onClose} 
+            className="group text-base font-medium text-gray-900 hover:text-[#1e1b4b] transition-colors flex items-center gap-2"
+          >
+            Built to reduce defects—not just provide inspectors.
+            <NagarroArrow />
+          </Link>
+        </div>
 
-        {/* ---- Sidebar ---- */}
-        <div className="w-56 flex-shrink-0 bg-[#f7f9fc] border-r border-black/[0.07] py-5">
-          <p className="text-[10px] font-semibold tracking-[0.16em] uppercase text-black/30 px-5 mb-3">
-            All Services
-          </p>
-          {SERVICES_DATA.map((s, i) => (
-            <button
-              key={s.slug}
-              onMouseEnter={() => setActiveIndex(i)}
-              onClick={() => setActiveIndex(i)}
-              className={[
-                "w-full flex items-center gap-2.5 px-5 py-2 text-left text-[13px] transition-all duration-100 border-l-2",
-                i === activeIndex
-                  ? "border-[#00a2e9] bg-white text-[#0f2347] font-medium"
-                  : "border-transparent text-black/55 hover:text-[#0f2347] hover:bg-[#00a2e9]/[0.04]",
-              ].join(" ")}
-            >
-              <span
-                className={[
-                  "w-1.5 h-1.5 rounded-full flex-shrink-0 transition-colors duration-100",
-                  i === activeIndex ? "bg-[#00a2e9]" : "bg-current opacity-40",
-                ].join(" ")}
-              />
-              {s.category}
-            </button>
+        {/* Right Side Services Grid */}
+        <div className="col-span-8 grid grid-cols-3 gap-x-8 gap-y-10">
+          {ACTUAL_SERVICES_GROUPS.map((group) => (
+            <div key={group.title}>
+              <h4 className="text-sm font-bold text-gray-400 mb-6 tracking-widest uppercase">
+                {group.title}
+              </h4>
+              <ul className="space-y-3">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <Link 
+                      href={link.href} 
+                      onClick={onClose} 
+                      className="text-gray-600 text-base hover:text-[#1e1b4b] transition-colors tracking-wide block leading-snug"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
-
-        {/* ---- Content ---- */}
-        <div className="flex-1 p-7 flex flex-col gap-5">
-
-          {/* Header */}
-          <div className="flex items-start justify-between pb-4 border-b border-black/[0.07]">
-            <div>
-              <h3 className="text-[18px] font-semibold text-[#0f2347] mb-1">
-                {active.category}
-              </h3>
-              <p className="text-[13px] text-black/45 max-w-md leading-relaxed">
-                {active.desc}
-              </p>
-            </div>
-            <Link
-              href={`/services/${active.slug}`}
-              onClick={onClose}
-              className="text-[12px] text-[#00a2e9] font-medium flex items-center gap-1.5 hover:text-[#0f2347] transition-colors no-underline mt-1 flex-shrink-0"
-            >
-              View all cases <ArrowIcon size={12} />
-            </Link>
-          </div>
-
-          {/* Quality checkpoints */}
-          <div>
-            <p className="text-[10px] font-semibold tracking-[0.14em] uppercase text-black/28 mb-3">
-              Quality Checkpoints
-            </p>
-            <div className="grid grid-cols-3 gap-2.5">
-              {active.points.map((point) => (
-                <div
-                  key={point}
-                  className="bg-[#f7f9fc] border border-black/[0.07] rounded-md px-3.5 py-3 flex items-start gap-2.5"
-                >
-                  <span className="mt-0.5 w-[26px] h-[26px] rounded bg-[#00a2e9]/10 flex items-center justify-center flex-shrink-0">
-                    <CheckIcon />
-                  </span>
-                  <span className="text-[12px] text-black/55 leading-snug">{point}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* CTAs */}
-          <div className="flex items-center gap-2.5 mt-auto">
-            <Link
-              href={`/services/${active.slug}`}
-              onClick={onClose}
-              className="text-[12px] font-medium text-[#0f2347] bg-white border border-black/15 px-4 py-2 rounded-sm hover:border-[#00a2e9] hover:text-[#00a2e9] transition-colors no-underline"
-            >
-              Learn more
-            </Link>
-            <Link
-              href="/contact"
-              onClick={onClose}
-              className="text-[12px] font-medium text-white bg-[#00a2e9] px-4 py-2 rounded-sm hover:bg-[#0090d0] transition-colors no-underline flex items-center gap-1.5"
-            >
-              Request Inspection <ArrowIcon size={11} />
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer strip */}
-      <div className="flex items-center justify-between bg-[#f7f9fc] border-t border-black/[0.07] px-7 py-3">
-        <span className="text-[12px] text-black/40">
-          Not sure which service fits your needs?
-        </span>
-        <Link
-          href="/contact"
-          onClick={onClose}
-          className="text-[12px] font-medium text-white bg-[#0f2347] px-4 py-2 rounded-sm hover:bg-[#00a2e9] transition-colors no-underline flex items-center gap-1.5"
-        >
-          Talk to an expert <ArrowIcon size={11} />
-        </Link>
       </div>
     </div>
   );
 };
 
 /* ============================================================
-   NAV ITEM — with mega menu trigger
+   INDUSTRIES MEGA MENU (As per Screenshot 2026-05-03 202446.png)
    ============================================================ */
-export const ServicesNavItem: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
-  const isActive = pathname?.startsWith("/services");
-
-  // Close on outside click
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  // Close on Escape
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
-    };
-    document.addEventListener("keydown", handler);
-    return () => document.removeEventListener("keydown", handler);
-  }, []);
-
+export const IndustriesMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   return (
-    <div ref={ref} className="relative">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        aria-haspopup="true"
-        className={[
-          "flex items-center gap-1.5 h-full px-4 text-[13px] transition-colors duration-150 border-b-2",
-          isActive || open
-            ? "text-white border-[#00a2e9]"
-            : "text-white/55 border-transparent hover:text-white",
-        ].join(" ")}
-      >
-        Services
-        <ChevronIcon open={open} />
-      </button>
+    <div className="fixed top-[80px] left-0 w-full bg-white z-[100] border-t border-gray-100 shadow-xl animate-in fade-in duration-300">
+      <div className="max-w-[1400px] mx-auto px-10 py-16 grid grid-cols-12 gap-10 text-left text-black">
+        
+        <div className="col-span-4 pr-10 border-r border-gray-200">
+          <h2 className="text-4xl font-normal text-gray-800 mb-10 tracking-tight">we are </h2>
+          <div className="space-y-10">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">independent third-party inspection partner</h3>
+              <p className="text-gray-600 text-sm leading-relaxed"> From Quality Consultancy to India’s Trusted Third-Party Inspection Partner</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Intelligent Enterprise</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Trusted by Leading Manufacturers & OEMs</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Defined quality ownership</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Minimum reaction time 
+Prevention-driven model </p>
+            </div>
+          </div>
+          
+        </div>
 
+        <div className="col-span-8 pl-4">
+          <h2 className="text-4xl font-normal text-gray-800 mb-10 tracking-tight">industries</h2>
+          <div className="grid grid-cols-3 gap-y-4 gap-x-8">
+            {INDUSTRY_LINKS.map((item) => (
+              <Link key={item.label} href={item.href} onClick={onClose} className="text-gray-600 text-[15px] hover:text-[#1e1b4b] transition-colors tracking-wide block capitalize">
+                {item.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-12">
+            <Link href="/industries" onClick={onClose} className="group text-lg font-medium text-gray-900 transition-colors inline-block">
+              <span className="border-b-2 border-[#ffb300] pb-1"></span>
+              <NagarroArrow />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ============================================================
+   CONTACT MEGA MENU
+   ============================================================ */
+export const ContactMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  return (
+    <div className="fixed top-[80px] left-0 w-full bg-white z-[100] border-t border-gray-100 shadow-xl animate-in fade-in duration-300">
+      <div className="max-w-[1400px] mx-auto px-10 py-16 grid grid-cols-12 gap-10 text-left text-black">
+        <div className="col-span-4 pr-10 border-r border-gray-200">
+          <h2 className="text-4xl font-normal text-gray-800 mb-8 tracking-tight">get in touch</h2>
+          <div className="mb-10">
+            <h3 className="text-2xl font-semibold text-[#1e1b4b] mb-4 leading-tight">Ready to start your <br /> next project?</h3>
+            <p className="text-gray-600 text-lg">Our experts are available to discuss your requirements.</p>
+          </div>
+          <Link href="/contact" onClick={onClose} className="group text-lg font-medium text-gray-900 hover:text-[#00d5a0] transition-colors">
+            Contact us today
+            <NagarroArrow />
+          </Link>
+        </div>
+        <div className="col-span-8 grid grid-cols-3 gap-8">
+          {/* FIX: Use CONTACT_GROUPS here */}
+          {CONTACT_GROUPS.map((group) => (
+            <div key={group.title}>
+              <h4 className="text-3xl font-normal text-gray-800 mb-8 tracking-tight uppercase">{group.title}</h4>
+              <ul className="space-y-4">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} onClick={onClose} className="text-gray-600 text-lg hover:text-[#1e1b4b]">{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* ============================================================
+   NAV ITEM WRAPPERS
+   ============================================================ */
+export const ServicesNavItem: React.FC<{ showWhiteBg: boolean }> = ({ showWhiteBg }) => {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  return (
+    <div className="h-full flex items-center" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <Link href="/services" className={`text-[15px] font-medium px-4 tracking-tight h-full flex items-center transition-colors ${showWhiteBg ? (open || pathname.startsWith("/services") ? "text-gray-900 font-bold" : "text-gray-600 hover:text-gray-900") : "text-white/90 hover:text-white"}`}>
+        what we do
+      </Link>
       {open && <ServicesMegaMenu onClose={() => setOpen(false)} />}
     </div>
   );
 };
 
+export const IndustriesNavItem: React.FC<{ showWhiteBg: boolean }> = ({ showWhiteBg }) => {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  return (
+    <div className="h-full flex items-center" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
+      <Link href="/industries" className={`text-[15px] font-medium px-4 tracking-tight h-full flex items-center transition-colors ${showWhiteBg ? (open || pathname.startsWith("/industries") ? "text-gray-900 font-bold" : "text-gray-600 hover:text-gray-900") : "text-white/90 hover:text-white"}`}>
+        industries
+      </Link>
+      {open && <IndustriesMegaMenu onClose={() => setOpen(false)} />}
+    </div>
+  );
+};
+
 /* ============================================================
-   MOBILE VERSION — accordion inside MobileNav
+   MOBILE ACCORDION
    ============================================================ */
 export const ServicesMobileAccordion: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [expanded, setExpanded] = useState(false);
-
   return (
     <div className="border-b border-white/[0.08]">
-      <button
-        onClick={() => setExpanded((v) => !v)}
-        aria-expanded={expanded}
-        className="w-full flex items-center justify-between px-5 py-4 text-[15px] text-white/80 hover:text-white transition-colors"
-      >
-        Services
-        <ChevronIcon open={expanded} />
+      <button onClick={() => setExpanded(!expanded)} className="w-full flex items-center justify-between px-6 py-5 text-white/80 hover:text-white transition-colors">
+        <span className="text-[15px] font-medium tracking-wide uppercase">what we do</span>
+        <span className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>▼</span>
       </button>
-
       {expanded && (
-        <div className="pb-3">
-          {SERVICES_DATA.map((s) => (
-            <Link
-              key={s.slug}
-              href={`/services/${s.slug}`}
-              onClick={onClose}
-              className="flex items-center gap-3 px-7 py-2.5 text-[13px] text-white/55 hover:text-white transition-colors no-underline"
-            >
-              <span className="w-1 h-1 rounded-full bg-[#00a2e9] flex-shrink-0" />
-              {s.category}
-            </Link>
+        <div className="bg-black/20 pb-4">
+          {ACTUAL_SERVICES_GROUPS.flatMap(g => g.links).map((link) => (
+            <Link key={link.label} href={link.href} onClick={onClose} className="block px-10 py-3 text-sm text-white/60 hover:text-[#00d5a0]">{link.label}</Link>
           ))}
-          <Link
-            href="/services"
-            onClick={onClose}
-            className="flex items-center gap-2 mx-7 mt-3 text-[12px] font-medium text-[#00a2e9] hover:text-white transition-colors no-underline"
-          >
-            View all services <ArrowIcon size={11} />
-          </Link>
         </div>
       )}
     </div>
