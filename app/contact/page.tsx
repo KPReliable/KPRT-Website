@@ -5,15 +5,16 @@ import LocationHello from "../components/ContactPage/LocationHello";
 
 export const metadata: Metadata = {
   title: "Our Locations | QualityInspect",
-  description: "Find our offices across India including Pune, Delhi NCR, and Chennai.",
+  description:
+    "Find our offices across India including Pune, Delhi NCR, and Chennai.",
 };
 
 export default function LocationPage() {
   return (
     <main>
-      <Contactpage/>
-      <LocationHello/>
-      
+      <Contactpage />
+      <LocationHello />
+
       {/* You can add your location grid or maps here later */}
     </main>
   );
