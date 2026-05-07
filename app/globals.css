@@ -829,15 +829,15 @@ header.scrolled-glass {
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 15.5px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color:#ffb300;
   margin-bottom: 20px;
   text-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    0 0 8px rgba(255, 255, 255, 0.15);
+   0 2px 4px rgba(255, 179, 0, 0.2),
+0 0 8px rgba(255, 179, 0, 0.15);;
 }
 
 .hero-eyebrow-dot {
@@ -864,7 +864,7 @@ header.scrolled-glass {
 }
 
 .hero-title-accent {
-  color: var(--color-secondary);
+  color: #ffb300;
   text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.2),
     0 0 8px rgba(255, 255, 255, 0.15);

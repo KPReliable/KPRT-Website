@@ -1,0 +1,715 @@
+/* ============================================================================
+   OTP VERIFICATION COMPONENT STYLES
+   ============================================================================
+   Highly specific CSS classes for OTP verification
+   Color variables from global :root configuration
+   ============================================================================ */
+
+:root {
+  --color-primary: #284c87;
+  --color-primary-dark: #1a3460;
+  --color-primary-light: #e8eef8;
+  --color-secondary: #00a2e9;
+  --color-secondary-light: #33b8ff;
+  --color-white: #ffffff;
+  --color-text: #0f1f3d;
+  --color-text-muted: #5a6a85;
+  --color-border: #dce6f5;
+  --color-bg: #f5f8ff;
+  --color-bg-alt: #ffffff;
+  --color-error: #e74c3c;
+  --color-error-light: #fadbd8;
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --max-w: 1200px;
+  --section-py: 80px;
+  --font-display: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+/* ============================================================================
+   OTP VERIFICATION SECTION - Main section wrapper
+   ============================================================================ */
+
+.otp-verification__section {
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--section-py) 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 76, 135, 0.08) 0%,
+    rgba(40, 76, 135, 0.04) 40%,
+    #ffffff 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background elements */
+.otp-verification__section::before {
+  content: "";
+  position: absolute;
+  top: -300px;
+  right: -300px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 162, 233, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.otp-verification__section::after {
+  content: "";
+  position: absolute;
+  bottom: -250px;
+  left: -250px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(40, 76, 135, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================================
+   OTP VERIFICATION CONTAINER - Main container
+   ============================================================================ */
+
+.otp-verification__container {
+  width: 100%;
+  max-width: 450px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(40, 76, 135, 0.08);
+  animation: otpContainerSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes otpContainerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   BACK BUTTON - Navigate back button
+   ============================================================================ */
+
+.otp-verification__back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.otp-verification__back-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.otp-verification__back-btn:hover {
+  background: var(--color-secondary-light);
+  color: var(--color-white);
+  transform: translateX(-3px);
+}
+
+.otp-verification__back-btn:active {
+  transform: translateX(0);
+}
+
+.otp-verification__back-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.2);
+}
+
+/* ============================================================================
+   OTP VERIFICATION HEADER - Title and subtitle
+   ============================================================================ */
+
+.otp-verification__header {
+  margin-bottom: 32px;
+  text-align: center;
+  animation: otpHeaderFadeIn 0.7s ease-out;
+  padding-top: 20px;
+}
+
+@keyframes otpHeaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-verification__title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.otp-verification__subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.otp-verification__subtitle strong {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   OTP INPUTS WRAPPER - Container for OTP inputs
+   ============================================================================ */
+
+.otp-verification__inputs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: otpInputsSlideIn 0.5s ease-out 0.1s backwards;
+}
+
+@keyframes otpInputsSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   OTP INPUTS CONTAINER - Grid of OTP input fields
+   ============================================================================ */
+
+.otp-verification__inputs-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+/* ============================================================================
+   OTP INPUT - Individual OTP digit input
+   ============================================================================ */
+
+.otp-verification__input {
+  width: 100%;
+  aspect-ratio: 1;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-primary);
+  background: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  cursor: text;
+}
+
+.otp-verification__input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.5;
+}
+
+.otp-verification__input:focus {
+  border-color: var(--color-secondary);
+  background: rgba(0, 162, 233, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.1);
+  transform: scale(1.05);
+}
+
+.otp-verification__input:hover:not(:focus) {
+  border-color: var(--color-secondary-light);
+}
+
+.otp-verification__input:disabled {
+  background: var(--color-primary-light);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.otp-verification__input--error {
+  border-color: var(--color-error);
+  background: var(--color-error-light);
+  animation: otpInputShake 0.4s ease-in-out;
+}
+
+@keyframes otpInputShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.otp-verification__input--error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* ============================================================================
+   OTP ERROR - Error message display
+   ============================================================================ */
+
+.otp-verification__error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--color-error-light);
+  border: 1px solid var(--color-error);
+  border-radius: 8px;
+  color: var(--color-error);
+  font-size: 13px;
+  font-family: var(--font-body);
+  animation: otpErrorSlideIn 0.3s ease-out;
+}
+
+@keyframes otpErrorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-verification__error svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* ============================================================================
+   VERIFY BUTTON - OTP verification button
+   ============================================================================ */
+
+.otp-verification__verify-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  animation: otpVerifyBtnSlideIn 0.5s ease-out 0.2s backwards;
+}
+
+@keyframes otpVerifyBtnSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-verification__verify-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(40, 76, 135, 0.3);
+}
+
+.otp-verification__verify-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.otp-verification__verify-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.otp-verification__verify-btn:focus {
+  outline: none;
+  box-shadow: 0 8px 24px rgba(40, 76, 135, 0.3), 0 0 0 3px rgba(40, 76, 135, 0.1);
+}
+
+/* ============================================================================
+   SPINNER - Loading spinner
+   ============================================================================ */
+
+.otp-verification__spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: otpSpinnerRotate 0.8s linear infinite;
+}
+
+@keyframes otpSpinnerRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   RESEND SECTION - Resend OTP section
+   ============================================================================ */
+
+.otp-verification__resend-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: var(--color-primary-light);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  animation: otpResendSlideIn 0.5s ease-out 0.3s backwards;
+}
+
+@keyframes otpResendSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-verification__resend-text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ============================================================================
+   RESEND BUTTON - Resend OTP button
+   ============================================================================ */
+
+.otp-verification__resend-btn {
+  padding: 8px 20px;
+  background: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.otp-verification__resend-btn:hover:not(:disabled) {
+  background: var(--color-secondary-light);
+  transform: translateY(-1px);
+}
+
+.otp-verification__resend-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   RESEND TIMER - Countdown timer display
+   ============================================================================ */
+
+.otp-verification__resend-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 20px;
+  background: var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.otp-verification__resend-timer span {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================================
+   RESEND COUNT - Remaining attempts display
+   ============================================================================ */
+
+.otp-verification__resend-count {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin: 0;
+  text-align: center;
+}
+
+/* ============================================================================
+   INFO BOX - Additional information box
+   ============================================================================ */
+
+.otp-verification__info-box {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 162, 233, 0.05) 0%,
+    rgba(40, 76, 135, 0.03) 100%
+  );
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  animation: otpInfoSlideIn 0.5s ease-out 0.4s backwards;
+}
+
+@keyframes otpInfoSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-verification__info-box svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.otp-verification__info-box p {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - Mobile and tablet adjustments
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .otp-verification__section {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+
+  .otp-verification__container {
+    padding: 36px 28px;
+    border-radius: 16px;
+  }
+
+  .otp-verification__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .otp-verification__subtitle {
+    font-size: 13px;
+  }
+
+  .otp-verification__inputs-container {
+    gap: 8px;
+  }
+
+  .otp-verification__input {
+    font-size: 20px;
+    border-radius: 10px;
+  }
+
+  .otp-verification__back-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .otp-verification__back-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .otp-verification__section {
+    padding: 40px 12px;
+  }
+
+  .otp-verification__container {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .otp-verification__title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .otp-verification__subtitle {
+    font-size: 12px;
+  }
+
+  .otp-verification__inputs-container {
+    gap: 6px;
+  }
+
+  .otp-verification__input {
+    font-size: 18px;
+    border-radius: 8px;
+  }
+
+  .otp-verification__verify-btn {
+    padding: 12px 20px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .otp-verification__resend-section {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .otp-verification__resend-text {
+    font-size: 12px;
+  }
+
+  .otp-verification__resend-btn,
+  .otp-verification__resend-timer {
+    font-size: 11px;
+    padding: 7px 16px;
+  }
+
+  .otp-verification__info-box {
+    padding: 12px 14px;
+  }
+
+  .otp-verification__info-box svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .otp-verification__info-box p {
+    font-size: 11px;
+  }
+
+  .otp-verification__back-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .otp-verification__back-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY - High contrast mode and reduced motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .otp-verification__section::before,
+  .otp-verification__section::after,
+  .otp-verification__container,
+  .otp-verification__header,
+  .otp-verification__inputs-wrapper,
+  .otp-verification__input,
+  .otp-verification__error,
+  .otp-verification__verify-btn,
+  .otp-verification__spinner,
+  .otp-verification__resend-section,
+  .otp-verification__info-box,
+  .otp-verification__back-btn {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .otp-verification__input {
+    border-width: 3px;
+  }
+
+  .otp-verification__title {
+    font-weight: 900;
+  }
+
+  .otp-verification__error {
+    border-width: 2px;
+  }
+}

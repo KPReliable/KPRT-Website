@@ -243,7 +243,7 @@ const HeroBanner: React.FC = () => {
               willChange: "transform",
             }}
           >
-            <div className="hero-card">
+            {/* <div className="hero-card">
               <div className="hero-card-header">
                 <div className="hero-card-dots">
                   <span /><span /><span />
@@ -275,7 +275,7 @@ const HeroBanner: React.FC = () => {
                   Live
                 </span>
               </div>
-            </div>
+            </div> */}
           </animated.div>
 
           {/* Badge TL — floats at its own parallax depth */}
@@ -295,7 +295,7 @@ const HeroBanner: React.FC = () => {
           </animated.div> */}
 
           {/* Badge BR — floats at opposite direction */}
-          <animated.div
+          {/* <animated.div
             className="hero-badge hero-badge--br"
             style={{
               ...badge2Spring,
@@ -308,7 +308,7 @@ const HeroBanner: React.FC = () => {
               <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2h-1V1h-2zm3 18H5V8h14v11z" />
             </svg>
             <span>500+ Projects</span>
-          </animated.div>
+          </animated.div> */}
 
         </div>
          
