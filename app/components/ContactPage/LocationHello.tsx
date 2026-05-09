@@ -1,83 +1,13 @@
-// // import React from 'react'
-
-// // const LocationHello = () => {
-// //   return (
-// //     <div>LocationHello</div>
-// //   )
-// // }
-
-// // export default LocationHello
-
-// import React from "react";
-
-// const LocationHello = () => {
-//   // Replace the URL inside src with your actual Google Maps Embed link
-//   const mapSource =
-//     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.4578137350713!2d76.93236487548545!3d28.36329917581177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3e45253ab7c5%3A0xd93232850c1d9d92!2sKP%20Reliable%20Technique%20India%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1715068000000!5m2!1sen!2sin";
-//   const offices = [
-//     {
-//       branch: "Manesar Office",
-//       address:
-//         "Office No- 501, 5th Floor, Amrapali Corporate Hub, Sector 2, IMT Manesar, Gurugram, Haryana 122052",
-//       mapLink:
-//         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.4578137350713!2d76.93236487548545!3d28.36329917581177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3e45253ab7c5%3A0xd93232850c1d9d92!2sKP%20Reliable%20Technique%20India%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1715068000000!5m2!1sen!2sin",
-//       phone: "+91 124 XXX XXXX",
-//       email: "manesar@kpreliable.com",
-//       hours: "Mon - Sat: 9:00 AM - 6:00 PM",
-//     },
-//     {
-//       branch: "Lucknow Office", // Example branch
-//       address:
-//         "Scooter India Chauraha, Near Transport Nagar, Lucknow, Uttar Pradesh 226008",
-//       mapLink:
-//         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.4578137350713!2d76.93236487548545!3d28.36329917581177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3e45253ab7c5%3A0xd93232850c1d9d92!2sKP%20Reliable%20Technique%20India%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1715068000000!5m2!1sen!2sin",
-//       phone: "+91 522 XXX XXXX",
-//       email: "lucknow@kpreliable.com",
-//       hours: "Mon - Sat: 10:00 AM - 7:00 PM",
-//     },
-//   ];
-//   return (
-//     <section className="py-12 bg-gray-50">
-//       <div className="max-w-6xl mx-auto px-4">
-//         <div className="text-center mb-8">
-//           <h2 className="text-3xl font-bold text-gray-900">Visit Our Office</h2>
-//           <p className="mt-2 text-gray-600">
-//             We are located in the heart of the city. Stop by and say hello!
-//           </p>
-//         </div>
-
-//         {offices.map((office, index) => (
-//           <>
-//             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-//               {/* First Map Container */}
-//               <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200 mb-4">
-//                 <iframe
-//                   src={office.mapLink}
-//                   width="100%"
-//                   height="100%"
-//                   style={{ border: 0 }}
-//                   allowFullScreen={true}
-//                   loading="lazy"
-//                   referrerPolicy="no-referrer-when-downgrade"
-//                   title="Primary Office Location"
-//                   className="grayscale-[20%] hover:grayscale-0 transition-all duration-300"
-//                 ></iframe>
-//               </div>
-
-//               {/* Second Map Container */}
-//               <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-lg border border-gray-200"></div>
-//             </div>
-//           </>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default LocationHello;
-
 import React from "react";
-import { Mail, MapPin, Phone, Clock, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Clock,
+  ExternalLink,
+  Navigation,
+} from "lucide-react";
 
 const LocationHello = () => {
   const offices = [
@@ -87,47 +17,66 @@ const LocationHello = () => {
         "Office No- 501, 5th Floor, Amrapali Corporate Hub, Sector 2, IMT Manesar, Gurugram, Haryana 122052",
       mapLink:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.4578137350713!2d76.93236487548545!3d28.36329917581177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3e45253ab7c5%3A0xd93232850c1d9d92!2sKP%20Reliable%20Technique%20India%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1715068000000!5m2!1sen!2sin",
-      phone: "+91 124 XXX XXXX",
-      email: "manesar@kpreliable.com",
+      phone: "+91 9312409696",
+      link: "",
+      email: "joshi@reliable_aes.in",
       hours: "Mon - Sat: 9:00 AM - 6:00 PM",
     },
     {
-      branch: "Lucknow Office",
-      address:
-        "Scooter India Chauraha, Near Transport Nagar, Lucknow, Uttar Pradesh 226008",
+      branch: "Faridabad Office",
+      address: "98R6+vhh Faridabad Hariyana",
       mapLink:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113911.3332040683!2d80.8523312!3d26.8438885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1715068000000!5m2!1sen!2sin",
-      phone: "+91 522 XXX XXXX",
-      email: "lucknow@kpreliable.com",
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3510.958564024467!2d77.3088874754849!3d28.392185175796213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDIzJzMxLjkiTiA3N8KwMTgnNDEuMyJF!5e0!3m2!1sen!2sin!4v1715070000000!5m2!1sen!2sin",
+      phone: "+91 9312409696",
+      link: "",
+      email: "joshi@reliable_aes.in",
       hours: "Mon - Sat: 10:00 AM - 7:00 PM",
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight">
-            Our Locations
+    <section
+      style={{
+        paddingBlock: "var(--section-py)",
+        backgroundColor: "var(--color-bg)",
+      }}
+      className="relative overflow-hidden font-[var(--font-body)]"
+    >
+      <div
+        className="relative mx-auto px-6"
+        style={{ maxWidth: "var(--max-w)" }}
+      >
+        {/* Header using Display Font and Primary Color */}
+        <div className="text-center mb-20">
+          <h2
+            style={{
+              color: "var(--color-text)",
+              fontFamily: "var(--font-display)",
+            }}
+            className="text-5xl font-black tracking-tight mb-6"
+          >
+            Our <span style={{ color: "var(--color-primary)" }}>Locations</span>
           </h2>
-          <div className="mt-4 w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
-          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-            We are strategically located to serve you better. Visit us at any of
-            our offices for expert assistance.
-          </p>
+          <div
+            className="h-1.5 w-20 rounded-full mx-auto"
+            style={{ backgroundColor: "var(--color-secondary)" }}
+          ></div>
         </div>
 
-        {/* Office List */}
-        <div className="space-y-24">
+        <div className="space-y-32">
           {offices.map((office, index) => (
             <div
               key={index}
-              className={`flex flex-col ${index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 items-center`}
+              className={`flex flex-col ${index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 items-center`}
             >
               {/* Map Column */}
-              <div className="w-full lg:w-1/2">
-                <div className="relative h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl border-8 border-gray-50">
+              <div className="w-full lg:w-3/5 relative group">
+                <div
+                  className="absolute -inset-4 rounded-[2.5rem] opacity-30 blur-lg transition duration-500"
+                  style={{ backgroundColor: "var(--color-primary-light)" }}
+                ></div>
+
+                <div className="relative h-[450px] w-full  overflow-hidden shadow-xl border-4 border-white">
                   <iframe
                     src={office.mapLink}
                     width="100%"
@@ -136,87 +85,130 @@ const LocationHello = () => {
                     allowFullScreen={true}
                     loading="lazy"
                     title={office.branch}
-                    className="grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+                    className="grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 ease-in-out"
                   ></iframe>
                 </div>
               </div>
 
               {/* Details Column */}
-              <div className="w-full lg:w-1/2 space-y-8">
-                <div>
-                  <span className="text-blue-600 font-bold uppercase tracking-widest text-sm">
-                    Branch Office
-                  </span>
-                  <h3 className="text-3xl font-bold text-gray-900 mt-2">
-                    {office.branch}
-                  </h3>
-                </div>
+              <div className="w-full lg:w-2/5 space-y-10">
+                <h3
+                  style={{
+                    color: "var(--color-primary)",
+                    fontFamily: "var(--font-display)",
+                  }}
+                  className="text-4xl font-extrabold"
+                >
+                  {office.branch}
+                </h3>
 
-                <div className="grid grid-cols-1 gap-6">
-                  {/* Address */}
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-blue-50 rounded-xl">
-                      <MapPin className="w-6 h-6 text-blue-600" />
+                <div className="space-y-8">
+                  {/* Location Info */}
+                  <div className="flex items-start gap-5">
+                    <div
+                      className="flex-shrink-0 p-4 rounded-2xl shadow-sm"
+                      style={{ backgroundColor: "var(--color-primary-light)" }}
+                    >
+                      <MapPin
+                        className="w-6 h-6"
+                        style={{ color: "var(--color-primary)" }}
+                      />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Location</p>
-                      <p className="text-gray-600 leading-relaxed">
+                      <p
+                        style={{ color: "var(--color-text-muted)" }}
+                        className="text-xs font-bold uppercase tracking-widest mb-1"
+                      >
+                        Visit Us
+                      </p>
+                      <p
+                        style={{ color: "var(--color-text)" }}
+                        className="font-semibold leading-relaxed"
+                      >
                         {office.address}
                       </p>
                     </div>
                   </div>
 
-                  {/* Contact Info Row */}
-                  <div className="flex flex-wrap gap-8">
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-green-50 rounded-xl">
-                        <Phone className="w-5 h-5 text-green-600" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-gray-400 uppercase">
-                          Call Us
-                        </p>
-                        <p className="font-semibold text-gray-900">
+                  {/* Contact Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div className="space-y-2">
+                      <p
+                        style={{ color: "var(--color-secondary)" }}
+                        className="text-[10px] font-black uppercase tracking-widest"
+                      >
+                        Hotline
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <Phone
+                          className="w-4 h-4"
+                          style={{ color: "var(--color-text-muted)" }}
+                        />
+                        <span
+                          style={{ color: "var(--color-text)" }}
+                          className="font-bold"
+                        >
                           {office.phone}
-                        </p>
+                        </span>
                       </div>
                     </div>
-
-                    <div className="flex items-center gap-4">
-                      <div className="p-3 bg-purple-50 rounded-xl">
-                        <Mail className="w-5 h-5 text-purple-600" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-gray-400 uppercase">
-                          Email Us
-                        </p>
-                        <p className="font-semibold text-gray-900">
+                    <div className="space-y-2">
+                      <p
+                        style={{ color: "var(--color-secondary)" }}
+                        className="text-[10px] font-black uppercase tracking-widest"
+                      >
+                        Support
+                      </p>
+                      <div className="flex items-center gap-3">
+                        <Mail
+                          className="w-4 h-4"
+                          style={{ color: "var(--color-text-muted)" }}
+                        />
+                        <span
+                          style={{ color: "var(--color-text)" }}
+                          className="font-bold"
+                        >
                           {office.email}
-                        </p>
+                        </span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Timing */}
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-orange-50 rounded-xl">
-                      <Clock className="w-5 h-5 text-orange-600" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-gray-400 uppercase">
-                        Office Hours
-                      </p>
-                      <p className="font-semibold text-gray-900">
-                        {office.hours}
-                      </p>
-                    </div>
+                  {/* Office Hours */}
+                  <div
+                    style={{
+                      backgroundColor: "var(--color-white)",
+                      borderColor: "var(--color-border)",
+                    }}
+                    className="inline-flex items-center gap-4 p-4 border rounded-2xl shadow-sm"
+                  >
+                    <Clock
+                      className="w-5 h-5"
+                      style={{ color: "var(--color-secondary)" }}
+                    />
+                    <span
+                      style={{ color: "var(--color-text)" }}
+                      className="text-sm font-bold"
+                    >
+                      {office.hours}
+                    </span>
                   </div>
                 </div>
 
-                <div className="pt-4">
-                  <button className="flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-blue-600 transition-colors duration-300 font-medium">
-                    Get Directions <ExternalLink className="w-4 h-4" />
-                  </button>
+                <div className="pt-6">
+                  {/* For Next.js */}
+                  <Link
+                    href={office.link} // Changed 'to' to 'href'
+                    target="_blank" // Opens in a new tab
+                    rel="noopener noreferrer" // Security best practice
+                    style={{
+                      backgroundColor: "var(--color-primary-dark)",
+                      color: "var(--color-white)",
+                    }}
+                    className="group relative px-8 py-4 rounded-2xl font-bold overflow-hidden transition-all shadow-lg active:scale-95 inline-block"
+                  >
+                    Get Directions
+                  </Link>
                 </div>
               </div>
             </div>

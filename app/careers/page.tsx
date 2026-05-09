@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback, useMemo } from "react";
 // 1. We have our Job and DepartmentFilter types imported
-import { Job, DepartmentFilter } from "./types/careers"; 
+import { Job, DepartmentFilter } from "./types/careers";
 import { jobs, departmentFilters } from "./data/careersData";
 
 // ── Single CSS import for the entire careers page ──
@@ -16,10 +16,12 @@ import Testimonials from "./components/Testimonials";
 import CareerCTA from "./components/CareerCTA";
 import ApplyModal from "./components/ApplyModal";
 import Training from "./components/Training";
+import SendCvPopUp from "./components/SendCvPopUp";
 
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const jobsSectionRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   // --- FILTER STATE ---
   const [keyword, setKeyword] = useState("");
@@ -43,14 +45,16 @@ export default function CareersPage() {
   const filteredJobs = useMemo(() => {
     // 3. Explicitly type 'job' as Job here too!
     return jobs.filter((job: Job) => {
-      const matchKeyword = keyword === "" || 
+      const matchKeyword =
+        keyword === "" ||
         job.title.toLowerCase().includes(keyword.toLowerCase());
-      
-      const matchDept = selectedDepartment === "Department" || 
+
+      const matchDept =
+        selectedDepartment === "Department" ||
         job.department === selectedDepartment;
-      
-      const matchLoc = selectedLocation === "Location" || 
-        job.location === selectedLocation;
+
+      const matchLoc =
+        selectedLocation === "Location" || job.location === selectedLocation;
 
       return matchKeyword && matchDept && matchLoc;
     });
@@ -70,7 +74,7 @@ export default function CareersPage() {
 
   return (
     <>
-      <CareerHero 
+      <CareerHero
         keyword={keyword}
         setKeyword={setKeyword}
         selectedDepartment={selectedDepartment}
@@ -90,16 +94,27 @@ export default function CareersPage() {
       </div>
 
       <Testimonials />
-      <Training/>
-      <CareerCTA onApply={() => { 
-        /* Optional: Pass a default empty job or handle CTA application separately */ 
-      }} /> 
-      
-      {selectedJob && (
-        <ApplyModal job={selectedJob} onClose={closeModal} />
-        
+      <Training />
+
+      <CareerCTA
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        onApply={() => {
+          /* Optional: Pass a default empty job or handle CTA application separately */
+        }}
+      />
+
+      {selectedJob && <ApplyModal job={selectedJob} onClose={closeModal} />}
+
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className=" fixed inset-0 bg-black/60 z-50 items-center justify-center"
+        >
+          <SendCvPopUp isOpen={isOpen} setIsOpen={setIsOpen} />
+          {/* <ContactPopup isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+        </div>
       )}
-      
     </>
   );
 }
