@@ -1,5 +1,5 @@
 // import ENV from '../../env.json'
-const BASE_URL = "https://kpbackend-production.up.railway.app";
+const BASE_URL = "https://kp-backend-ruddy.vercel.app";
 // const BASE_URL = "http://localhost:7438/api";
 export const API_KEYS: Record<string, string> = {
   TEST: "test",
