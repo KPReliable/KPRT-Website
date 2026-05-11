@@ -70,7 +70,7 @@ const TrustBuilders: React.FC = () => {
             ))}
           </div>
         </div>
-
+         
         {/* Certifications */}
         {/* <div className="trust-certs" aria-label="Certifications">
           <p className="trust-certs-label">Certified &amp; Compliant</p>
@@ -91,6 +91,5 @@ const TrustBuilders: React.FC = () => {
       </div>
     </section>
   );
-};
-
+};                                                                                                 
 export default TrustBuilders;

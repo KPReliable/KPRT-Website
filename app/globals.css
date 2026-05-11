@@ -781,7 +781,7 @@ header.scrolled-glass {
   inset: 0;
   background-image: 
     /* 1. THE IMAGE (Now on top) */
-    url('https://res.cloudinary.com/dinnmia6e/video/upload/v1775722986/HomeVideo_y1cdu9.mp4'),
+    url('https://res.cloudinary.com/dinnmia6e/video/upload/v1775823913/video3_uctxu7.mp4'),
     
     /* 2. OPTIONAL OVERLAY (Only if you still want to tint the image) */
     linear-gradient(rgba(40, 76, 135, 0.4), rgba(40, 76, 135, 0.4)),
