@@ -125,6 +125,8 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
       inputRefs.current[5]?.focus();
     }
   };
+
+  
 const handleVerify = async (): Promise<void> => {
   const otpString = otp.join("");
 
