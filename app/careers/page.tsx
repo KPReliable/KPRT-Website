@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback, useMemo } from "react";
+import { useRef, useState, useCallback, useMemo, useEffect } from "react";
 // 1. We have our Job and DepartmentFilter types imported
 import { Job, DepartmentFilter } from "./types/careers";
 import { jobs, departmentFilters } from "./data/careersData";
@@ -71,6 +71,20 @@ export default function CareersPage() {
   const closeModal = useCallback(() => {
     setSelectedJob(null);
   }, []);
+  useEffect(() => {
+    if (isOpen) {
+      // Scroll lock karna
+      document.body.style.overflow = "hidden";
+    } else {
+      // Scroll wapas enable karna
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function: Agar component unmount ho jaye toh scroll wapas aa jaye
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   return (
     <>

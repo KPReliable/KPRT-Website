@@ -5,7 +5,7 @@
 import Contactpage from "../components/ContactPage/Contactpage";
 import LocationHello from "../components/ContactPage/LocationHello";
 import ContactPopup from "../components/ContactPage/ContactPopup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // export const metadata: Metadata = {
 //   title: "Our Locations | QualityInspect",
@@ -15,6 +15,21 @@ import { useState } from "react";
 
 export default function LocationPage() {
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    if (isOpen) {
+      // Scroll lock karna
+      document.body.style.overflow = "hidden";
+    } else {
+      // Scroll wapas enable karna
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function: Agar component unmount ho jaye toh scroll wapas aa jaye
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <main>
       <Contactpage isOpen={isOpen} setIsOpen={setIsOpen} />
