@@ -11,12 +11,11 @@ import React, {
 
 import "../css/otp-verfication.css";
 
+import { submitOtp } from "@/utils/api/ValidateOtpApiWrapper";
+
 interface UserDetails {
-  name: string;
-  orgName: string;
-  email: string;
-  mobile: string;
-  countryCode: string;
+  otp: string;
+  verificationId: string;
 }
 
 interface OTPVerificationProps {
@@ -126,24 +125,76 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
       inputRefs.current[5]?.focus();
     }
   };
+const handleVerify = async (): Promise<void> => {
+  const otpString = otp.join("");
 
-  const handleVerify = (): void => {
-    const otpString = otp.join("");
+  // VALIDATE OTP
+  if (otpString.length !== 6) {
+    setError("Please enter a valid 6-digit OTP");
+    return;
+  }
 
-    if (otpString.length !== 6) {
-      setError("Please enter a valid 6-digit OTP");
-      return;
+  if (isVerifying) return;
+
+  setError("");
+  setIsVerifying(true);
+
+  try {
+    // API PAYLOAD
+    const payload = {
+      verificationId:
+        userDetails.verificationId,
+
+      otp: otpString,
+    };
+
+    // API CALL
+    const result = await submitOtp(
+      payload
+    );
+
+    // HANDLE FAILED RESPONSE
+    if (!result.success) {
+      if (result.error) {
+        throw result.error;
+      }
+
+      throw new Error(
+        "OTP verification failed"
+      );
     }
 
-    setIsVerifying(true);
+    // SUCCESS
+    onSuccess(userDetails);
+  } catch (error) {
+    // NETWORK ERROR
+    if (
+      error instanceof TypeError &&
+      error.message.includes("fetch")
+    ) {
+      setError(
+        "Network error. Please check your internet connection."
+      );
+    }
 
-    // Simulated API verification
-    setTimeout(() => {
-      onSuccess(userDetails);
-      setIsVerifying(false);
-    }, 1500);
-  };
+    // NORMAL ERROR
+    else if (error instanceof Error) {
+      setError(
+        error.message ||
+          "Failed to verify OTP"
+      );
+    }
 
+    // UNKNOWN ERROR
+    else {
+      setError(
+        "Something went wrong. Please try again."
+      );
+    }
+  } finally {
+    setIsVerifying(false);
+  }
+};
   const handleResend = (): void => {
     if (resendCount >= MAX_RESEND_ATTEMPTS) {
       setError(
@@ -163,12 +214,6 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
 
     inputRefs.current[0]?.focus();
 
-    // Simulate resend API call
-    console.log(
-      "OTP resent to",
-      userDetails.email,
-      userDetails.mobile
-    );
   };
 
   return (
@@ -195,11 +240,6 @@ const OTPVerification: React.FC<OTPVerificationProps> = ({
           <h2 className="otp-verification__title">
             Verify Your Account
           </h2>
-
-          <p className="otp-verification__subtitle">
-            We have sent a 6-digit verification code to{" "}
-            <strong>{userDetails.email}</strong>
-          </p>
         </div>
 
         {/* OTP Inputs */}

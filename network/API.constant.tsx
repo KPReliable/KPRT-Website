@@ -10,5 +10,6 @@ type FetchFunction = (...params: string[]) => string;
 
 export const API_ENDPOINTS: Record<string, FetchFunction> = {
   REGISTER: () => `${BASE_URL}/api/v1/register`,
+  Verify_OTP:() =>`${BASE_URL}/api/v1/verifyOtp`,
   GET_RECIPT :(paymentId)=>`${BASE_URL}/public/order/receipt/${paymentId}`
 }

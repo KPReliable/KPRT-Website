@@ -11,7 +11,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 import "../css/schedule-booking.css";
 
-interface UserDetails {
+interface FormInterface {
   name: string;
   email: string;
   mobile: string;
@@ -20,7 +20,7 @@ interface UserDetails {
 }
 
 interface ScheduleBookingProps {
-  userDetails: UserDetails;
+  formDetails: FormInterface;
   onComplete: () => void;
 }
 
@@ -33,7 +33,7 @@ interface DateItem {
 
 const ScheduleBooking: React.FC<
   ScheduleBookingProps
-> = ({ userDetails, onComplete }) => {
+> = ({ formDetails, onComplete }) => {
   const router = useRouter();
 
   const [selectedDate, setSelectedDate] =
@@ -112,10 +112,10 @@ const ScheduleBooking: React.FC<
     setIsSubmitting(true);
 
     const appointment = {
-      name: userDetails.name,
-      email: userDetails.email,
-      mobile: `${userDetails.countryCode} ${userDetails.mobile}`,
-      organization: userDetails.orgName,
+      name: formDetails.name,
+      email: formDetails.email,
+      mobile: `${formDetails.countryCode} ${formDetails.mobile}`,
+      organization: formDetails.orgName,
       date: selectedDate,
       time: selectedTime,
       bookedAt: new Date().toISOString(),
@@ -161,7 +161,7 @@ const ScheduleBooking: React.FC<
                   selecting a date and time.
                   We all call{" "}
                   <strong>
-                    {userDetails.name}
+                    {formDetails.name}
                   </strong>{" "}
                   on the selected date.
                 </p>
@@ -261,7 +261,7 @@ const ScheduleBooking: React.FC<
                 </span>
 
                 <span className="schedule-booking__summary-value">
-                  {userDetails.name}
+                  {formDetails.name}
                 </span>
               </div>
 
@@ -271,7 +271,7 @@ const ScheduleBooking: React.FC<
                 </span>
 
                 <span className="schedule-booking__summary-value">
-                  {userDetails.email}
+                  {formDetails.email}
                 </span>
               </div>
 
@@ -281,7 +281,7 @@ const ScheduleBooking: React.FC<
                 </span>
 
                 <span className="schedule-booking__summary-value">
-                  {userDetails.orgName}
+                  {formDetails.orgName}
                 </span>
               </div>
 
@@ -345,7 +345,7 @@ const ScheduleBooking: React.FC<
             <p className="schedule-booking__success-details">
               A confirmation has been sent to{" "}
               <strong>
-                {userDetails.email}
+                {formDetails.email}
               </strong>
             </p>
 

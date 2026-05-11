@@ -8,22 +8,34 @@ import ScheduleBooking from "./component/schedule-booking";
 
 
 interface UserDetails {
+  otp: string;
+  verificationId: string;
+}
+
+interface FormInterface {
   name: string;
-  orgName: string;
   email: string;
   mobile: string;
   countryCode: string;
+  orgName: string;
 }
+
 
 const BookingPage = () => {
   const [currentStep, setCurrentStep] = useState("user-details"); // "user-details" | "otp" | "schedule"
   const [userDetails, setUserDetails] =
   useState<UserDetails | null>(null);
 
+  const [formDetails, setFormDetails] =
+  useState<FormInterface | null>(null);
+
 const handleUserDetailsSuccess = (
-  details: UserDetails
+  details: UserDetails,
+  data:FormInterface
 ): void => {
+
   setUserDetails(details);
+  setFormDetails(data)
   setCurrentStep("otp");
 };
 
@@ -56,9 +68,9 @@ const handleOTPSuccess = (
         />
       )}
 
-      {currentStep === "schedule" && userDetails && (
+      {currentStep === "schedule" && userDetails && formDetails && (
         <ScheduleBooking
-          userDetails={userDetails}
+          formDetails={formDetails}
           onComplete={handleScheduleComplete}
         />
       )}
