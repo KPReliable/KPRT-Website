@@ -18,41 +18,25 @@ const NagarroArrow = () => (
 const ACTUAL_SERVICES_GROUPS = [
   {
     title: "Consultant",
-    links: [
-      { label: "Digital Engineering", href: "/services/digital-engineering" },
-      { label: "Cloud Services", href: "/services/cloud" },
-      { label: "Data & AI", href: "/services/data-ai" }
-    ]
+    href: "/service/consultant"
   },
   {
     title: "Audits & Complaince",
-    links: [
-      { label: "Third-Party Inspection", href: "/services/inspection" },
-      { label: "Quality Assurance", href: "/services/qa" },
-      { label: "Safety Audits", href: "/services/safety" }
-    ]
+     href: "/service/auditandcomplaince"
+   
   },
   {
     title: "Pre-Dispatch",
-    links: [
-      { label: "Third-Party Inspection", href: "/services/inspection" },
-      { label: "Quality Assurance", href: "/services/qa" },
-      { label: "Safety Audits", href: "/services/safety" }
-    ]
+     href: "/service/predispatch"
+   
   },{
     title: "Product Process Inspection",
-    links: [
-      { label: "Third-Party Inspection", href: "/services/inspection" },
-      { label: "Quality Assurance", href: "/services/qa" },
-      { label: "Safety Audits", href: "/services/safety" }
-    ]
+     href: "/service/processinspection"
+   
   },{
     title: "Final Inspection",
-    links: [
-      { label: "Third-Party Inspection", href: "/services/inspection" },
-      { label: "Quality Assurance", href: "/services/qa" },
-      { label: "Safety Audits", href: "/services/safety" }
-    ]
+     href: "/service/finalinspection"
+    
   }
 ];
 
@@ -85,14 +69,13 @@ const CONTACT_GROUPS = [
 ];
 
 const INDUSTRY_LINKS = [
-  { label: "Automotive", href: "/industries/automotive" },
-  { label: "Manufacturing", href: "/industries/banking" },
-  { label: "Locomotive", href: "/industries/energy" },
-  { label: "Civil & Constructions", href: "/industries/gaming" },
-  { label: "Training & SkillUP", href: "/industries/automation" },
+  { label: "Automotive", href: "/industry/automotive" },
+  { label: "Manufacturing", href: "/industry/manufacturing" },
+  { label: "Locomotive", href: "/industry/locomotive" },
+  { label: "Civil & Constructions", href: "/industry/civilandconstruction" },
+  { label: "Training & SkillUP", href: "/industry/trainingandskillup" },
   
 ];
-
 /* ============================================================
 /* ============================================================
    SERVICES MEGA MENU (Desktop) - FIXED VERSION
@@ -130,10 +113,10 @@ export const ServicesMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose })
         <div className="col-span-8 grid grid-cols-3 gap-x-8 gap-y-10">
           {ACTUAL_SERVICES_GROUPS.map((group) => (
             <div key={group.title}>
-              <h4 className="text-sm font-bold text-gray-400 mb-6 tracking-widest uppercase">
+              <Link href={group.href} className="text-sm font-bold text-gray-400 mb-6 tracking-widest uppercase">
                 {group.title}
-              </h4>
-              <ul className="space-y-3">
+              </Link>
+              {/* <ul className="space-y-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
                     <Link 
@@ -145,7 +128,7 @@ export const ServicesMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose })
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           ))}
         </div>
@@ -281,13 +264,13 @@ export const ServicesMobileAccordion: React.FC<{ onClose: () => void }> = ({ onC
         <span className="text-[15px] font-medium tracking-wide uppercase">what we do</span>
         <span className={`transition-transform duration-200 ${expanded ? 'rotate-180' : ''}`}>▼</span>
       </button>
-      {expanded && (
+      {/* {expanded && (
         <div className="bg-black/20 pb-4">
           {ACTUAL_SERVICES_GROUPS.flatMap(g => g.links).map((link) => (
             <Link key={link.label} href={link.href} onClick={onClose} className="block px-10 py-3 text-sm text-white/60 hover:text-[#00d5a0]">{link.label}</Link>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -11,11 +11,11 @@ const NagarroArrow = () => (
 );
 
 const INDUSTRY_LINKS = [
-  { label: "Automotive", href: "/industries/automotive" },
-  { label: "Manufacturing", href: "/industries/banking" },
-  { label: "Locomotive", href: "/industries/energy" },
-  { label: "Civil & Constructions", href: "/industries/gaming" },
-  { label: "Training & SkillUP", href: "/industries/automation" },
+  { label: "Automotive", href: "/industry/automotive" },
+  { label: "Manufacturing", href: "/industry/manufacturing" },
+  { label: "Locomotive", href: "/industry/locomotive" },
+  { label: "Civil & Constructions", href: "/industry/civilandconstruction" },
+  { label: "Training & SkillUP", href: "/industry/trainingandskillup" },
   
 ];
 

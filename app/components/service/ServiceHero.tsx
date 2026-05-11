@@ -81,7 +81,7 @@ export default function ServicesPage() {
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end w-full relative z-30 mt-auto pt-40">
             <div className="max-w-[220px] mb-6 md:mb-0">
               <p className="text-lg md:text-xl text-gray-800 leading-snug">
-                General handyman<br />work for home needs.
+              Quality Inspection<br />Quality Assurance
               </p>
             </div>
 
