@@ -1,0 +1,774 @@
+/* ============================================================================
+   USER DETAILS FORM COMPONENT STYLES
+   ============================================================================
+   Highly specific CSS classes for user details form with country code dropdown
+   Color variables from global :root configuration
+   ============================================================================ */
+
+:root {
+  --color-primary: #284c87;
+  --color-primary-dark: #1a3460;
+  --color-primary-light: #e8eef8;
+  --color-secondary: #00a2e9;
+  --color-secondary-light: #33b8ff;
+  --color-white: #ffffff;
+  --color-text: #0f1f3d;
+  --color-text-muted: #5a6a85;
+  --color-border: #dce6f5;
+  --color-bg: #f5f8ff;
+  --color-bg-alt: #ffffff;
+  --color-error: #e74c3c;
+  --color-error-light: #fadbd8;
+  --max-w: 1200px;
+  --section-py: 80px;
+  --font-display: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+/* ============================================================================
+   USER DETAILS SECTION - Main section wrapper
+   ============================================================================ */
+
+.user-details__section {
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--section-py) 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 76, 135, 0.08) 0%,
+    rgba(40, 76, 135, 0.04) 40%,
+    #ffffff 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background element */
+.user-details__section::before {
+  content: "";
+  position: absolute;
+  top: -300px;
+  right: -300px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 162, 233, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.user-details__section::after {
+  content: "";
+  position: absolute;
+  bottom: -250px;
+  left: -250px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(40, 76, 135, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================================
+   USER DETAILS CONTAINER - Form container with max-width
+   ============================================================================ */
+
+.user-details__container {
+  width: 100%;
+  max-width: 500px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(40, 76, 135, 0.08);
+  animation: userDetailsContainerSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes userDetailsContainerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   USER DETAILS HEADER - Title and subtitle
+   ============================================================================ */
+
+.user-details__header {
+  margin-bottom: 32px;
+  text-align: center;
+  animation: userDetailsHeaderFadeIn 0.7s ease-out;
+}
+
+@keyframes userDetailsHeaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-details__title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.user-details__subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============================================================================
+   USER DETAILS FORM - Form container
+   ============================================================================ */
+
+.user-details__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ============================================================================
+   FORM GROUP - Individual form field wrapper
+   ============================================================================ */
+
+.user-details__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: userDetailsFormGroupSlideIn 0.5s ease-out backwards;
+}
+
+@keyframes userDetailsFormGroupSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.user-details__form-group:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.user-details__form-group:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.user-details__form-group:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.user-details__form-group:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* ============================================================================
+   LABEL - Form label styling
+   ============================================================================ */
+
+.user-details__label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.user-details__required {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+/* ============================================================================
+   INPUT - Text input styling
+   ============================================================================ */
+
+.user-details__input {
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-white);
+  color: var(--color-text);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.user-details__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.user-details__input:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.1);
+  background: rgba(0, 162, 233, 0.02);
+}
+
+.user-details__input:hover:not(:focus) {
+  border-color: var(--color-primary-light);
+}
+
+.user-details__input--error {
+  border-color: var(--color-error);
+  background: var(--color-error-light);
+}
+
+.user-details__input--error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* ============================================================================
+   ERROR MESSAGE - Error message styling
+   ============================================================================ */
+
+.user-details__error-message {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-error);
+  font-weight: 500;
+  margin-top: 4px;
+  animation: userDetailsErrorSlideIn 0.3s ease-out;
+}
+
+@keyframes userDetailsErrorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   MOBILE INPUT WRAPPER - Wrapper for country code + mobile number
+   ============================================================================ */
+
+.user-details__mobile-input-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+/* ============================================================================
+   COUNTRY CODE WRAPPER - Wrapper for country code dropdown
+   ============================================================================ */
+
+.user-details__country-code-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   COUNTRY CODE BUTTON - Clickable country code button
+   ============================================================================ */
+
+.user-details__country-code-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.user-details__country-code-btn:hover {
+  border-color: var(--color-secondary);
+  background: rgba(0, 162, 233, 0.02);
+}
+
+.user-details__country-code-btn:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.1);
+}
+
+/* ============================================================================
+   COUNTRY FLAG - Flag emoji styling
+   ============================================================================ */
+
+.user-details__country-flag {
+  font-size: 16px;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* ============================================================================
+   COUNTRY CODE TEXT - Country code text
+   ============================================================================ */
+
+.user-details__country-code-text {
+  font-weight: 600;
+  min-width: 35px;
+}
+
+/* ============================================================================
+   COUNTRY CODE ICON - Dropdown chevron icon
+   ============================================================================ */
+
+.user-details__country-code-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.user-details__country-code-icon--open {
+  transform: rotate(180deg);
+  color: var(--color-secondary);
+}
+
+/* ============================================================================
+   COUNTRY DROPDOWN - Dropdown menu
+   ============================================================================ */
+
+.user-details__country-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(40, 76, 135, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  min-width: 280px;
+  max-height: 320px;
+  display: flex;
+  flex-direction: column;
+  animation: userDetailsDropdownSlideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes userDetailsDropdownSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   DROPDOWN SEARCH - Search input in dropdown
+   ============================================================================ */
+
+.user-details__dropdown-search {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.user-details__dropdown-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.user-details__dropdown-search-input:focus {
+  border-color: var(--color-secondary);
+  background: rgba(0, 162, 233, 0.02);
+}
+
+.user-details__dropdown-search-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ============================================================================
+   DROPDOWN LIST - Scrollable list of countries
+   ============================================================================ */
+
+.user-details__dropdown-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Custom scrollbar styling */
+.user-details__dropdown-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.user-details__dropdown-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.user-details__dropdown-list::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.user-details__dropdown-list::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ============================================================================
+   DROPDOWN ITEM - Individual country option
+   ============================================================================ */
+
+.user-details__dropdown-item {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 3px solid transparent;
+}
+
+.user-details__dropdown-item:hover {
+  background: var(--color-primary-light);
+  border-left-color: var(--color-secondary);
+}
+
+.user-details__dropdown-item--selected {
+  background: rgba(0, 162, 233, 0.1);
+  border-left-color: var(--color-secondary);
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   DROPDOWN FLAG & COUNTRY - Flag and country name in dropdown
+   ============================================================================ */
+
+.user-details__dropdown-flag {
+  font-size: 18px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.user-details__dropdown-country {
+  flex: 1;
+  text-align: left;
+}
+
+.user-details__dropdown-code {
+  font-weight: 600;
+  color: var(--color-secondary);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   MOBILE INPUT - Phone number input field
+   ============================================================================ */
+
+.user-details__mobile-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-white);
+  color: var(--color-text);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+}
+
+.user-details__mobile-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.user-details__mobile-input:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.1);
+  background: rgba(0, 162, 233, 0.02);
+}
+
+.user-details__mobile-input:hover:not(:focus) {
+  border-color: var(--color-primary-light);
+}
+
+.user-details__mobile-input--error {
+  border-color: var(--color-error);
+  background: var(--color-error-light);
+}
+
+.user-details__mobile-input--error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+/* ============================================================================
+   SUBMIT BUTTON - Form submission button
+   ============================================================================ */
+
+.user-details__submit-btn {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+}
+
+.user-details__submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(40, 76, 135, 0.3);
+}
+
+.user-details__submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.user-details__submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ============================================================================
+   SPINNER - Loading spinner animation
+   ============================================================================ */
+
+.user-details__spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: userDetailsSpinnerRotate 0.8s linear infinite;
+}
+
+@keyframes userDetailsSpinnerRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   TERMS - Terms and conditions text
+   ============================================================================ */
+
+.user-details__terms {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 12px 0 0 0;
+  line-height: 1.5;
+}
+
+.user-details__terms-link {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.user-details__terms-link:hover {
+  color: var(--color-secondary-light);
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - Mobile and tablet adjustments
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .user-details__section {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+
+  .user-details__container {
+    padding: 36px 28px;
+    border-radius: 16px;
+  }
+
+  .user-details__title {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .user-details__subtitle {
+    font-size: 13px;
+  }
+
+  .user-details__header {
+    margin-bottom: 24px;
+  }
+
+  .user-details__form {
+    gap: 16px;
+  }
+
+  .user-details__country-dropdown {
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-details__section {
+    padding: 40px 12px;
+  }
+
+  .user-details__container {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .user-details__title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .user-details__subtitle {
+    font-size: 12px;
+  }
+
+  .user-details__header {
+    margin-bottom: 20px;
+  }
+
+  .user-details__form {
+    gap: 14px;
+  }
+
+  .user-details__label {
+    font-size: 12px;
+  }
+
+  .user-details__input,
+  .user-details__mobile-input {
+    font-size: 13px;
+    padding: 11px 14px;
+  }
+
+  .user-details__country-code-btn {
+    padding: 11px 10px;
+    font-size: 12px;
+  }
+
+  .user-details__country-code-text {
+    min-width: 32px;
+  }
+
+  .user-details__submit-btn {
+    padding: 12px 20px;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .user-details__terms {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .user-details__country-dropdown {
+    min-width: 220px;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY - High contrast mode and reduced motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .user-details__section::before,
+  .user-details__section::after,
+  .user-details__container,
+  .user-details__header,
+  .user-details__form-group,
+  .user-details__error-message,
+  .user-details__country-dropdown,
+  .user-details__country-code-icon,
+  .user-details__submit-btn,
+  .user-details__spinner {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .user-details__input,
+  .user-details__mobile-input {
+    border-width: 2px;
+  }
+
+  .user-details__label {
+    font-weight: 700;
+  }
+
+  .user-details__country-code-btn {
+    border-width: 2px;
+  }
+}

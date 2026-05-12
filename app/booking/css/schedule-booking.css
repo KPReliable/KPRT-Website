@@ -1,0 +1,747 @@
+/* ============================================================================
+   SCHEDULE BOOKING COMPONENT STYLES
+   ============================================================================
+   Highly specific CSS classes for schedule booking
+   Color variables from global :root configuration
+   ============================================================================ */
+
+:root {
+  --color-primary: #284c87;
+  --color-primary-dark: #1a3460;
+  --color-primary-light: #e8eef8;
+  --color-secondary: #00a2e9;
+  --color-secondary-light: #33b8ff;
+  --color-white: #ffffff;
+  --color-text: #0f1f3d;
+  --color-text-muted: #5a6a85;
+  --color-border: #dce6f5;
+  --color-bg: #f5f8ff;
+  --color-bg-alt: #ffffff;
+  --max-w: 1200px;
+  --section-py: 80px;
+  --font-display: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+/* ============================================================================
+   SCHEDULE BOOKING SECTION - Main section wrapper
+   ============================================================================ */
+
+.schedule-booking__section {
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--section-py) 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(40, 76, 135, 0.08) 0%,
+    rgba(40, 76, 135, 0.04) 40%,
+    #ffffff 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background elements */
+.schedule-booking__section::before {
+  content: "";
+  position: absolute;
+  top: -300px;
+  right: -300px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 162, 233, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.schedule-booking__section::after {
+  content: "";
+  position: absolute;
+  bottom: -250px;
+  left: -250px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(40, 76, 135, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================================
+   SCHEDULE BOOKING CONTAINER - Main container
+   ============================================================================ */
+
+.schedule-booking__container {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 20px;
+  padding: 48px 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(40, 76, 135, 0.08);
+  animation: scheduleContainerSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes scheduleContainerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================================
+   SCHEDULE BOOKING HEADER - Title and subtitle
+   ============================================================================ */
+
+.schedule-booking__header {
+  margin-bottom: 40px;
+  animation: scheduleHeaderFadeIn 0.7s ease-out;
+}
+
+@keyframes scheduleHeaderFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.schedule-booking__header-content {
+  text-align: center;
+}
+
+.schedule-booking__title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.schedule-booking__subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.schedule-booking__subtitle strong {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   REQUIRED INDICATOR - Red asterisk for required fields
+   ============================================================================ */
+
+.schedule-booking__required {
+  color: #e74c3c;
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+/* ============================================================================
+   DATE SELECTOR - Date selection section
+   ============================================================================ */
+
+.schedule-booking__date-selector {
+  margin-bottom: 32px;
+  animation: scheduleSectionSlideIn 0.5s ease-out 0.1s backwards;
+}
+
+@keyframes scheduleSectionSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.schedule-booking__date-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ============================================================================
+   DATES GRID - Grid of date buttons
+   ============================================================================ */
+
+.schedule-booking__dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  padding: 16px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+/* ============================================================================
+   DATE BUTTON - Individual date button
+   ============================================================================ */
+
+.schedule-booking__date-btn {
+  padding: 16px 12px;
+  border: 2px solid transparent;
+  background: var(--color-white);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  position: relative;
+}
+
+.schedule-booking__date-btn:hover:not(:disabled) {
+  background: var(--color-primary-light);
+  border-color: var(--color-secondary);
+}
+
+.schedule-booking__date-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 162, 233, 0.2);
+}
+
+.schedule-booking__date-btn--selected {
+  background: var(--color-primary-light);
+  border-color: var(--color-secondary);
+  box-shadow: 0 4px 12px rgba(0, 162, 233, 0.2);
+}
+
+.schedule-booking__date-btn--disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: var(--color-bg);
+}
+
+.schedule-booking__date-btn--disabled:hover {
+  background: var(--color-bg);
+  border-color: transparent;
+}
+
+/* ============================================================================
+   DATE COMPONENTS - Day, date, and month text
+   ============================================================================ */
+
+.schedule-booking__date-day {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.schedule-booking__date-date {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.schedule-booking__date-month {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.schedule-booking__date-btn--selected .schedule-booking__date-date {
+  color: var(--color-secondary);
+}
+
+/* ============================================================================
+   TIME SELECTOR - Time selection section
+   ============================================================================ */
+
+.schedule-booking__time-selector {
+  margin-bottom: 32px;
+  animation: scheduleSectionSlideIn 0.5s ease-out 0.2s backwards;
+}
+
+.schedule-booking__time-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* ============================================================================
+   TIMES GRID - Grid of time buttons
+   ============================================================================ */
+
+.schedule-booking__times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+/* ============================================================================
+   TIME BUTTON - Individual time button
+   ============================================================================ */
+
+.schedule-booking__time-btn {
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.schedule-booking__time-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.schedule-booking__time-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 76, 135, 0.2);
+}
+
+.schedule-booking__time-btn--selected {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(40, 76, 135, 0.25);
+}
+
+.schedule-booking__time-btn--selected:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* ============================================================================
+   SUMMARY - Booking summary section
+   ============================================================================ */
+
+.schedule-booking__summary {
+  padding: 24px;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, rgba(232, 238, 248, 0.4) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  margin-bottom: 28px;
+  animation: scheduleSectionSlideIn 0.5s ease-out 0.3s backwards;
+}
+
+/* ============================================================================
+   SUMMARY ITEM - Individual summary item
+   ============================================================================ */
+
+.schedule-booking__summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(40, 76, 135, 0.1);
+}
+
+.schedule-booking__summary-item:last-child {
+  border-bottom: none;
+}
+
+.schedule-booking__summary-label {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.schedule-booking__summary-value {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-align: right;
+}
+
+/* ============================================================================
+   SUBMIT BUTTON - Booking submission button
+   ============================================================================ */
+
+.schedule-booking__submit-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: var(--color-white);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  animation: scheduleSectionSlideIn 0.5s ease-out 0.4s backwards;
+}
+
+.schedule-booking__submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(40, 76, 135, 0.3);
+}
+
+.schedule-booking__submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.schedule-booking__submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.schedule-booking__submit-btn:focus {
+  outline: none;
+  box-shadow: 0 8px 24px rgba(40, 76, 135, 0.3), 0 0 0 3px rgba(40, 76, 135, 0.1);
+}
+
+/* ============================================================================
+   SPINNER - Loading spinner
+   ============================================================================ */
+
+.schedule-booking__spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--color-white);
+  border-radius: 50%;
+  animation: scheduleSpinnerRotate 0.8s linear infinite;
+}
+
+@keyframes scheduleSpinnerRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================================================
+   SUCCESS STATE - Success screen styling
+   ============================================================================ */
+
+.schedule-booking__success {
+  padding: 40px 20px;
+  text-align: center;
+  animation: scheduleSuccessFadeIn 0.6s ease-out;
+}
+
+@keyframes scheduleSuccessFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.schedule-booking__success-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin: 24px 0 12px 0;
+}
+
+.schedule-booking__success-message {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin: 0 0 8px 0;
+  line-height: 1.6;
+}
+
+.schedule-booking__success-message strong {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.schedule-booking__success-details {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  margin: 0 0 28px 0;
+}
+
+.schedule-booking__success-details strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   SUCCESS ACTIONS - Action buttons on success screen
+   ============================================================================ */
+
+.schedule-booking__success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.schedule-booking__home-btn {
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.schedule-booking__home-btn:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - Mobile and tablet adjustments
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .schedule-booking__section {
+    padding: 60px 16px;
+    min-height: auto;
+  }
+
+  .schedule-booking__container {
+    padding: 36px 28px;
+    border-radius: 16px;
+  }
+
+  .schedule-booking__title {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .schedule-booking__subtitle {
+    font-size: 13px;
+  }
+
+  .schedule-booking__dates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .schedule-booking__date-btn {
+    padding: 12px 10px;
+    gap: 4px;
+  }
+
+  .schedule-booking__date-date {
+    font-size: 16px;
+  }
+
+  .schedule-booking__times-grid {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 8px;
+  }
+
+  .schedule-booking__time-btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .schedule-booking__summary {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .schedule-booking__summary-item {
+    padding: 8px 0;
+    font-size: 12px;
+  }
+
+  .schedule-booking__submit-btn {
+    padding: 12px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .schedule-booking__section {
+    padding: 40px 12px;
+  }
+
+  .schedule-booking__container {
+    padding: 28px 20px;
+    border-radius: 14px;
+  }
+
+  .schedule-booking__title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .schedule-booking__subtitle {
+    font-size: 12px;
+  }
+
+  .schedule-booking__date-selector,
+  .schedule-booking__time-selector {
+    margin-bottom: 24px;
+  }
+
+  .schedule-booking__date-label,
+  .schedule-booking__time-label {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .schedule-booking__dates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .schedule-booking__date-btn {
+    padding: 10px 8px;
+    gap: 3px;
+  }
+
+  .schedule-booking__date-date {
+    font-size: 14px;
+  }
+
+  .schedule-booking__date-day,
+  .schedule-booking__date-month {
+    font-size: 9px;
+  }
+
+  .schedule-booking__times-grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 6px;
+  }
+
+  .schedule-booking__time-btn {
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+
+  .schedule-booking__summary {
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .schedule-booking__summary-label,
+  .schedule-booking__summary-value {
+    font-size: 11px;
+  }
+
+  .schedule-booking__submit-btn {
+    padding: 11px 16px;
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .schedule-booking__success-title {
+    font-size: 22px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+
+  .schedule-booking__success-message {
+    font-size: 13px;
+  }
+
+  .schedule-booking__success-details {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .schedule-booking__home-btn {
+    padding: 10px 24px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================================================
+   ACCESSIBILITY - High contrast mode and reduced motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .schedule-booking__section::before,
+  .schedule-booking__section::after,
+  .schedule-booking__container,
+  .schedule-booking__header,
+  .schedule-booking__date-selector,
+  .schedule-booking__time-selector,
+  .schedule-booking__summary,
+  .schedule-booking__submit-btn,
+  .schedule-booking__spinner,
+  .schedule-booking__success {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .schedule-booking__date-btn,
+  .schedule-booking__time-btn {
+    border-width: 2px;
+  }
+
+  .schedule-booking__title {
+    font-weight: 900;
+  }
+
+  .schedule-booking__submit-btn {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+}
