@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
   ServicesNavItem, 
-  ContactMegaMenu, 
+   
   IndustriesNavItem 
 } from "./ServiceMegaMenu"; 
 
@@ -59,7 +59,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({ showWhiteBg }) => {
               </Link>
               
               {/* Trigger the Contact Mega Menu on Hover */}
-              {isContact && contactOpen && <ContactMegaMenu onClose={() => setContactOpen(false)} />}
+              
             </div>
           );
         })}

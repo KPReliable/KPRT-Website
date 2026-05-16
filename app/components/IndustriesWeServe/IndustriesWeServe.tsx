@@ -38,7 +38,7 @@ const IndustriesWeServe: React.FC = () => {
             zIndex: 1, 
             width: "100%", 
             maxWidth: "1400px", // Matches your industries-inner max-width
-            padding: "0 80px", // Side padding for the text
+            padding: "0 60px", // Side padding for the text
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start", // Pushes content to the left
@@ -49,7 +49,7 @@ const IndustriesWeServe: React.FC = () => {
               fontSize: "clamp(2.2rem, 5vw, 3.8rem)", 
               fontWeight: "500",
               maxWidth: "850px",
-              lineHeight: "1.1",
+              lineHeight: "1.0",
               textShadow: "2px 2px 10px rgba(0,0,0,0.3)"
             }}>
               Defect prevention at source 
@@ -63,10 +63,10 @@ const IndustriesWeServe: React.FC = () => {
             bottom: "0", 
             left: "50%", 
             transform: "translate(-50%, 50%)", 
-            width: "73vw", 
+            width: "83vw", 
             maxWidth: "1750px", 
             zIndex: 10, 
-            height:"510px"
+            height:"485px"
           }}>
             <Image 
               src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776100685/2_gfcxgo.svg" 

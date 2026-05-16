@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "@/app/components/Logo";
 import DesktopNav from "@/app/components/DesktopNav";
-import MobileNav from "@/app/components/MobileNav";
+
 import Hamburger from "@/app/components/Hamburger";
 
 type MobileNavProps = {
@@ -11,7 +11,7 @@ type MobileNavProps = {
   onClose: () => void;
 };
 
-const MobileNavTyped = MobileNav as React.ComponentType<MobileNavProps>;
+
 
 const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
         </div>
       </header>
 
-      <MobileNavTyped isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
+    
     </>
   );
 };

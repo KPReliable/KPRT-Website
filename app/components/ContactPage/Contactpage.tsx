@@ -31,7 +31,7 @@ const Contactpage = ({ isOpen, setIsOpen }: ContactPopupProps) => {
 
           <button
             onClick={() => setIsOpen(true)}
-            className="bg-[#ffb300] text-[#0f2137] px-10 py-4 rounded-full text-base font-black uppercase tracking-wider shadow-lg hover:shadow-[#ffb300]/40 hover:-translate-y-1 hover:bg-white transition-all duration-300 ease-in-out active:scale-95"
+            className="bg-[#ffb300] text-[#0f2137] px-10 py-4  text-base font-black uppercase tracking-wider shadow-lg hover:shadow-[#ffb300]/40 hover:-translate-y-1 hover:bg-white transition-all duration-300 ease-in-out active:scale-95"
           >
             Contact Us
           </button>

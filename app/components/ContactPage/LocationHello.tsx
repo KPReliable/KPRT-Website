@@ -19,7 +19,7 @@ const LocationHello = () => {
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.4578137350713!2d76.93236487548545!3d28.36329917581177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d3e45253ab7c5%3A0xd93232850c1d9d92!2sKP%20Reliable%20Technique%20India%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1715068000000!5m2!1sen!2sin",
       phone: "+91 9312409696",
       link: "",
-      email: "joshi@reliable_aes.in",
+      email: "joshi@reliable-aes.in",
       hours: "Mon - Sat: 9:00 AM - 6:00 PM",
     },
     {
@@ -29,7 +29,7 @@ const LocationHello = () => {
         "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3510.958564024467!2d77.3088874754849!3d28.392185175796213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDIzJzMxLjkiTiA3N8KwMTgnNDEuMyJF!5e0!3m2!1sen!2sin!4v1715070000000!5m2!1sen!2sin",
       phone: "+91 9312409696",
       link: "",
-      email: "joshi@reliable_aes.in",
+      email: "joshi@reliable-aes.in",
       hours: "Mon - Sat: 10:00 AM - 7:00 PM",
     },
   ];
@@ -133,12 +133,7 @@ const LocationHello = () => {
                   {/* Contact Row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div className="space-y-2">
-                      <p
-                        style={{ color: "var(--color-secondary)" }}
-                        className="text-[10px] font-black uppercase tracking-widest"
-                      >
-                        Hotline
-                      </p>
+                      
                       <div className="flex items-center gap-3">
                         <Phone
                           className="w-4 h-4"
@@ -153,12 +148,7 @@ const LocationHello = () => {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <p
-                        style={{ color: "var(--color-secondary)" }}
-                        className="text-[10px] font-black uppercase tracking-widest"
-                      >
-                        Support
-                      </p>
+                      
                       <div className="flex items-center gap-3">
                         <Mail
                           className="w-4 h-4"
@@ -205,7 +195,7 @@ const LocationHello = () => {
                       backgroundColor: "var(--color-primary-dark)",
                       color: "var(--color-white)",
                     }}
-                    className="group relative px-8 py-4 rounded-2xl font-bold overflow-hidden transition-all shadow-lg active:scale-95 inline-block"
+                    className="group relative px-8 py-4  font-bold overflow-hidden transition-all shadow-lg active:scale-95 inline-block"
                   >
                     Get Directions
                   </Link>

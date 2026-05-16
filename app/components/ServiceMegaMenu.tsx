@@ -20,11 +20,9 @@ const ACTUAL_SERVICES_GROUPS = [
     title: "Consultant",
     href: "/service/consultant"
   },
-  {
-    title: "Audits & Complaince",
-     href: "/service/auditandcomplaince"
+  
    
-  },
+  
   {
     title: "Pre-Dispatch",
      href: "/service/predispatch"
@@ -186,43 +184,6 @@ Prevention-driven model </p>
   );
 };
 
-/* ============================================================
-   CONTACT MEGA MENU
-   ============================================================ */
-export const ContactMegaMenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  return (
-    <div className="fixed top-[80px] left-0 w-full bg-white z-[100] border-t border-gray-100 shadow-xl animate-in fade-in duration-300">
-      <div className="max-w-[1400px] mx-auto px-10 py-16 grid grid-cols-12 gap-10 text-left text-black">
-        <div className="col-span-4 pr-10 border-r border-gray-200">
-          <h2 className="text-4xl font-normal text-gray-800 mb-8 tracking-tight">get in touch</h2>
-          <div className="mb-10">
-            <h3 className="text-2xl font-semibold text-[#1e1b4b] mb-4 leading-tight">Ready to start your <br /> next project?</h3>
-            <p className="text-gray-600 text-lg">Our experts are available to discuss your requirements.</p>
-          </div>
-          <Link href="/contact" onClick={onClose} className="group text-lg font-medium text-gray-900 hover:text-[#00d5a0] transition-colors">
-            Contact us today
-            <NagarroArrow />
-          </Link>
-        </div>
-        <div className="col-span-8 grid grid-cols-3 gap-8">
-          {/* FIX: Use CONTACT_GROUPS here */}
-          {CONTACT_GROUPS.map((group) => (
-            <div key={group.title}>
-              <h4 className="text-3xl font-normal text-gray-800 mb-8 tracking-tight uppercase">{group.title}</h4>
-              <ul className="space-y-4">
-                {group.links.map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} onClick={onClose} className="text-gray-600 text-lg hover:text-[#1e1b4b]">{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 /* ============================================================
    NAV ITEM WRAPPERS

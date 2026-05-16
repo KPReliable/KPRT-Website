@@ -174,11 +174,7 @@ const HeroBanner: React.FC = () => {
     className="hero-video-bg"
   >
     <source 
-<<<<<<< Updated upstream
       src="https://res.cloudinary.com/dinnmia6e/video/upload/v1775823913/video3_uctxu7.mp4" 
-=======
-      src="" 
->>>>>>> Stashed changes
       type="video/mp4" 
     />
   </video>
