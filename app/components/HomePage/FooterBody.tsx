@@ -74,7 +74,7 @@ const FooterBody = () => {
               <p className="text-sm text-gray-400 mb-6">Get quality insights and checklists straight to your inbox.</p>
 
               {subscribed ? (
-                <div className="flex items-center gap-2 text-[#10b981] font-medium animate-pulse">
+                <div className="flex items-center gap-2 text-[#ffb300] font-medium animate-pulse">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" width="18" height="18">
                     <polyline points="20 6 9 17 4 12"/>
                   </svg>
@@ -92,7 +92,7 @@ const FooterBody = () => {
                   />
                   <button 
                     type="submit"
-                    className="absolute right-2 bg-[#284c87] hover:bg-[#00a2e9] text-white px-5 py-2 rounded-lg text-xs font-bold transition-all"
+                    className="absolute right-2 bg-[#ffb300] hover:bg-[#ffb300] text-white px-5 py-2 rounded-lg text-xs font-bold transition-all"
                   >
                     Subscribe
                   </button>

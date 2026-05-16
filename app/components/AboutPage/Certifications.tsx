@@ -138,7 +138,7 @@ export default function WhoWeAre() {
                 <div className={`absolute w-full px-4 md:px-8 ${isEven ? 'bottom-1/2 mb-8' : 'top-1/2 mt-8'}`}>
                   
                   {/* The Card Component */}
-                  <div className="bg-white border border-gray-200 rounded-2xl p-8 lg:p-10 mx-auto max-w-[450px] shadow-sm hover:shadow-md transition-shadow">
+                  <div className="bg-white border border-gray-200  p-8 lg:p-10 mx-auto max-w-[450px] shadow-sm hover:shadow-md transition-shadow">
                     <h3 className="text-4xl font-light text-[#E86C31] tracking-wide">
                       {item.year}
                     </h3>

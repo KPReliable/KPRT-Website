@@ -17,7 +17,7 @@ const PreFooterBanner: React.FC = () => {
 
         {/* Right side: Action Buttons */}
         <div className="w-full md:w-auto flex flex-col gap-4 min-w-[260px] max-w-xs mx-auto md:mx-0">
-          <button className="w-full bg-[#52dca7] hover:bg-[#42c593] text-[#111c30] text-sm md:text-base font-semibold py-3.5 px-8 rounded-full transition-all duration-300 shadow-sm">
+          <button className="w-full bg-[#ffb300] hover:bg-[#42c593] text-[#111c30] text-sm md:text-base font-semibold py-3.5 px-8 rounded-full transition-all duration-300 shadow-sm">
             Work with us
           </button>
           

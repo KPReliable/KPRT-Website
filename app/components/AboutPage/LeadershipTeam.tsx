@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 
+// Data array updated: Every card now accepts an explicit 'name' field separate from the 'designation' field.
 const designations = [
   {
     title: "Mind behind the KP Reliable Technique India Private Limited",
@@ -10,22 +11,26 @@ const designations = [
     description: "Our top-tier management drives the long-term strategic vision, shaping the operational frameworks that empower our 650+ engineers nationwide.",
     cards: [
       { 
-        title: "General Manager-HR", 
+        name: "Mr. Kailash Joshi ", // Added explicit name
+        designation: "General Manager-HR", 
         hoverMessage: "Driving 5-year expansion plans and market dominance.", 
         image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1778912517/Raj70_psn9vu.svg" 
       },
       { 
-        title: "Process Optimization", 
+        name: "Raman Sharma", // Added explicit name
+        designation: "Process Optimization", 
         hoverMessage: "Streamlining nationwide operations for peak efficiency.", 
         image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776853795/Ram71_zuqevb.svg" 
       },
       { 
-        title: "Pan-India Execution", 
+        name: "Amit Patel", // Added explicit name
+        designation: "Pan-India Execution", 
         hoverMessage: "Executing high-level strategies across all 9 branch locations.", 
         image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776853795/Ram71_zuqevb.svg" 
       },
       { 
-        title: "Global Outreach", 
+        name: "Vikram Singh", // Added explicit name
+        designation: "Global Outreach", 
         hoverMessage: "Expanding KPRT's standard of excellence beyond borders.", 
         image: "https://res.cloudinary.com/dinnmia6e/image/upload/v1776853795/Ram71_zuqevb.svg" 
       }
@@ -117,11 +122,11 @@ export default function LeadershipShowcase() {
                     className={`flex flex-col gap-3 transition-all duration-1000 ${delayClasses[cardIndex]} ease-out transform translate-y-12 opacity-0 group`}
                   >
                     {/* Image Container Block */}
-                    <div className="relative h-[300px] w-full bg-gray-200 overflow-hidden ">
+                    <div className="relative h-[300px] w-full bg-gray-200 overflow-hidden rounded-sm">
                       {/* Background Image */}
                       <Image 
                         src={card.image} 
-                        alt={card.title}
+                        alt={card.name} // Accessibility matching the person's name
                         fill
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
                       />
@@ -134,10 +139,15 @@ export default function LeadershipShowcase() {
                       </div>
                     </div>
 
-                    {/* External Title Placement below the image block */}
-                    <div className="pt-1">
-                      <span className="text-gray-900 font-bold tracking-wide uppercase text-sm md:text-base block transition-colors duration-300 group-hover:text-gray-600">
-                        {card.title}
+                    {/* External Text Details Stacked Below the Image Block */}
+                    <div className="pt-1 flex flex-col gap-0.5">
+                      {/* 1. Leader's Name (Top Tier Highlight) */}
+                      <span className="text-gray-900 font-bold tracking-tight text-base md:text-lg block transition-colors duration-300 group-hover:text-gray-600">
+                        {card.name}
+                      </span>
+                      {/* 2. Leader's Designation (Subordinate Element Below Name) */}
+                      <span className="text-gray-500 font-medium uppercase tracking-wide text-xs md:text-sm block">
+                        {card.designation}
                       </span>
                     </div>
 

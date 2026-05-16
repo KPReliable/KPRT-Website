@@ -193,9 +193,16 @@ export const ServicesNavItem: React.FC<{ showWhiteBg: boolean }> = ({ showWhiteB
   const pathname = usePathname();
   return (
     <div className="h-full flex items-center" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
-      <Link href="/services" className={`text-[15px] font-medium px-4 tracking-tight h-full flex items-center transition-colors ${showWhiteBg ? (open || pathname.startsWith("/services") ? "text-gray-900 font-bold" : "text-gray-600 hover:text-gray-900") : "text-white/90 hover:text-white"}`}>
-        what we do
-      </Link>
+      <Link 
+  href="/services" 
+  className={`text-[15px] font-medium px-4 tracking-tight h-full flex items-center transition-colors ${
+    showWhiteBg 
+      ? (open || pathname.startsWith("/services") ? "text-[#ffb300] font-bold" : "text-gray-600 hover:text-[#ffb300]") 
+      : "text-white hover:text-[#ffb300]"
+  }`}
+>
+  Services
+</Link>
       {open && <ServicesMegaMenu onClose={() => setOpen(false)} />}
     </div>
   );
