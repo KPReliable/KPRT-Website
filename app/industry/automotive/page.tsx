@@ -64,7 +64,7 @@ const CareerStats: React.FC = () => {
               <Image src="https://res.cloudinary.com/dinnmia6e/image/upload/v1777446853/Raj25_smlrv7.svg" alt="Quality Reporting" fill className="object-cover" />
             </div>
           </div>
-
+   
           {/* Column 2 */}
           <div className="flex flex-col gap-4 w-full lg:w-[20%] lg:mt-24">
             <div className="relative w-full aspect-[3/4] overflow-hidden shadow-2xl border border-white/10">

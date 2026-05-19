@@ -24,7 +24,7 @@ const LocationHello = () => {
     },
     {
       branch: "Faridabad Office",
-      address: "98R6+vhh Faridabad Hariyana",
+      address: "2&3, 1st Floor, Varun Tower 1, Sector-20B,Faridabad,Haryana",
       mapLink:
         "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3510.958564024467!2d77.3088874754849!3d28.392185175796213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDIzJzMxLjkiTiA3N8KwMTgnNDEuMyJF!5e0!3m2!1sen!2sin!4v1715070000000!5m2!1sen!2sin",
       phone: "+91 9312409696",
