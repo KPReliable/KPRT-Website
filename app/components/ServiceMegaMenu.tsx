@@ -21,19 +21,22 @@ const ACTUAL_SERVICES_GROUPS = [
     href: "/service/consultant"
   },
   
-   
-  
   {
-    title: "Pre-Dispatch",
-     href: "/service/predispatch"
+    title: "Pre-Production Inspection",
+     href: "/service/Pre-ProductionInspection"
    
   },{
     title: "Product Process Inspection",
-     href: "/service/processinspection"
+     href: "/service/ProductProcessInspection"
    
   },{
     title: "Final Inspection",
      href: "/service/finalinspection"
+    
+  },
+  {
+    title: "Process Upgradation",
+     href: "/service/ProcessUpgradation"
     
   }
 ];

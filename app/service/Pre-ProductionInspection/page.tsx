@@ -28,7 +28,7 @@ const AlternatingSection: React.FC<AlternatingSectionProps> = ({
   <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
     {/* Text Content Block */}
     <div className={`${isReversed ? 'lg:order-2' : ''}`}>
-      <p className="text-[#fbb300] font-medium mb-4 uppercase tracking-widest text-sm">{tag}</p>
+      <p className="text-[#ffb300] font-medium mb-4 uppercase tracking-widest text-sm">{tag}</p>
       <h2 className="text-4xl md:text-5xl font-bold leading-tight text-slate-800">
         {title}
       </h2>
@@ -55,7 +55,7 @@ export default function ConsultantPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Head>
-        <title>TPI Consulting | KPRT Quality Intelligence</title>
+        <title>Pre-Dispatch | KPRT Quality Intelligence</title>
       </Head>
 
       {/* SECTION 1: HERO BANNER 
@@ -66,17 +66,16 @@ export default function ConsultantPage() {
         
         <div className="max-w-6xl mx-auto relative z-10">
           <p className="text-[#ffb300] text-lg font-medium mb-6 lowercase tracking-wide">
-            Production Process Inspection
+            Pre-Production Inspection
           </p>
           <h1 className="text-white text-5xl md:text-7xl font-bold max-w-4xl leading-[1.1] mb-8">
-            Empowering Quality Through <br /> Unbiased Technical Oversight.
+            Ensuring flawless execution by verifying <br /> quality before manufacturing even begins
           </h1>
           <p className="text-slate-400 text-xl max-w-2xl mb-12 leading-relaxed">
-            We provide the independent expertise and rigorous auditing standards required 
-            to safeguard your supply chain and achieve global compliance excellence.
+           Mitigating risks at the source with rigorous raw material and design validation
           </p>
           <div className="flex flex-wrap gap-6">
-            
+
           </div>
         </div>
       </section>
@@ -88,18 +87,17 @@ export default function ConsultantPage() {
           {/* Block 1: MACE Audit (Image Right) */}
           <AlternatingSection 
             tag="Improve the business"
-            title="MACE Audit & Supply Chain Resilience"
+            title="Sample Inspection:prototype sample ISIR"
             description="Our specialized Manufacturing Assessment and Compliance Excellence (MACE) audits identify hidden gaps in your production workflow, ensuring your facility operates at peak global efficiency."
             imageSrc="https://res.cloudinary.com/dinnmia6e/image/upload/v1778654634/RAJ46_ydfry2.svg"
             imageAlt="MACE Auditing Session"
           />
 
           
-
           {/* Block 2: VDA 6.3 (Image Left) */}
           <AlternatingSection 
             tag="Operational Excellence"
-            title="VDA 6.3 Process Auditing"
+            title="Supplier assessment Audit"
             description="As a third-party leader, we conduct rigorous VDA 6.3 audits to evaluate the effectiveness of your manufacturing processes, aligning your output with German automotive excellence."
             imageSrc="https://res.cloudinary.com/dinnmia6e/image/upload/v1777530237/Raj36_cpwsca.svg"
             imageAlt="VDA 6.3 Quality Control Station"
@@ -109,7 +107,23 @@ export default function ConsultantPage() {
           {/* Block 3: IATF 16949 (Image Right) */}
           <AlternatingSection 
             tag="Scale & Growth"
-            title="IATF 16949:2016 Certification Support"
+            title="Inward Inspection"
+            description="We guide your organization through the transition to IATF 16949 standards, integrating automated intelligence into your Quality Management Systems (QMS) for zero-defect production."
+            imageSrc="https://res.cloudinary.com/dinnmia6e/image/upload/v1778655547/Raj49_zqdblp.svg"
+            imageAlt="IATF Certification Roadmap"
+          />
+          {/* Block 3: IATF 16949 (Image Right) */}
+          <AlternatingSection 
+            tag="Scale & Growth"
+            title="Suplier PPAP"
+            description="We guide your organization through the transition to IATF 16949 standards, integrating automated intelligence into your Quality Management Systems (QMS) for zero-defect production."
+            imageSrc="https://res.cloudinary.com/dinnmia6e/image/upload/v1778655547/Raj49_zqdblp.svg"
+            imageAlt="IATF Certification Roadmap"
+          />
+          {/* Block 3: IATF 16949 (Image Right) */}
+          <AlternatingSection 
+            tag="Scale & Growth"
+            title="PPAP,APQP document Assesment"
             description="We guide your organization through the transition to IATF 16949 standards, integrating automated intelligence into your Quality Management Systems (QMS) for zero-defect production."
             imageSrc="https://res.cloudinary.com/dinnmia6e/image/upload/v1778655547/Raj49_zqdblp.svg"
             imageAlt="IATF Certification Roadmap"

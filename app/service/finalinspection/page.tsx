@@ -69,11 +69,10 @@ export default function ConsultantPage() {
             Final Inspection
           </p>
           <h1 className="text-white text-5xl md:text-7xl font-bold max-w-4xl leading-[1.1] mb-8">
-            Empowering Quality Through <br /> Unbiased Technical Oversight.
+            Your ultimate quality gatekeeper <br /> ensuring complete compliance before shipping
           </h1>
           <p className="text-slate-400 text-xl max-w-2xl mb-12 leading-relaxed">
-            We provide the independent expertise and rigorous auditing standards required 
-            to safeguard your supply chain and achieve global compliance excellence.
+           Comprehensive end-of-line verification to guarantee zero-defect,market-ready products
           </p>
           <div className="flex flex-wrap gap-6">
             

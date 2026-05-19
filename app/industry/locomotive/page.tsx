@@ -34,7 +34,7 @@ const IndustryHero: React.FC = () => {
           </p>
           
           <div className="flex items-center gap-6">
-            <button className="group relative flex items-center gap-3 bg-[#fb9d05] text-white font-bold text-lg px-10 py-4 rounded-full hover:bg-white hover:text-[#003366] transition-all duration-300 shadow-xl">
+            <button className="group relative flex items-center gap-3 bg-[#fb9d05] text-white font-bold text-lg px-10 py-4  hover:bg-white hover:text-[#003366] transition-all duration-300 shadow-xl">
               Consult a Rail Expert
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
