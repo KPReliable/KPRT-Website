@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import Header from "@/app/components/Header";
-import Footer from "./components/Footer";
+import Footer from "@/app/components/Footer"; // Fixed: Updated to match your absolute path configuration
 import "@/app/globals.css";
 
 const barlow = Barlow({
