@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 
+// Data array updated - KEPT EXACTLY SAME
 const strengthMetrics = [
   "Our Strength",
   "Scale That Delivers Reliability",
@@ -13,6 +14,7 @@ const strengthMetrics = [
   "100% Independent & Reliable Services"
 ];
 
+// Pillars Data Structure with inline SVG assets - KEPT EXACTLY SAME
 const pillarsData = [
   {
     category: "Pan India Presence",
@@ -68,7 +70,7 @@ export default function MissionVisionAndStrength() {
   return (
     <div className="w-full bg-[#1a3b66] font-sans text-white">
       
-      {/* SVG Gradients for the Icons (Hidden from view) */}
+      {/* SVG Gradients for the Icons (Hidden from view) - KEPT EXACTLY SAME */}
       <svg width="0" height="0" className="hidden">
         <defs>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -108,17 +110,19 @@ export default function MissionVisionAndStrength() {
         <div className="flex w-max animate-infinite-scroll items-center">
           {[...strengthMetrics, ...strengthMetrics].map((metric, index) => (
             <div key={index} className="flex items-center whitespace-nowrap">
-              <span className="text-black font-bold text-sm md:text-base tracking-widest uppercase px-6 md:px-10">
+              {/* CHANGED: Text sizing and horizontal margins scale smoothly down on minor viewports */}
+              <span className="text-black font-bold text-xs sm:text-sm md:text-base tracking-widest uppercase px-4 sm:px-6 md:px-10">
                 {metric}
               </span>
-              <span className="text-black font-extrabold text-xl">+</span>
+              <span className="text-black font-extrabold text-lg md:text-xl">+</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* --- MAIN CONTENT WRAPPER --- */}
-      <section className="py-20 lg:py-32 relative overflow-hidden">
+      {/* CHANGED: Standardized content section bounds using responsive mobile scale markers */}
+      <section className="py-12 sm:py-20 lg:py-32 relative overflow-hidden">
         
         {/* Subtle background glow effect */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
@@ -126,18 +130,19 @@ export default function MissionVisionAndStrength() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* --- VISION SECTION (Image 1 Style) --- */}
-          <div className="flex flex-col lg:flex-row items-center gap-16 mb-32">
+          {/* CHANGED: Adjusted block layouts and layout spacing gaps systematically for small displays */}
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-20 sm:mb-28 lg:mb-32">
             
             {/* Left side: Vertical Line & Text */}
-            <div className="w-full lg:w-1/2 pl-6 md:pl-10 border-l-2 border-white">
-              {/* Changed text-blue-200 to text-orange-400 for light orange subtitle */}
-              <h4 className="text-xs md:text-sm tracking-[0.3em] text-orange-400 uppercase mb-6 md:mb-10 font-semibold">
+            <div className="w-full lg:w-1/2 pl-4 sm:pl-6 md:pl-10 border-l-2 border-white text-left">
+              <h4 className="text-xs md:text-sm tracking-[0.3em] text-orange-400 uppercase mb-4 sm:mb-6 md:mb-10 font-semibold">
                 Vision
               </h4>
-              <h2 className="text-3xl md:text-5xl lg:text-5xl font-light mb-8 text-white leading-tight tracking-wide">
+              {/* CHANGED: Heading dimensions adapt gracefully to avoid line breaks or compression overlaps */}
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-light mb-6 sm:mb-8 text-white leading-tight tracking-wide">
                 We're Changing the Way the World Thinks About <span className="font-semibold">Quality</span>
               </h2>
-              <div className="space-y-6 text-blue-100/80 text-base md:text-lg leading-relaxed font-light">
+              <div className="space-y-4 sm:space-y-6 text-blue-100/80 text-sm sm:text-base md:text-lg leading-relaxed font-light">
                 <p>
                   At KP Reliable Technique India Pvt. Ltd., our mission is to deliver unparalleled quality and innovation. We strive to create sustainable value for our clients through meticulous attention to detail and robust third-party inspection standards.
                 </p>
@@ -148,12 +153,14 @@ export default function MissionVisionAndStrength() {
             </div>
 
             {/* Right side: Image Placeholder */}
-            <div className="w-full lg:w-1/2 h-[400px] md:h-[500px] relative rounded-lg overflow-hidden group">
+            {/* CHANGED: Height bounds drop to 250px on smartphones to secure appropriate framing ratios */}
+            <div className="w-full lg:w-1/2 h-[250px] sm:h-[400px] md:h-[500px] relative rounded-lg overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#1a3b66] to-transparent z-10 hidden lg:block"></div>
               <Image 
-                src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776853795/Ram71_zuqevb.svg" // Replace with actual Vision image
+                src="https://res.cloudinary.com/dinnmia6e/image/upload/v1776853795/Ram71_zuqevb.svg"
                 alt="Vision of Future Quality"
                 fill
+                sizes="(max-w-1024px) 100vw, 50vw"
                 className="object-cover object-center opacity-80 group-hover:opacity-100 transition-opacity duration-700"
               />
             </div>
@@ -161,35 +168,37 @@ export default function MissionVisionAndStrength() {
 
           {/* --- FOUR PILLARS SECTION (Image 2 Style) --- */}
           <div className="pt-10 border-t border-blue-400/20">
-            <div className="mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <div className="mb-10 sm:mb-16 text-left">
+              {/* CHANGED: Dynamic heading layouts drop smoothly on smaller phone widths */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
                 Philosophy that Simulated with Strength
               </h2>
-              <p className="text-blue-200 text-lg md:text-xl max-w-4xl font-light leading-relaxed">
+              <p className="text-blue-200 text-sm sm:text-base md:text-xl max-w-4xl font-light leading-relaxed">
                 Integrating specialized inspection talent with proactive strategies to safeguard your manufacturing excellence and deliver unbiased results.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+            {/* CHANGED: Implemented dynamic flex columns stepping (1 -> 2 -> 4 columns) to protect text strings */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 text-left">
               {pillarsData.map((pillar, index) => (
                 <div key={index} className="flex flex-col items-start group">
                   {/* Icon */}
-                  <div className="mb-6 p-4 rounded-full bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                  <div className="mb-4 sm:mb-6 p-4 rounded-full bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                     {pillar.icon}
                   </div>
                   
-                  {/* Category Label - Changed text-[#38bdf8] to text-orange-400 for light orange subtitle */}
-                  <h5 className="text-orange-400 text-xs font-bold tracking-[0.15em] uppercase mb-3">
+                  {/* Category Label */}
+                  <h5 className="text-orange-400 text-xs font-bold tracking-[0.15em] uppercase mb-2.5 sm:mb-3">
                     {pillar.category}
                   </h5>
                   
                   {/* Title */}
-                  <h3 className="text-white text-xl font-bold mb-3 pr-4 leading-snug">
+                  <h3 className="text-white text-lg sm:text-xl font-bold mb-2.5 sm:mb-3 pr-2 leading-snug">
                     {pillar.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-blue-100/70 text-sm leading-relaxed font-light">
+                  <p className="text-blue-100/70 text-xs sm:text-sm leading-relaxed font-light">
                     {pillar.description}
                   </p>
                 </div>

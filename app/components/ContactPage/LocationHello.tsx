@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 
 const LocationHello = () => {
+  // Office arrays kept exactly unchanged
   const offices = [
     {
       branch: "Manesar Office",
@@ -40,43 +41,48 @@ const LocationHello = () => {
         paddingBlock: "var(--section-py)",
         backgroundColor: "var(--color-bg)",
       }}
-      className="relative overflow-hidden font-[var(--font-body)]"
+      className="relative overflow-hidden font-[var(--font-body)] py-12 sm:py-20 lg:py-24"
     >
       <div
-        className="relative mx-auto px-6"
+        className="relative mx-auto px-4 sm:px-6 lg:px-8"
         style={{ maxWidth: "var(--max-w)" }}
       >
         {/* Header using Display Font and Primary Color */}
-        <div className="text-center mb-20">
+        {/* CHANGED: Made heading spacing adaptive for smaller phone displays */}
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2
             style={{
               color: "var(--color-text)",
               fontFamily: "var(--font-display)",
             }}
-            className="text-5xl font-black tracking-tight mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4 sm:mb-6"
           >
             Our <span style={{ color: "var(--color-primary)" }}>Locations</span>
           </h2>
           <div
-            className="h-1.5 w-20 rounded-full mx-auto"
+            className="h-1 sm:h-1.5 w-16 sm:w-20 rounded-full mx-auto"
             style={{ backgroundColor: "var(--color-secondary)" }}
           ></div>
         </div>
 
-        <div className="space-y-32">
+        {/* Office Rows Loop Wrapper */}
+        {/* CHANGED: Scaled layout gaps (`space-y-16 lg:space-y-32`) dynamically to eliminate empty screen space gaps on mobile layout columns */}
+        <div className="space-y-16 sm:space-y-24 lg:space-y-32">
           {offices.map((office, index) => (
             <div
               key={index}
-              className={`flex flex-col ${index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 items-center`}
+              className={`flex flex-col ${index % 2 !== 0 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 sm:gap-12 lg:gap-16 items-center w-full`}
             >
               {/* Map Column */}
               <div className="w-full lg:w-3/5 relative group">
+                {/* Offset glow blur scaled down on small mobile landscape layers */}
                 <div
-                  className="absolute -inset-4 rounded-[2.5rem] opacity-30 blur-lg transition duration-500"
+                  className="absolute -inset-2 sm:-inset-4 rounded-xl sm:rounded-[2.5rem] opacity-30 blur-md sm:blur-lg transition duration-500"
                   style={{ backgroundColor: "var(--color-primary-light)" }}
                 ></div>
 
-                <div className="relative h-[450px] w-full  overflow-hidden shadow-xl border-4 border-white">
+                {/* CHANGED: Swapped static map height with fluid bounds (`h-[280px] sm:h-[400px] lg:h-[450px]`) */}
+                <div className="relative h-[280px] sm:h-[400px] lg:h-[450px] w-full overflow-hidden shadow-xl border-4 border-white rounded-lg sm:rounded-xl">
                   <iframe
                     src={office.mapLink}
                     width="100%"
@@ -91,39 +97,39 @@ const LocationHello = () => {
               </div>
 
               {/* Details Column */}
-              <div className="w-full lg:w-2/5 space-y-10">
+              <div className="w-full lg:w-2/5 space-y-6 sm:space-y-8 lg:space-y-10 text-left">
                 <h3
                   style={{
                     color: "var(--color-primary)",
                     fontFamily: "var(--font-display)",
                   }}
-                  className="text-4xl font-extrabold"
+                  className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight"
                 >
                   {office.branch}
                 </h3>
 
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                   {/* Location Info */}
-                  <div className="flex items-start gap-5">
+                  <div className="flex items-start gap-4 sm:gap-5">
                     <div
-                      className="flex-shrink-0 p-4 rounded-2xl shadow-sm"
+                      className="flex-shrink-0 p-3 sm:p-4 rounded-xl sm:rounded-2xl shadow-sm"
                       style={{ backgroundColor: "var(--color-primary-light)" }}
                     >
                       <MapPin
-                        className="w-6 h-6"
+                        className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0"
                         style={{ color: "var(--color-primary)" }}
                       />
                     </div>
-                    <div>
+                    <div className="space-y-0.5">
                       <p
                         style={{ color: "var(--color-text-muted)" }}
-                        className="text-xs font-bold uppercase tracking-widest mb-1"
+                        className="text-[10px] sm:text-xs font-black uppercase tracking-widest"
                       >
                         Visit Us
                       </p>
                       <p
                         style={{ color: "var(--color-text)" }}
-                        className="font-semibold leading-relaxed"
+                        className="text-sm sm:text-base font-semibold leading-relaxed"
                       >
                         {office.address}
                       </p>
@@ -131,32 +137,31 @@ const LocationHello = () => {
                   </div>
 
                   {/* Contact Row */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {/* CHANGED: Wraps horizontally to grid-cols-1 on small smartphones to protect telephone info rows */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
                     <div className="space-y-2">
-                      
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 text-sm sm:text-base">
                         <Phone
-                          className="w-4 h-4"
+                          className="w-4 h-4 flex-shrink-0"
                           style={{ color: "var(--color-text-muted)" }}
                         />
                         <span
                           style={{ color: "var(--color-text)" }}
-                          className="font-bold"
+                          className="font-bold whitespace-nowrap"
                         >
                           {office.phone}
                         </span>
                       </div>
                     </div>
                     <div className="space-y-2">
-                      
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 text-sm sm:text-base overflow-hidden">
                         <Mail
-                          className="w-4 h-4"
+                          className="w-4 h-4 flex-shrink-0"
                           style={{ color: "var(--color-text-muted)" }}
                         />
                         <span
                           style={{ color: "var(--color-text)" }}
-                          className="font-bold"
+                          className="font-bold truncate"
                         >
                           {office.email}
                         </span>
@@ -170,32 +175,32 @@ const LocationHello = () => {
                       backgroundColor: "var(--color-white)",
                       borderColor: "var(--color-border)",
                     }}
-                    className="inline-flex items-center gap-4 p-4 border rounded-2xl shadow-sm"
+                    className="inline-flex items-center gap-3 sm:gap-4 p-3 sm:p-4 border rounded-xl sm:rounded-2xl shadow-sm max-w-full"
                   >
                     <Clock
-                      className="w-5 h-5"
+                      className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0"
                       style={{ color: "var(--color-secondary)" }}
                     />
                     <span
                       style={{ color: "var(--color-text)" }}
-                      className="text-sm font-bold"
+                      className="text-xs sm:text-sm font-bold truncate"
                     >
                       {office.hours}
                     </span>
                   </div>
                 </div>
 
-                <div className="pt-6">
+                <div className="pt-4 sm:pt-6">
                   {/* For Next.js */}
                   <Link
-                    href={office.link} // Changed 'to' to 'href'
-                    target="_blank" // Opens in a new tab
-                    rel="noopener noreferrer" // Security best practice
+                    href={office.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       backgroundColor: "var(--color-primary-dark)",
                       color: "var(--color-white)",
                     }}
-                    className="group relative px-8 py-4  font-bold overflow-hidden transition-all shadow-lg active:scale-95 inline-block"
+                    className="group relative px-6 sm:px-8 py-3.5 sm:py-4 font-bold text-sm sm:text-base overflow-hidden transition-all shadow-lg active:scale-95 inline-block w-full sm:w-auto text-center rounded-sm"
                   >
                     Get Directions
                   </Link>

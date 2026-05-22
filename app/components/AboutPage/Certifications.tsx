@@ -2,14 +2,14 @@
 
 import React, { useRef } from 'react';
 
-// Define the structure for your timeline data
+// Define the structure for your timeline data - KEPT EXACTLY SAME
 type Milestone = {
   year: string;
   title: string;
   description: string;
 };
 
-// Updated Data with the new snapshot milestones
+// Updated Data with the new snapshot milestones - KEPT EXACTLY SAME
 const journeyData: Milestone[] = [
   {
     year: '2008',
@@ -61,12 +61,10 @@ const journeyData: Milestone[] = [
 export default function WhoWeAre() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Function to handle smooth scrolling left and right
+  // Function to handle smooth scrolling left and right - KEPT EXACTLY SAME
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
-      // Get the width of one card element to determine scroll distance
       const { clientWidth } = scrollContainerRef.current;
-      // On mobile it scrolls 100% of view, on desktop it scrolls 50% (one card)
       const scrollAmount = clientWidth >= 768 ? clientWidth / 2 : clientWidth;
       
       scrollContainerRef.current.scrollBy({
@@ -77,32 +75,33 @@ export default function WhoWeAre() {
   };
 
   return (
-    // Removed overflow-hidden from the main section to prevent accidental clipping
-    <section className="py-24 bg-[#FAFAFA] font-sans relative">
+    <section className="py-16 md:py-24 bg-[#FAFAFA] font-sans relative overflow-hidden">
       
       {/* Title Area */}
-      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-24 mb-16">
-        <h2 className="text-3xl font-light text-gray-900 tracking-wide mb-2">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-10 md:mb-16">
+        <h2 className="text-2xl sm:text-3xl font-light text-gray-900 tracking-wide mb-2">
           Our Journey (Snapshot)
         </h2>
-        <p className="text-lg text-gray-600 font-medium">
+        <p className="text-base sm:text-lg text-gray-600 font-medium">
           From consultancy to execution to ecosystem:
         </p>
       </div>
 
-      {/* Timeline Slider Area - Increased height here to prevent clipping top cards */}
-      <div className="relative max-w-7xl mx-auto px-12 lg:px-24 h-[850px] md:h-[700px]">
+      {/* Timeline Slider Area */}
+      {/* CHANGED: Made container height fluid on mobile screen layers to prevent card clipping */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-12 lg:px-24 h-[550px] sm:h-[650px] md:h-[700px]">
         
         {/* The Continuous Static Background Line */}
-        <div className="absolute top-1/2 left-12 right-12 h-[1px] bg-gray-400 -translate-y-1/2 z-0"></div>
+        <div className="absolute top-1/2 left-4 sm:left-12 right-4 sm:right-12 h-[1px] bg-gray-300 -translate-y-1/2 z-0"></div>
 
         {/* Left Arrow Button */}
+        {/* CHANGED: Enhanced padding tap targets and added high-contrast backgrounds for mobile safety */}
         <button 
           onClick={() => scroll('left')}
-          className="absolute left-0 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-gray-800 hover:text-black transition-colors"
+          className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 text-gray-600 hover:text-black transition-colors bg-white/90 rounded-full shadow-sm md:bg-transparent md:shadow-none"
           aria-label="Previous Slide"
         >
-          <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="36" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-7 sm:w-6 sm:h-10">
             <path d="M19 35L5 20L19 5" />
           </svg>
         </button>
@@ -110,10 +109,10 @@ export default function WhoWeAre() {
         {/* Right Arrow Button */}
         <button 
           onClick={() => scroll('right')}
-          className="absolute right-0 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-gray-800 hover:text-black transition-colors"
+          className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 text-gray-600 hover:text-black transition-colors bg-white/90 rounded-full shadow-sm md:bg-transparent md:shadow-none"
           aria-label="Next Slide"
         >
-          <svg width="24" height="40" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="36" viewBox="0 0 24 40" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-7 sm:w-6 sm:h-10">
             <path d="M5 35L19 20L5 5" />
           </svg>
         </button>
@@ -132,25 +131,26 @@ export default function WhoWeAre() {
                 className="w-full md:w-1/2 shrink-0 snap-start h-full relative"
               >
                 {/* The Black Dash indicating the point on the timeline */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -mt-[1px] w-6 h-[2px] bg-black z-20"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -mt-[1px] w-4 sm:w-6 h-[2px] bg-black z-20"></div>
 
                 {/* Alternating Card Placement (Top vs Bottom) */}
-                <div className={`absolute w-full px-4 md:px-8 ${isEven ? 'bottom-1/2 mb-8' : 'top-1/2 mt-8'}`}>
+                {/* CHANGED: Swapped absolute vertical padding steps to scale flawlessly without running off smaller displays */}
+                <div className={`absolute w-full px-4 sm:px-6 md:px-8 ${isEven ? 'bottom-1/2 mb-4 sm:mb-8' : 'top-1/2 mt-4 sm:mt-8'}`}>
                   
                   {/* The Card Component */}
-                  <div className="bg-white border border-gray-200  p-8 lg:p-10 mx-auto max-w-[450px] shadow-sm hover:shadow-md transition-shadow">
-                    <h3 className="text-4xl font-light text-[#E86C31] tracking-wide">
+                  <div className="bg-white border border-gray-200 p-5 sm:p-6 md:p-8 lg:p-10 mx-auto max-w-[290px] sm:max-w-[380px] md:max-w-[450px] shadow-sm hover:shadow-md transition-shadow rounded-sm">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-light text-[#E86C31] tracking-wide">
                       {item.year}
                     </h3>
                     
                     {/* Small divider line under year */}
-                    <div className="w-14 h-[1px] bg-gray-400 my-5"></div>
+                    <div className="w-10 sm:w-14 h-[1px] bg-gray-300 my-3 sm:my-5"></div>
                     
-                    <h4 className="text-[11px] font-semibold tracking-[0.15em] text-gray-900 uppercase mb-4 leading-relaxed min-h-[32px]">
+                    <h4 className="text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] text-gray-900 uppercase mb-2 sm:mb-4 leading-relaxed min-h-[24px] sm:min-h-[32px]">
                       {item.title}
                     </h4>
                     
-                    <p className="text-gray-600 text-[14px] leading-relaxed">
+                    <p className="text-gray-600 text-xs sm:text-[13px] md:text-[14px] leading-relaxed line-clamp-4 sm:line-clamp-none">
                       {item.description}
                     </p>
                   </div>

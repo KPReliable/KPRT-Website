@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// Data for the 4 overlapping cards
+// Data for the 4 overlapping cards - KEPT EXACTLY SAME
 const featureCards = [
   {
     title: "Company history",
     desc: "We ensure flawless execution with zero-defect standards in every automotive process.",
-    // IMAGE OPTION: Add your image path here. If provided, it overrides the SVG icon.
-    // Example: image: "/images/precision-img.jpg",
     image: "", 
     icon: (
       <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -54,9 +52,10 @@ const featureCards = [
 export default function AboutHero() {
   return (
     <>
-      <section className="about-hero relative overflow-hidden min-h-[107vh] flex items-center pt-20 pb-40">
+      {/* Hero Section Container */}
+      <section className="about-hero relative overflow-hidden min-h-[90vh] sm:min-h-[95vh] lg:min-h-[110vh] flex items-center pt-24 pb-32 sm:pb-44 lg:pb-56">
         
-        {/* Background Image & Overlay Container */}
+        {/* Background Image & Overlay Container - KEPT SAME */}
         <div className="absolute inset-0 z-0">
           <Image
             src="https://res.cloudinary.com/dinnmia6e/image/upload/v1777281582/Raj1_e8cw4w.svg"
@@ -65,34 +64,42 @@ export default function AboutHero() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
-        <div className="about-hero__inner relative z-10 w-full mx-auto px-4">
-          <div className="about-hero__grid">
-            <div className="about-hero__content">
-              {/* Insert your existing Title and Subtitle here */}
-              <div className="about-hero__actions mt-8">
-                {/* Your action buttons go here */}
+        {/* Hero Content Container - Fully optimized for all responsive text breaks */}
+        <div className="about-hero__inner relative z-10 w-full max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="about-hero__grid grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="about-hero__content lg:col-span-8 text-center lg:text-left text-white">
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight drop-shadow-sm">
+                About Our Company
+              </h1>
+              <p className="mt-4 text-base sm:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto lg:mx-0">
+                Driving precision, high compliance, and operational excellence across modern global systems.
+              </p>
+
+              <div className="about-hero__actions mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
+                {/* Space preserved for your action buttons */}
               </div>
+              
             </div>
           </div>
         </div>
       </section>
 
       {/* Overlapping Cards Section */}
-      <div className="relative z-20 max-w-[1160px] mx-auto px-4 -mt-24 md:-mt-32 mb-24">
-        {/* CHANGED: lg:grid-cols-5 is now lg:grid-cols-4 */}
+      {/* Fluid dynamic top margin prevents clipping or squeezing on tall vertical tablet/mobile stacks */}
+      <div id="explore" className="relative z-20 max-w-[1160px] mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-20 lg:-mt-28 mb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {featureCards.map((card, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-8 flex flex-col items-center text-center transition-transform hover:-translate-y-1 duration-300"
+              className="bg-white rounded-md shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-6 sm:p-8 flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] duration-300"
             >
-              {/* Circle Container for Image OR Icon */}
-              {/* Added 'relative overflow-hidden' to ensure uploaded images stay inside the circle */}
-              <div className="w-16 h-16 bg-[#2B4469] rounded-full flex items-center justify-center mb-6 relative overflow-hidden">
+              {/* Circle Container for Image OR Icon - KEPT SAME */}
+              <div className="w-16 h-16 bg-[#2B4469] flex-shrink-0 rounded-full flex items-center justify-center mb-6 relative overflow-hidden">
                 {card.image ? (
                   <Image 
                     src={card.image} 
@@ -105,7 +112,7 @@ export default function AboutHero() {
                 )}
               </div>
               
-              <h3 className="text-[#1A2E4B] text-xl font-bold mb-3">
+              <h3 className="text-[#1A2E4B] text-lg sm:text-xl font-bold mb-3">
                 {card.title}
               </h3>
               
@@ -115,10 +122,10 @@ export default function AboutHero() {
               
               <Link 
                 href={card.link}
-                className="flex items-center gap-2 text-[#1A2E4B] text-sm font-semibold hover:text-[#E86C31] transition-colors"
+                className="flex items-center gap-2 text-[#1A2E4B] text-sm font-semibold hover:text-[#E86C31] transition-colors mt-auto group"
               >
                 Get started 
-                <span className="bg-[#2B4469] text-white rounded-full p-1 w-5 h-5 flex items-center justify-center text-[10px]">
+                <span className="bg-[#2B4469] group-hover:bg-[#E86C31] text-white rounded-full p-1 w-5 h-5 flex items-center justify-center text-[10px] transition-colors">
                   ➔
                 </span>
               </Link>
