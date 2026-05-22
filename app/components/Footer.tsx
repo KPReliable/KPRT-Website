@@ -2,17 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-
 import { Facebook, Youtube, Instagram, Linkedin, Twitter } from "lucide-react";
-
-const Footer = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Subscribing:", email);
-  };
-
 
 const SOCIAL_LINKS = [
   {
@@ -32,15 +22,24 @@ const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/company/kprt-official/", // 👉 replace with your actual page
+    href: "https://www.linkedin.com/company/kprt-official/",
     icon: Linkedin,
   },
   {
     name: "Twitter",
-    href: "https://x.com/kprt_official", // 👉 or https://x.com/your-handle
+    href: "https://x.com/kprt_official",
     icon: Twitter,
   },
 ];
+
+const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Subscribing:", email);
+  };
+
   return (
     <footer className="w-full bg-white font-sans text-[#0f1f3d]">
       {/* --- Top Section: Subscription & Insights --- */}
@@ -118,11 +117,11 @@ const SOCIAL_LINKS = [
           <div className="flex items-center gap-4">
              <div className="flex items-center gap-2 group cursor-default">
                 <div className="w-7 h-7 rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
-                       <img
-                src="https://res.cloudinary.com/dinnmia6e/image/upload/v1775933355/logo-minimal_2_t2zb9g.png"
-                alt="KP Reliable Logo"
-                className="w-6 h-6"
-              />
+                  <img
+                    src="https://res.cloudinary.com/dinnmia6e/image/upload/v1775933355/logo-minimal_2_t2zb9g.png"
+                    alt="KP Reliable Logo"
+                    className="w-6 h-6"
+                  />
                 </div>
                 <span className="font-bold text-xl tracking-tighter text-[#1a3460]">
                   kp reliable</span>
