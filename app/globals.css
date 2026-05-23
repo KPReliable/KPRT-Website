@@ -18,7 +18,7 @@
   /* --font-display:         "Barlow Condensed", sans-serif;
   --font-body:            "Barlow", sans-serif; */
   --font-display: "Roboto", sans-serif;
---font-body: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
 }
 
 body { padding-top: 0; }
@@ -662,7 +662,7 @@ header.scrolled-glass {
 }
 
 .btn-outline:hover {
-  border-color: var(--color-white);
+  border-color: var(--white);
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -724,7 +724,7 @@ header.scrolled-glass {
   font-family: var(--font-body);
   font-size: 15px;
   color: var(--color-white);
-    margin: 0 auto;
+  margin: 0 auto;
   /* text-align: center; */
   max-width: 580px;
   line-height: 1.75;
@@ -908,10 +908,11 @@ header.scrolled-glass {
 .hero-trust-chip svg { color: var(--color-secondary); }
 
 /* Hero card */
-.hero-visual { position: relative;
-  transform: translateY(120px);
-  transform: translateX(120px);
- }
+.hero-visual { 
+  position: relative;
+  /* Preserved base layouts, reset within responsive queries safely */
+  transform: translateY(120px) translateX(120px);
+}
 
 .hero-card {
 position: relative;
@@ -1059,10 +1060,10 @@ position: relative;
 .highlights {
   position: relative;
   /* This matches your .hero-bg-grid logic exactly:
-     1. A subtle color overlay (using your primary blue)
-     2. The horizontal grid lines
-     3. The vertical grid lines
-     4. The base background color
+      1. A subtle color overlay (using your primary blue)
+      2. The horizontal grid lines
+      3. The vertical grid lines
+      4. The base background color
   */
   background-color: transparent; /* Base color */
   background-image: 
@@ -1566,9 +1567,10 @@ position: relative;
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { display: none; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { display: flex; justify-content: center; transform: none; max-width: 100%; margin: 0 auto; }
+  .hero-card { width: 100%; max-width: 420px; }
   .expert-cta-inner { grid-template-columns: 1fr; }
   .expert-cta-cards { flex-direction: row; flex-wrap: wrap; }
   .expert-cta-card { flex: 1; min-width: 200px; }
@@ -1588,8 +1590,11 @@ position: relative;
 @media (max-width: 480px) {
   .highlights-inner { grid-template-columns: 1fr; }
   .stat-card { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .stat-card:last-child { border-bottom: none; }
   .hero-actions { flex-direction: column; }
   .expert-cta-actions { flex-direction: column; }
+  .hero-badge--tl { left: -10px; top: -10px; }
+  .hero-badge--br { right: -10px; bottom: -10px; }
 }
 
 
@@ -1674,7 +1679,7 @@ position: relative;
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to    { opacity: 1; transform: translateY(0); }
 }
 
 .ind-card:hover {
@@ -1870,7 +1875,7 @@ position: relative;
 
 @keyframes slideIn {
   from { opacity: 0; transform: scale(0.97); }
-  to   { opacity: 1; transform: scale(1); }
+  to    { opacity: 1; transform: scale(1); }
 }
 
 .ind-case-close {
@@ -2480,7 +2485,7 @@ position: relative;
 
 @media (max-width: 700px) {
   .footer-body-inner { grid-template-columns: 1fr 1fr; }
-  .footer-brand { grid-column: 1 / -1; grid-template-columns: 1fr; }
+  .footer-brand { grid-column: 1 / -1; grid-template-columns: 1fr; gap: 16px; }
   .footer-newsletter { grid-column: 1 / -1; max-width: 100%; }
   .footer-cta-inner { flex-direction: column; align-items: flex-start; }
 }
@@ -2509,7 +2514,7 @@ position: relative;
 
 @keyframes dropdown-hide {
   from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(-6px); }
+  to    { opacity: 0; transform: translateY(-6px); }
 }
 
 .animate-dropdown-out {
